@@ -1,0 +1,169 @@
+# Builds a signed Android APK in release mode and distributes it to
+# Firebase App Distribution on every merge to main.
+name: Distribute Android
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  distribute-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ---------------------------------------------------------------
+      # 1. Checkout the repository so the runner has access to all source files.
+      # ---------------------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ---------------------------------------------------------------
+      # 2. Install the exact Flutter version pinned across all workflows.
+      #    Keep this in sync with flutter_ci.yml — see README_CI.md
+      #    "Maintaining the Flutter Version Pin".
+      # ---------------------------------------------------------------
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.2'
+          channel: 'stable'
+          cache: true
+
+      # ---------------------------------------------------------------
+      # 3. Cache the Dart pub package cache to speed up repeated builds.
+      #    Keeps build times under 10 minutes for typical runs.
+      # ---------------------------------------------------------------
+      - name: Cache pub dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      # ---------------------------------------------------------------
+      # 4. Create a CI-only .env file so dotenv loading does not fail.
+      # ---------------------------------------------------------------
+      - name: Create CI environment file
+        run: echo "BASE_URL=https://ci.example.com" > .env.development
+
+      # ---------------------------------------------------------------
+      # 5. Decode Firebase config files from GitHub Secrets so the
+      #    build produces a working APK that connects to Firebase at
+      #    runtime. These files are gitignored and never committed.
+      #    Depends on: secrets.GOOGLE_SERVICES_JSON,
+      #                secrets.FIREBASE_OPTIONS_DART
+      # ---------------------------------------------------------------
+      - name: Decode Firebase config
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > android/app/google-services.json
+          echo "${{ secrets.FIREBASE_OPTIONS_DART }}" | base64 -d > lib/firebase_options.dart
+
+      # ---------------------------------------------------------------
+      # 6. Fetch all Dart/Flutter package dependencies.
+      # ---------------------------------------------------------------
+      - name: Get dependencies
+        run: flutter pub get
+
+      # ---------------------------------------------------------------
+      # 7. Run code generation (riverpod_generator produces .g.dart files
+      #    that must exist before tests and the build can succeed).
+      # ---------------------------------------------------------------
+      - name: Run code generation
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      # ---------------------------------------------------------------
+      # 8. Generate l10n files — the app imports AppLocalizations which
+      #    only exists after running gen-l10n.
+      # ---------------------------------------------------------------
+      - name: Generate l10n
+        run: flutter gen-l10n
+
+      # ---------------------------------------------------------------
+      # 9. Run the full test suite. If any test fails the job stops here
+      #    and the APK build step will NOT execute.
+      # ---------------------------------------------------------------
+      - name: Run tests
+        run: flutter test
+
+      # ---------------------------------------------------------------
+      # 10. Decode the base64-encoded release keystore from the
+      #     ANDROID_KEYSTORE secret and write it to a temporary path.
+      #     This file is cleaned up in a later step.
+      #     Depends on: secrets.ANDROID_KEYSTORE
+      # ---------------------------------------------------------------
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > ${{ runner.temp }}/release.jks
+
+      # ---------------------------------------------------------------
+      # 11. Build a signed release APK with Dart symbol obfuscation.
+      #     Signing credentials are injected via environment variables
+      #     that the Gradle signingConfigs.release block reads with
+      #     System.getenv().
+      #     Depends on: secrets.ANDROID_KEY_ALIAS,
+      #                 secrets.ANDROID_KEY_PASSWORD,
+      #                 secrets.ANDROID_STORE_PASSWORD
+      # ---------------------------------------------------------------
+      - name: Build signed APK
+        env:
+          ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/release.jks
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_STORE_PASSWORD: ${{ secrets.ANDROID_STORE_PASSWORD }}
+        run: flutter build apk --release --obfuscate --split-debug-info=build/debug-info
+
+      # ---------------------------------------------------------------
+      # 12. Generate release notes from Git metadata. The notes follow
+      #     the format: Build {short-SHA} · {branch} · {commit message}
+      #     Truncated to 500 characters maximum (plain text only).
+      #     continue-on-error ensures a failure here never blocks the
+      #     build from reaching testers.
+      # ---------------------------------------------------------------
+      - name: Generate release notes
+        id: release_notes
+        continue-on-error: true
+        run: |
+          # Extract the short commit SHA
+          SHORT_SHA=$(git rev-parse --short HEAD)
+
+          # Extract the commit message; fall back to "initial build" if git log fails
+          COMMIT_MSG=$(git log -1 --pretty=%s 2>/dev/null) || COMMIT_MSG=""
+          if [ -z "$COMMIT_MSG" ]; then
+            NOTES="Build ${SHORT_SHA} · initial build"
+          else
+            NOTES="Build ${SHORT_SHA} · ${{ github.ref_name }} · ${COMMIT_MSG}"
+          fi
+
+          # Truncate to 500 characters, appending ... only when exceeded
+          if [ ${#NOTES} -gt 500 ]; then
+            NOTES="${NOTES:0:497}..."
+          fi
+
+          # Write the result to step output for use by subsequent steps
+          echo "notes=${NOTES}" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # 13. Upload the signed APK to Firebase App Distribution.
+      #     Targets the "internal-qa" tester group.
+      #     Release notes come from the previous step; if that step
+      #     failed, a fallback string is used instead.
+      #     Depends on: secrets.FIREBASE_ANDROID_APP_ID,
+      #                 secrets.FIREBASE_SERVICE_ACCOUNT
+      # ---------------------------------------------------------------
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          groups: internal-qa
+          releaseNotes: ${{ steps.release_notes.outputs.notes || format('Build {0} — release notes unavailable', github.sha) }}
+          file: build/app/outputs/flutter-apk/app-release.apk
+
+      # ---------------------------------------------------------------
+      # 14. Clean up the temporary keystore file. Runs on both success
+      #     and failure so the signing material is never left on the
+      #     runner's filesystem.
+      # ---------------------------------------------------------------
+      - name: Clean up keystore
+        if: always()
+        run: rm -f ${{ runner.temp }}/release.jks

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Replace YOUR_TEAM_ID with your Apple Developer Team ID -->
+    <!-- Found in: Apple Developer Portal → Membership → Team ID -->
+    <key>teamID</key>
+    <string>YOUR_TEAM_ID</string>
+
+    <!-- Distribution method: ad-hoc for Firebase App Distribution -->
+    <!-- Change to 'development' if using a development provisioning profile -->
+    <key>method</key>
+    <string>ad-hoc</string>
+
+    <!-- Replace YOUR_BUNDLE_ID and YOUR_PROVISIONING_PROFILE_NAME -->
+    <!-- Profile name found in: Apple Developer Portal → Profiles -->
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>YOUR_BUNDLE_ID</key>
+        <string>YOUR_PROVISIONING_PROFILE_NAME</string>
+    </dict>
+
+    <!-- Signing style: manual required for CI environments -->
+    <key>signingStyle</key>
+    <string>manual</string>
+
+    <!-- Strip Swift symbols to reduce IPA size -->
+    <key>stripSwiftSymbols</key>
+    <true/>
+</dict>
+</plist>

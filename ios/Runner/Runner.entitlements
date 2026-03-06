@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  TODO(US-25): Push Notifications entitlement.
+	  This entitlement is required for FCM to work on iOS. To activate it:
+	    1. Open ios/Runner.xcworkspace in Xcode
+	    2. Select the Runner target → Signing & Capabilities
+	    3. Click "+ Capability" → add "Push Notifications"
+	    4. Xcode will register the capability with your Apple Developer account
+	  This requires an active Apple Developer account with Push Notifications
+	  enabled for the app's Bundle ID.
+	-->
+	<key>aps-environment</key>
+	<string>development</string>
+</dict>
+</plist>

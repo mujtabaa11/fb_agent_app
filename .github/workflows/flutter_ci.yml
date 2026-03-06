@@ -1,0 +1,52 @@
+name: Flutter CI
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+jobs:
+  analyze_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.2'
+          channel: 'stable'
+          cache: true
+
+      - name: Create CI environment file
+        run: echo "BASE_URL=https://ci.example.com" > .env.development
+
+      - name: Create placeholder Firebase config
+        run: |
+          echo '{"project_info":{"project_id":"ci-placeholder"}}' > android/app/google-services.json
+          # GoogleService-Info.plist and firebase_options.dart are not needed for analyze/test
+          # For full build jobs, supply real Firebase config via GitHub Secrets
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      # Code generation is required because the project uses riverpod_generator.
+      # Providers annotated with @riverpod produce .g.dart files that must exist
+      # before analysis and tests can run.
+      - name: Run code generation
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      # l10n generation is required before analyze and test because the app
+      # imports generated localisation classes (AppLocalizations) that only
+      # exist after running gen-l10n.
+      - name: Generate l10n
+        run: flutter gen-l10n
+
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+
+      - name: Test
+        run: flutter test

@@ -1,0 +1,234 @@
+# Builds a signed iOS IPA in release mode and distributes it to
+# Firebase App Distribution on every merge to main.
+name: Distribute iOS
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  distribute-ios:
+    runs-on: macos-latest
+
+    steps:
+      # ---------------------------------------------------------------
+      # 1. Checkout the repository so the runner has access to all source files.
+      # ---------------------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ---------------------------------------------------------------
+      # 2. Install the exact Flutter version pinned across all workflows.
+      #    Keep this in sync with flutter_ci.yml and distribute_android.yml
+      #    — see README_CI.md "Maintaining the Flutter Version Pin".
+      # ---------------------------------------------------------------
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.2'
+          channel: 'stable'
+          cache: true
+
+      # ---------------------------------------------------------------
+      # 3. Cache the Dart pub package cache to speed up repeated builds.
+      # ---------------------------------------------------------------
+      - name: Cache pub dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      # ---------------------------------------------------------------
+      # 4. Create a CI-only .env file so dotenv loading does not fail.
+      # ---------------------------------------------------------------
+      - name: Create CI environment file
+        run: echo "BASE_URL=https://ci.example.com" > .env.development
+
+      # ---------------------------------------------------------------
+      # 5. Fetch all Dart/Flutter package dependencies.
+      # ---------------------------------------------------------------
+      - name: Get dependencies
+        run: flutter pub get
+
+      # ---------------------------------------------------------------
+      # 6. Run code generation (riverpod_generator produces .g.dart files
+      #    that must exist before tests and the build can succeed).
+      # ---------------------------------------------------------------
+      - name: Run code generation
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      # ---------------------------------------------------------------
+      # 7. Generate l10n files — the app imports AppLocalizations which
+      #    only exists after running gen-l10n.
+      # ---------------------------------------------------------------
+      - name: Generate l10n
+        run: flutter gen-l10n
+
+      # ---------------------------------------------------------------
+      # 8. Run the full test suite. If any test fails the job stops here
+      #    and the IPA build step will NOT execute.
+      # ---------------------------------------------------------------
+      - name: Run tests
+        run: flutter test
+
+      # ---------------------------------------------------------------
+      # 9. Decode Firebase config files from GitHub Secrets so the
+      #    build produces a working IPA that connects to Firebase at
+      #    runtime. These files are gitignored and never committed.
+      #    google-services.json is included defensively — the Flutter
+      #    build may resolve Android config during an iOS build.
+      #    Depends on: secrets.GOOGLE_SERVICE_INFO_PLIST,
+      #                secrets.FIREBASE_OPTIONS_DART,
+      #                secrets.GOOGLE_SERVICES_JSON
+      # ---------------------------------------------------------------
+      - name: Decode Firebase config
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}" | base64 -d > ios/Runner/GoogleService-Info.plist
+          echo "${{ secrets.FIREBASE_OPTIONS_DART }}" | base64 -d > lib/firebase_options.dart
+          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > android/app/google-services.json
+
+      # ---------------------------------------------------------------
+      # 10. Install the Apple distribution certificate into a temporary
+      #     macOS keychain so codesign can use it during the build.
+      #     Depends on: secrets.IOS_CERTIFICATE,
+      #                 secrets.IOS_CERTIFICATE_PASSWORD
+      # ---------------------------------------------------------------
+      - name: Install certificate
+        env:
+          IOS_CERTIFICATE: ${{ secrets.IOS_CERTIFICATE }}
+          IOS_CERTIFICATE_PASSWORD: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+        run: |
+          # Create variables for file paths
+          CERTIFICATE_PATH=${{ runner.temp }}/certificate.p12
+          KEYCHAIN_PATH=${{ runner.temp }}/app-signing.keychain-db
+          KEYCHAIN_PASSWORD=$(openssl rand -base64 32)
+
+          # Decode the base64-encoded .p12 certificate to a temp file
+          echo "$IOS_CERTIFICATE" | base64 --decode > "$CERTIFICATE_PATH"
+
+          # Create a new temporary keychain with a random password
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Set the temporary keychain as the default so codesign finds it
+          security default-keychain -s "$KEYCHAIN_PATH"
+
+          # Unlock the keychain so the build process can access it
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Import the .p12 certificate into the temporary keychain
+          security import "$CERTIFICATE_PATH" \
+            -k "$KEYCHAIN_PATH" \
+            -P "$IOS_CERTIFICATE_PASSWORD" \
+            -T /usr/bin/codesign \
+            -T /usr/bin/security
+
+          # Allow codesign to access the keychain without prompting
+          security set-key-partition-list -S apple-tool:,apple: \
+            -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Add the temporary keychain to the search list
+          security list-keychains -d user -s "$KEYCHAIN_PATH" $(security list-keychains -d user | tr -d '"')
+
+      # ---------------------------------------------------------------
+      # 11. Install the provisioning profile so Xcode can use it for
+      #     ad-hoc distribution signing.
+      #     Depends on: secrets.IOS_PROVISIONING_PROFILE
+      # ---------------------------------------------------------------
+      - name: Install provisioning profile
+        env:
+          IOS_PROVISIONING_PROFILE: ${{ secrets.IOS_PROVISIONING_PROFILE }}
+        run: |
+          # Decode the base64-encoded provisioning profile to a temp file
+          PROFILE_PATH=${{ runner.temp }}/profile.mobileprovision
+          echo "$IOS_PROVISIONING_PROFILE" | base64 --decode > "$PROFILE_PATH"
+
+          # Extract the UUID from the provisioning profile — Xcode expects
+          # the profile to be named by its UUID in the Provisioning Profiles
+          # directory.
+          PROFILE_UUID=$(/usr/libexec/PlistBuddy -c "Print UUID" /dev/stdin <<< \
+            $(security cms -D -i "$PROFILE_PATH"))
+
+          # Create the Provisioning Profiles directory if it does not exist
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+
+          # Copy the profile using its UUID as the filename
+          cp "$PROFILE_PATH" ~/Library/MobileDevice/Provisioning\ Profiles/"${PROFILE_UUID}.mobileprovision"
+
+          # Save the UUID for cleanup
+          echo "PROFILE_UUID=${PROFILE_UUID}" >> "$GITHUB_ENV"
+
+      # ---------------------------------------------------------------
+      # 12. Build a signed release IPA using the export options plist
+      #     that specifies manual signing, ad-hoc distribution method,
+      #     and the provisioning profile mapping.
+      # ---------------------------------------------------------------
+      - name: Build IPA
+        run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist
+
+      # ---------------------------------------------------------------
+      # 13. Generate release notes from Git metadata. The notes follow
+      #     the format: Build {short-SHA} · {branch} · {commit message}
+      #     Truncated to 500 characters maximum (plain text only).
+      #     continue-on-error ensures a failure here never blocks the
+      #     build from reaching testers.
+      # ---------------------------------------------------------------
+      - name: Generate release notes
+        id: release_notes
+        continue-on-error: true
+        run: |
+          # Extract the short commit SHA
+          SHORT_SHA=$(git rev-parse --short HEAD)
+
+          # Extract the commit message; fall back to "initial build" if git log fails
+          COMMIT_MSG=$(git log -1 --pretty=%s 2>/dev/null) || COMMIT_MSG=""
+          if [ -z "$COMMIT_MSG" ]; then
+            NOTES="Build ${SHORT_SHA} · initial build"
+          else
+            NOTES="Build ${SHORT_SHA} · ${{ github.ref_name }} · ${COMMIT_MSG}"
+          fi
+
+          # Truncate to 500 characters, appending ... only when exceeded
+          if [ ${#NOTES} -gt 500 ]; then
+            NOTES="${NOTES:0:497}..."
+          fi
+
+          # Write the result to step output for use by subsequent steps
+          echo "notes=${NOTES}" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # 14. Upload the signed IPA to Firebase App Distribution.
+      #     Targets the "internal-qa" tester group.
+      #     Release notes come from the previous step; if that step
+      #     failed, a fallback string is used instead.
+      #     Depends on: secrets.FIREBASE_IOS_APP_ID,
+      #                 secrets.FIREBASE_SERVICE_ACCOUNT
+      # ---------------------------------------------------------------
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_IOS_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          groups: internal-qa
+          releaseNotes: ${{ steps.release_notes.outputs.notes || format('Build {0} — release notes unavailable', github.sha) }}
+          file: build/ios/ipa/*.ipa
+
+      # ---------------------------------------------------------------
+      # 15. Clean up signing materials. Runs on both success and failure
+      #     so certificates and profiles are never left on the runner.
+      # ---------------------------------------------------------------
+      - name: Clean up signing materials
+        if: always()
+        run: |
+          # Delete the temporary keychain and all certificates it contains
+          security delete-keychain ${{ runner.temp }}/app-signing.keychain-db || true
+
+          # Remove the decoded .p12 certificate file
+          rm -f ${{ runner.temp }}/certificate.p12
+
+          # Remove the decoded provisioning profile temp file
+          rm -f ${{ runner.temp }}/profile.mobileprovision
+
+          # Remove the installed provisioning profile from the system directory
+          rm -f ~/Library/MobileDevice/Provisioning\ Profiles/"${PROFILE_UUID}.mobileprovision"

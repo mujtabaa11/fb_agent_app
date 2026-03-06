@@ -1,0 +1,453 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Launchpad",
+  "@appTitle": { "description": "The application name displayed in the app bar, task switcher, and browser tab title." },
+
+  "loading": "Loading...",
+  "@loading": { "description": "Generic loading indicator text shown alongside a spinner while data is being fetched or an action is in progress." },
+
+  "errorGeneric": "Something went wrong. Please try again.",
+  "@errorGeneric": { "description": "Fallback error message displayed in a snackbar or inline alert when an unexpected error occurs and no specific error message is available." },
+
+  "retryButton": "Try Again",
+  "@retryButton": { "description": "Button label on error state screens and dialogs. Tapping it retries the failed operation." },
+
+  "noInternetError": "No internet connection. Please try again.",
+  "@noInternetError": { "description": "Error message displayed in a snackbar or inline alert when a network request fails due to no internet connectivity." },
+
+  "signUpTitle": "Create Account",
+  "@signUpTitle": { "description": "Heading displayed at the top of the sign-up screen where new users register with email and password." },
+
+  "loginTitle": "Welcome Back",
+  "@loginTitle": { "description": "Greeting heading displayed at the top of the login screen where returning users sign in." },
+
+  "emailLabel": "Email",
+  "@emailLabel": { "description": "Form field label for the email text input on the login and sign-up screens." },
+
+  "passwordLabel": "Password",
+  "@passwordLabel": { "description": "Form field label for the password text input on the login and sign-up screens." },
+
+  "signUpButton": "Sign Up",
+  "@signUpButton": { "description": "Primary submit button on the sign-up screen. Tapping it creates a new account with the entered email and password." },
+
+  "loginButton": "Log In",
+  "@loginButton": { "description": "Primary submit button on the login screen. Tapping it authenticates the user with the entered email and password." },
+
+  "forgotPasswordButton": "Forgot Password?",
+  "@forgotPasswordButton": { "description": "Text button on the login screen below the password field. Tapping it navigates to the password reset screen." },
+
+  "googleSignInButton": "Continue with Google",
+  "@googleSignInButton": { "description": "Social sign-in button on the login and sign-up screens. Tapping it initiates the Google OAuth sign-in flow." },
+
+  "appleSignInButton": "Continue with Apple",
+  "@appleSignInButton": { "description": "Social sign-in button on the login and sign-up screens (iOS only). Tapping it initiates the Sign in with Apple flow." },
+
+  "passwordResetTitle": "Reset Password",
+  "@passwordResetTitle": { "description": "Heading displayed at the top of the password reset screen where users request a password reset email." },
+
+  "passwordResetButton": "Send Reset Email",
+  "@passwordResetButton": { "description": "Primary submit button on the password reset screen. Tapping it sends a password reset link to the entered email address." },
+
+  "passwordResetConfirmation": "Check your email for a reset link.",
+  "@passwordResetConfirmation": { "description": "Confirmation message shown on the password reset screen after a reset email has been successfully sent." },
+
+  "navHome": "Home",
+  "@navHome": { "description": "Label for the Home tab in the bottom navigation bar. Navigates to the main home feed screen." },
+
+  "navExplore": "Explore",
+  "@navExplore": { "description": "Label for the Explore tab in the bottom navigation bar. Navigates to the content discovery screen." },
+
+  "navProfile": "Profile",
+  "@navProfile": { "description": "Label for the Profile tab in the bottom navigation bar. Navigates to the user's profile screen." },
+
+  "logoutButton": "Log Out",
+  "@logoutButton": { "description": "Button in the side navigation drawer. Tapping it signs the user out and returns to the login screen." },
+
+  "emailAlreadyInUseError": "An account with this email already exists.",
+  "@emailAlreadyInUseError": { "description": "Error message shown on the sign-up screen when the user tries to register with an email address that is already associated with an existing account." },
+
+  "wrongPasswordError": "Incorrect email or password.",
+  "@wrongPasswordError": { "description": "Error message shown on the login screen when authentication fails due to an incorrect email or password combination." },
+
+  "weakPasswordError": "Password must be at least 8 characters, include 1 uppercase letter and 1 number.",
+  "@weakPasswordError": { "description": "Validation error shown on the sign-up screen when the entered password does not meet the minimum strength requirements." },
+
+  "tooManyRequestsError": "Too many requests. Please wait before trying again.",
+  "@tooManyRequestsError": { "description": "Error message shown when Firebase rate-limits the user after too many consecutive authentication attempts (login, sign-up, or password reset)." },
+
+  "emptyStateTitle": "Nothing here yet",
+  "@emptyStateTitle": { "description": "Title text displayed in empty state placeholders when a list or feed has no content to show." },
+
+  "emptyStateBody": "Check back later.",
+  "@emptyStateBody": { "description": "Supportive body text displayed below the empty state title, encouraging the user to return later when content is available." },
+
+  "showPassword": "Show password",
+  "@showPassword": { "description": "Screen-reader-only accessibility label for the password visibility toggle button when the password is currently hidden. Not displayed as visible text." },
+
+  "hidePassword": "Hide password",
+  "@hidePassword": { "description": "Screen-reader-only accessibility label for the password visibility toggle button when the password is currently visible. Not displayed as visible text." },
+
+  "comingSoon": "Coming soon",
+  "@comingSoon": { "description": "Placeholder message shown on screens or features that are not yet implemented, indicating future availability." },
+
+  "googleAccountLinkError": "An account with this email already exists. Please log in with your email and password.",
+  "@googleAccountLinkError": { "description": "Error message shown when a user attempts Google sign-in but the email is already registered with an email/password account and cannot be automatically linked." },
+
+  "appleAccountLinkError": "An account with this email already exists. Please log in with your email and password.",
+  "@appleAccountLinkError": { "description": "Error message shown when a user attempts Apple sign-in but the email is already registered with an email/password account and cannot be automatically linked." },
+
+  "loadingAppLabel": "Loading app, please wait.",
+  "@loadingAppLabel": { "description": "Screen-reader-only accessibility label for the splash screen's loading spinner. Not displayed as visible text." },
+
+  "themeModeSystem": "Auto",
+  "@themeModeSystem": { "description": "Label for the system/automatic theme option in the theme switcher in the side drawer. Selecting it follows the device's light/dark mode setting." },
+
+  "themeModeDark": "Dark",
+  "@themeModeDark": { "description": "Label for the dark theme option in the theme switcher in the side drawer. Selecting it forces dark mode." },
+
+  "themeModeLight": "Light",
+  "@themeModeLight": { "description": "Label for the light theme option in the theme switcher in the side drawer. Selecting it forces light mode." },
+
+  "themeSwitcherLabel": "Theme switcher",
+  "@themeSwitcherLabel": { "description": "Screen-reader-only accessibility label for the segmented theme mode control in the side drawer. Not displayed as visible text." },
+
+  "drawerTitle": "Menu",
+  "@drawerTitle": { "description": "Header title displayed at the top of the side navigation drawer." },
+
+  "settingsSection": "Settings",
+  "@settingsSection": { "description": "Section heading in the side navigation drawer that groups settings controls such as theme and language." },
+
+  "themeLabel": "Theme",
+  "@themeLabel": { "description": "Row label in the Settings section of the side drawer, identifying the theme mode control." },
+
+  "userAvatarLabel": "User avatar",
+  "@userAvatarLabel": { "description": "Screen-reader-only accessibility label for the circular user profile image displayed in the side drawer header. Not displayed as visible text." },
+
+  "openDrawerLabel": "Open navigation drawer",
+  "@openDrawerLabel": { "description": "Screen-reader-only accessibility label for the hamburger menu icon button in the app bar that opens the side navigation drawer. Not displayed as visible text." },
+
+  "backToLogin": "Back to Login",
+  "@backToLogin": { "description": "Button on the password reset confirmation screen. Tapping it navigates the user back to the login screen." },
+
+  "invalidEmailError": "Please enter a valid email address.",
+  "@invalidEmailError": { "description": "Inline validation error shown below the email text field on the login or sign-up screen when the entered email format is invalid." },
+
+  "errorBoundaryFallback": "Something went wrong.",
+  "@errorBoundaryFallback": { "description": "Hardcoded fallback error message displayed by the global error boundary widget when the app crashes and localized strings are unavailable." },
+
+  "languageLabel": "Language",
+  "@languageLabel": { "description": "Row label in the Settings section of the side drawer, identifying the language selection control." },
+
+  "selectLanguageTitle": "Select Language",
+  "@selectLanguageTitle": { "description": "Title displayed at the top of the language picker bottom sheet that appears when the user taps the language setting in the drawer." },
+
+  "deviceDefaultLanguage": "Device Default",
+  "@deviceDefaultLanguage": { "description": "Option in the language picker bottom sheet that resets the app locale to follow the device's system language setting." },
+
+  "profileTitle": "Profile",
+  "@profileTitle": { "description": "Heading displayed at the top of the profile screen." },
+
+  "profileLoadErrorTitle": "Could not load profile",
+  "@profileLoadErrorTitle": { "description": "Title shown in the empty state widget on the profile screen when the user's profile data fails to load." },
+
+  "profileLoadErrorBody": "Your profile could not be loaded. Please try again later.",
+  "@profileLoadErrorBody": { "description": "Body text shown in the empty state widget on the profile screen when the user's profile data fails to load." },
+
+  "profileDisplayNameLabel": "Display Name",
+  "@profileDisplayNameLabel": { "description": "Label for the display name field on the profile screen." },
+
+  "profileEmailLabel": "Email",
+  "@profileEmailLabel": { "description": "Label for the email field on the profile screen." },
+
+  "profileAvatarLabel": "Profile picture",
+  "@profileAvatarLabel": { "description": "Screen-reader-only accessibility label for the user's profile avatar image." },
+
+  "uploadPhotoButton": "Upload Photo",
+  "@uploadPhotoButton": { "description": "Button label on the profile screen that opens the device photo library to select a new avatar image." },
+
+  "avatarUploadProgress": "Uploading photo…",
+  "@avatarUploadProgress": { "description": "Screen-reader-only accessibility label for the progress indicator shown while the avatar image is being uploaded." },
+
+  "avatarImageTooLargeError": "The selected image is too large. Please choose a smaller photo.",
+  "@avatarImageTooLargeError": { "description": "Error message shown when the selected avatar image exceeds the 500 KB size limit even after compression." },
+
+  "photoLibraryPermissionDenied": "Photo library access was denied. Please grant permission in Settings.",
+  "@photoLibraryPermissionDenied": { "description": "Error message shown when the user denies photo library access permission when trying to select an avatar image." },
+
+  "avatarUploadErrorTitle": "Upload failed",
+  "@avatarUploadErrorTitle": { "description": "Title shown in a snackbar or inline alert when the avatar upload or profile update fails." },
+
+  "avatarUploadErrorBody": "Your photo could not be uploaded. Please try again.",
+  "@avatarUploadErrorBody": { "description": "Body text shown alongside the upload error title when the avatar upload or profile update fails." },
+
+  "accountLinkTitle": "Link Your Account",
+  "@accountLinkTitle": { "description": "Title displayed at the top of the account linking bottom sheet that appears when SSO sign-in detects a conflicting email." },
+
+  "accountLinkBody": "An account already exists with {email}. Please sign in with your original method to link your accounts.",
+  "@accountLinkBody": { "description": "Explanation text in the account linking bottom sheet. Contains the conflicting email address.", "placeholders": { "email": { "type": "String" } } },
+
+  "accountLinkPasswordLabel": "Password",
+  "@accountLinkPasswordLabel": { "description": "Label for the password field in the account linking bottom sheet." },
+
+  "accountLinkSignInButton": "Sign In & Link",
+  "@accountLinkSignInButton": { "description": "Primary action button in the account linking bottom sheet that re-authenticates and links accounts." },
+
+  "accountLinkOrDivider": "or sign in with",
+  "@accountLinkOrDivider": { "description": "Divider text between the password form and SSO buttons in the account linking bottom sheet." },
+
+  "accountLinkSuccessMessage": "Accounts linked successfully.",
+  "@accountLinkSuccessMessage": { "description": "Success snackbar message shown after accounts are linked." },
+
+  "accountLinkFailedMessage": "Unable to link accounts. Please try again.",
+  "@accountLinkFailedMessage": { "description": "Error snackbar message shown when account linking fails for an unexpected reason." },
+
+  "accountLinkWrongPassword": "Incorrect password. Please try again.",
+  "@accountLinkWrongPassword": { "description": "Inline error shown in the account linking bottom sheet when the password is incorrect." },
+
+  "deleteAccountButton": "Delete Account",
+  "@deleteAccountButton": { "description": "Destructive button on the profile screen that initiates the account deletion flow." },
+
+  "deleteAccountConfirmTitle": "Delete Your Account?",
+  "@deleteAccountConfirmTitle": { "description": "Title of the first confirmation dialog shown when the user taps the delete account button." },
+
+  "deleteAccountConfirmBody": "Are you sure you want to delete your account? This action is permanent and cannot be undone. All your data will be deleted.",
+  "@deleteAccountConfirmBody": { "description": "Body text of the first confirmation dialog explaining the irreversibility of account deletion." },
+
+  "deleteAccountConfirmCancel": "Cancel",
+  "@deleteAccountConfirmCancel": { "description": "Cancel button in the account deletion confirmation dialog." },
+
+  "deleteAccountConfirmDelete": "Delete Account",
+  "@deleteAccountConfirmDelete": { "description": "Destructive confirm button in the account deletion confirmation dialog." },
+
+  "deleteAccountReauthTitle": "Verify Your Identity",
+  "@deleteAccountReauthTitle": { "description": "Title of the re-authentication step shown before account deletion proceeds." },
+
+  "deleteAccountReauthBody": "For security, please verify your identity before deleting your account.",
+  "@deleteAccountReauthBody": { "description": "Explanation text in the re-authentication step of account deletion." },
+
+  "deleteAccountReauthPasswordButton": "Verify & Delete",
+  "@deleteAccountReauthPasswordButton": { "description": "Button label in the re-auth step that verifies the password and proceeds with deletion." },
+
+  "deleteAccountReauthGoogleButton": "Re-authenticate with Google",
+  "@deleteAccountReauthGoogleButton": { "description": "Button label for Google re-authentication before account deletion." },
+
+  "deleteAccountReauthAppleButton": "Re-authenticate with Apple",
+  "@deleteAccountReauthAppleButton": { "description": "Button label for Apple re-authentication before account deletion." },
+
+  "deleteAccountSuccessMessage": "Your account has been deleted.",
+  "@deleteAccountSuccessMessage": { "description": "Snackbar message shown after successful account deletion, before navigating to the login screen." },
+
+  "deleteAccountRequiresRecentLogin": "Please sign in again before deleting your account.",
+  "@deleteAccountRequiresRecentLogin": { "description": "Error message shown when account deletion fails because the user's login session is too old." },
+
+  "deleteAccountErrorGeneric": "Unable to delete your account. Please try again later.",
+  "@deleteAccountErrorGeneric": { "description": "Generic error message shown when account deletion fails for an unexpected reason." },
+
+  "deleteAccountWrongPassword": "Incorrect password. Please try again.",
+  "@deleteAccountWrongPassword": { "description": "Inline error shown in the re-auth step when the password is incorrect." },
+
+  "deleteAccountDeletingProgress": "Deleting your account…",
+  "@deleteAccountDeletingProgress": { "description": "Accessibility label for the progress indicator shown during the three-step account deletion process." },
+
+  "verifyEmailTitle": "Verify Your Email",
+  "@verifyEmailTitle": { "description": "Heading displayed at the top of the email verification screen after sign-up." },
+
+  "verifyEmailBody": "We sent a verification link to {email}. Please check your inbox and tap the link to continue.",
+  "@verifyEmailBody": { "description": "Body text on the email verification screen explaining what the user should do.", "placeholders": { "email": { "type": "String" } } },
+
+  "verifyEmailResendButton": "Resend Email",
+  "@verifyEmailResendButton": { "description": "Button that resends the verification email to the user's address." },
+
+  "verifyEmailResendCooldown": "Resend in {seconds}s",
+  "@verifyEmailResendCooldown": { "description": "Label shown on the resend button during cooldown, displaying the remaining seconds.", "placeholders": { "seconds": { "type": "int" } } },
+
+  "verifyEmailContinueButton": "I've Verified My Email",
+  "@verifyEmailContinueButton": { "description": "Button the user taps after verifying their email. Checks verification status and navigates to home if verified." },
+
+  "verifyEmailSignOutButton": "Sign Out",
+  "@verifyEmailSignOutButton": { "description": "Button on the email verification screen that signs the user out and returns to the login screen." },
+
+  "verifyEmailSentConfirmation": "Verification email sent.",
+  "@verifyEmailSentConfirmation": { "description": "Snackbar message shown after a verification email is successfully sent or resent." },
+
+  "verifyEmailNotYetVerified": "Email not yet verified. Please check your inbox.",
+  "@verifyEmailNotYetVerified": { "description": "Snackbar message shown when the user taps 'I've Verified' but their email is not yet confirmed." },
+
+  "verifyEmailSendFailed": "Could not send verification email. Please try again.",
+  "@verifyEmailSendFailed": { "description": "Snackbar error message when sending the verification email fails for a generic reason." },
+
+  "verifyEmailCheckLabel": "Checking verification status",
+  "@verifyEmailCheckLabel": { "description": "Screen-reader-only accessibility label for the progress indicator shown while checking email verification status." },
+
+  "onboardingWelcomeTitle": "Welcome to Launchpad",
+  "@onboardingWelcomeTitle": { "description": "Title for the first onboarding page. Placeholder — replace with project-specific copy." },
+
+  "onboardingWelcomeSubtitle": "Your production-ready Flutter boilerplate. Everything you need to build, ship, and scale — already set up.",
+  "@onboardingWelcomeSubtitle": { "description": "Subtitle for the first onboarding page. Placeholder — replace with project-specific copy." },
+
+  "onboardingBuildFasterTitle": "Build Faster",
+  "@onboardingBuildFasterTitle": { "description": "Title for the second onboarding page. Placeholder — replace with project-specific copy." },
+
+  "onboardingBuildFasterSubtitle": "Auth, routing, theming, localization, and more — pre-built so you can focus on what makes your app unique.",
+  "@onboardingBuildFasterSubtitle": { "description": "Subtitle for the second onboarding page. Placeholder — replace with project-specific copy." },
+
+  "onboardingShipTitle": "Ship with Confidence",
+  "@onboardingShipTitle": { "description": "Title for the third onboarding page. Placeholder — replace with project-specific copy." },
+
+  "onboardingShipSubtitle": "Production-quality architecture, tested and documented. Start building your next great app today.",
+  "@onboardingShipSubtitle": { "description": "Subtitle for the third onboarding page. Placeholder — replace with project-specific copy." },
+
+  "onboardingSkipButton": "Skip",
+  "@onboardingSkipButton": { "description": "Button label to skip the onboarding flow and proceed directly to the next screen." },
+
+  "onboardingNextButton": "Next",
+  "@onboardingNextButton": { "description": "Button label to advance to the next onboarding page." },
+
+  "onboardingGetStartedButton": "Get Started",
+  "@onboardingGetStartedButton": { "description": "Button label on the last onboarding page that completes the onboarding flow." },
+
+  "onboardingPageIndicator": "Page {current} of {total}",
+  "@onboardingPageIndicator": { "description": "Screen-reader-only accessibility label announcing the current page position in the onboarding carousel.", "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+
+  "offlineBannerMessage": "You are offline. Some features may be unavailable.",
+  "@offlineBannerMessage": { "description": "Warning text displayed in the offline banner below the app bar when the device has no network connectivity." },
+
+  "offlineBannerSemanticsLabel": "You are currently offline. Some features may be unavailable.",
+  "@offlineBannerSemanticsLabel": { "description": "Screen-reader-only accessibility label for the offline banner so assistive technologies announce the connectivity state." },
+
+  "offlineSaveMessage": "Changes saved offline — will sync when connected.",
+  "@offlineSaveMessage": { "description": "Snackbar message shown when a Firestore write succeeds while the device is offline, indicating the change will sync automatically." },
+
+  "exploreTitle": "Explore",
+  "@exploreTitle": { "description": "Heading displayed at the top of the Explore screen showing the paginated user list." },
+
+  "exploreLoadError": "Could not load users",
+  "@exploreLoadError": { "description": "Title shown in the full-screen error state when the first page of the explore list fails to load." },
+
+  "exploreLoadErrorBody": "Something went wrong while loading the list. Please try again.",
+  "@exploreLoadErrorBody": { "description": "Body text shown in the full-screen error state when the first page of the explore list fails to load." },
+
+  "exploreEmptyTitle": "No users yet",
+  "@exploreEmptyTitle": { "description": "Title shown in the empty state when the explore list has no items to display." },
+
+  "exploreEmptyBody": "There are no user profiles to show right now.",
+  "@exploreEmptyBody": { "description": "Body text shown in the empty state when the explore list has no items to display." },
+
+  "exploreNoMoreResults": "No more results",
+  "@exploreNoMoreResults": { "description": "Subtle text shown at the bottom of the explore list when all pages have been loaded and there are no more results." },
+
+  "explorePageError": "Failed to load more items.",
+  "@explorePageError": { "description": "Inline error text shown at the bottom of the explore list when a subsequent page fails to load." },
+
+  "exploreRefreshLabel": "Refresh user list",
+  "@exploreRefreshLabel": { "description": "Screen-reader-only accessibility label for the pull-to-refresh gesture on the explore list." },
+
+  "exploreUserItemLabel": "{name}, {email}",
+  "@exploreUserItemLabel": { "description": "Screen-reader-only accessibility label for a user list item in the explore list.", "placeholders": { "name": { "type": "String" }, "email": { "type": "String" } } },
+
+  "userDetailTitle": "User Details",
+  "@userDetailTitle": { "description": "Heading displayed at the top of the user detail screen." },
+
+  "userDetailDisplayName": "Display Name",
+  "@userDetailDisplayName": { "description": "Label for the display name field on the user detail screen." },
+
+  "userDetailEmail": "Email",
+  "@userDetailEmail": { "description": "Label for the email field on the user detail screen." },
+
+  "userDetailCreatedAt": "Joined",
+  "@userDetailCreatedAt": { "description": "Label for the account creation date on the user detail screen." },
+
+  "userDetailUpdatedAt": "Last Updated",
+  "@userDetailUpdatedAt": { "description": "Label for the last update timestamp on the user detail screen." },
+
+  "userDetailNoDate": "N/A",
+  "@userDetailNoDate": { "description": "Placeholder shown when a date field has no value on the user detail screen." },
+
+  "biometricLockTitle": "App Locked",
+  "@biometricLockTitle": { "description": "Heading displayed on the biometric lock screen when the app requires authentication to resume." },
+
+  "biometricLockSubtitle": "Authenticate to continue",
+  "@biometricLockSubtitle": { "description": "Subtitle text on the biometric lock screen prompting the user to authenticate." },
+
+  "biometricReason": "Please authenticate to unlock the app",
+  "@biometricReason": { "description": "Localized reason string passed to the platform biometric prompt explaining why authentication is needed." },
+
+  "biometricTryAgainButton": "Try Again",
+  "@biometricTryAgainButton": { "description": "Button on the biometric lock screen that re-triggers the biometric authentication prompt after a cancel or failure." },
+
+  "biometricUsePasscodeButton": "Use Passcode",
+  "@biometricUsePasscodeButton": { "description": "Button on the biometric lock screen that triggers device passcode entry as a fallback when biometric authentication fails or is cancelled." },
+
+  "biometricFailedTitle": "Authentication Failed",
+  "@biometricFailedTitle": { "description": "Heading displayed on the biometric lock screen fallback state when the user has exceeded the platform biometric retry limit." },
+
+  "biometricFailedSubtitle": "Biometric authentication failed. Please use your device passcode instead.",
+  "@biometricFailedSubtitle": { "description": "Subtitle on the biometric lock screen fallback state explaining that biometric retries are exhausted and passcode is required." },
+
+  "biometricSettingsTitle": "Biometric Authentication",
+  "@biometricSettingsTitle": { "description": "Title for the biometric authentication toggle in the settings section of the side drawer." },
+
+  "biometricSettingsSubtitle": "Require Face ID or fingerprint when opening the app",
+  "@biometricSettingsSubtitle": { "description": "Subtitle for the biometric authentication toggle explaining what the setting does." },
+
+  "biometricNotAvailable": "Biometric authentication is not available on this device.",
+  "@biometricNotAvailable": { "description": "Snackbar message shown when the user tries to enable biometric authentication but the device does not support it or has no enrolled biometrics." },
+
+  "biometricEnableReason": "Verify your identity to enable biometric authentication",
+  "@biometricEnableReason": { "description": "Localized reason string passed to the platform biometric prompt when the user is enabling the biometric lock setting." },
+
+  "biometricEnabledLabel": "Biometric authentication: enabled",
+  "@biometricEnabledLabel": { "description": "Screen-reader-only accessibility label for the biometric toggle when it is turned on." },
+
+  "biometricDisabledLabel": "Biometric authentication: disabled",
+  "@biometricDisabledLabel": { "description": "Screen-reader-only accessibility label for the biometric toggle when it is turned off." },
+
+  "phoneSignInButton": "Continue with Phone",
+  "@phoneSignInButton": { "description": "Social sign-in button on the login screen. Tapping it navigates to the phone number input screen for phone-based authentication." },
+
+  "phoneInputTitle": "Phone Sign-In",
+  "@phoneInputTitle": { "description": "Heading displayed at the top of the phone number input screen." },
+
+  "phoneCountrySearchHint": "Search country or dial code",
+  "@phoneCountrySearchHint": { "description": "Hint text and accessibility label for the search field in the country code picker bottom sheet." },
+
+  "phoneNumberHint": "Phone number",
+  "@phoneNumberHint": { "description": "Label for the phone number text input field on the phone input screen." },
+
+  "phoneSendCodeButton": "Send Verification Code",
+  "@phoneSendCodeButton": { "description": "Primary submit button on the phone input screen that sends an SMS verification code to the entered phone number." },
+
+  "phoneOtpTitle": "Verify Your Phone",
+  "@phoneOtpTitle": { "description": "Heading displayed at the top of the OTP verification screen." },
+
+  "phoneOtpDigitLabel": "Digit {position} of {total}",
+  "@phoneOtpDigitLabel": { "description": "Screen-reader-only accessibility label for each OTP digit input field, announcing its position.", "placeholders": { "position": { "type": "int" }, "total": { "type": "int" } } },
+
+  "phoneResendCountdown": "Resend code in {time}",
+  "@phoneResendCountdown": { "description": "Countdown text shown below the OTP input, indicating when the resend button will become available.", "placeholders": { "time": { "type": "String" } } },
+
+  "phoneResendButton": "Resend Code",
+  "@phoneResendButton": { "description": "Button that resends the SMS verification code. Disabled during the countdown period." },
+
+  "phoneCodeSentConfirmation": "Verification code sent.",
+  "@phoneCodeSentConfirmation": { "description": "Snackbar message shown after an SMS verification code has been successfully resent." },
+
+  "phoneVerifyButton": "Verify",
+  "@phoneVerifyButton": { "description": "Fallback verify button on the OTP screen for accessibility. Auto-submit on 6th digit is the primary trigger." },
+
+  "phoneInvalidNumberError": "Invalid phone number. Please check and try again.",
+  "@phoneInvalidNumberError": { "description": "Error message shown when the entered phone number fails format validation or Firebase rejects it as invalid." },
+
+  "phoneTooManyRequestsError": "Too many requests. Please wait before trying again.",
+  "@phoneTooManyRequestsError": { "description": "Error message shown when Firebase rate-limits SMS verification requests." },
+
+  "phoneNetworkError": "Unable to send verification code. Check your connection.",
+  "@phoneNetworkError": { "description": "Error message shown when SMS verification fails due to a network connectivity issue." },
+
+  "phoneInvalidCodeError": "Invalid verification code. Please try again.",
+  "@phoneInvalidCodeError": { "description": "Error message shown when the user enters an incorrect OTP code." },
+
+  "phoneAccountExistsError": "An account with this phone number already exists.",
+  "@phoneAccountExistsError": { "description": "Error message shown when the phone number is already associated with another account." }
+}
