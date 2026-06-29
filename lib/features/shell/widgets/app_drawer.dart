@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:template_app/l10n/app_localizations.dart';
+import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import '../../../core/data/result.dart';
 import '../../../core/l10n/locale_notifier.dart';

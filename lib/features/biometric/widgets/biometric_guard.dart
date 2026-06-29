@@ -50,7 +50,7 @@ class _BiometricGuardState extends ConsumerState<BiometricGuard>
   /// Whether we've completed the initial check after first build.
   bool _initialCheckDone = false;
 
-  static const _platform = MethodChannel('com.template.template_app/flags');
+  static const _platform = MethodChannel('com.footballagentmate.app/flags');
 
   @override
   void initState() {

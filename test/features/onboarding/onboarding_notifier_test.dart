@@ -11,8 +11,8 @@ library;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:template_app/core/constants/storage_keys.dart';
-import 'package:template_app/features/onboarding/providers/onboarding_notifier.dart';
+import 'package:football_agent_mate/core/constants/storage_keys.dart';
+import 'package:football_agent_mate/features/onboarding/providers/onboarding_notifier.dart';
 
 void main() {
   // ---------------------------------------------------------------------------

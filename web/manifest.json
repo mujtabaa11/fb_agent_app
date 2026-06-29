@@ -1,11 +1,11 @@
 {
-    "name": "template_app",
-    "short_name": "template_app",
+    "name": "Football Agent Mate",
+    "short_name": "Football Agent Mate",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Football Agent Mate — A mobile app for football agents.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

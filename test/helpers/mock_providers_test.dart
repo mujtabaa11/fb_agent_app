@@ -7,7 +7,7 @@ library;
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/data/result.dart';
+import 'package:football_agent_mate/core/data/result.dart';
 
 import 'mock_providers.dart';
 

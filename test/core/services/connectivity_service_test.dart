@@ -5,7 +5,7 @@
 library;
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/services/connectivity_service.dart';
+import 'package:football_agent_mate/core/services/connectivity_service.dart';
 
 import '../../helpers/mock_providers.dart';
 

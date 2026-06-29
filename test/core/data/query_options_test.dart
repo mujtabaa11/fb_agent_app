@@ -5,7 +5,7 @@
 library;
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/data/query_options.dart';
+import 'package:football_agent_mate/core/data/query_options.dart';
 
 void main() {
   group('QueryOptions', () {

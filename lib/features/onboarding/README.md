@@ -98,13 +98,13 @@ Then restart the app — the router guard will redirect to `/onboarding`.
 **Android (emulator or device):**
 
 ```bash
-adb shell pm clear com.template.template_app
+adb shell pm clear com.footballagentmate.app
 ```
 
 **iOS Simulator:**
 
 ```bash
-xcrun simctl uninstall booted com.template.templateApp
+xcrun simctl uninstall booted com.footballagentmate.app
 # Then reinstall and run
 flutter run
 ```

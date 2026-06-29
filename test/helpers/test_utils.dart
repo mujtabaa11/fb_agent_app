@@ -11,11 +11,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:template_app/core/constants/storage_keys.dart';
-import 'package:template_app/core/services/connectivity_service.dart';
-import 'package:template_app/core/theme/app_theme.dart';
-import 'package:template_app/features/biometric/providers/biometric_providers.dart';
-import 'package:template_app/l10n/app_localizations.dart';
+import 'package:football_agent_mate/core/constants/storage_keys.dart';
+import 'package:football_agent_mate/core/services/connectivity_service.dart';
+import 'package:football_agent_mate/core/theme/app_theme.dart';
+import 'package:football_agent_mate/features/biometric/providers/biometric_providers.dart';
+import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import 'mock_providers.dart';
 

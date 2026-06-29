@@ -5,7 +5,7 @@
 library;
 
 import 'package:flutter/material.dart';
-import 'package:template_app/l10n/app_localizations.dart';
+import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 class AuthTextField extends StatelessWidget {
   const AuthTextField({

@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appTitle => 'لانش باد';
+  String get appTitle => 'فوتبول أجنت ميت';
 
   @override
   String get loading => 'جارٍ التحميل...';
@@ -313,7 +313,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get verifyEmailCheckLabel => 'جارٍ التحقق من حالة التحقق';
 
   @override
-  String get onboardingWelcomeTitle => 'مرحباً بك في لانش باد';
+  String get onboardingWelcomeTitle => 'مرحباً بك في فوتبول أجنت ميت';
 
   @override
   String get onboardingWelcomeSubtitle =>

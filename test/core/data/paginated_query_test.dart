@@ -12,12 +12,12 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:template_app/core/data/firestore_repository.dart';
-import 'package:template_app/core/data/paginated_result.dart';
-import 'package:template_app/core/data/query_options.dart';
-import 'package:template_app/core/data/result.dart';
-import 'package:template_app/core/errors/app_exceptions.dart';
-import 'package:template_app/features/profile/data/user_profile_model.dart';
+import 'package:football_agent_mate/core/data/firestore_repository.dart';
+import 'package:football_agent_mate/core/data/paginated_result.dart';
+import 'package:football_agent_mate/core/data/query_options.dart';
+import 'package:football_agent_mate/core/data/result.dart';
+import 'package:football_agent_mate/core/errors/app_exceptions.dart';
+import 'package:football_agent_mate/features/profile/data/user_profile_model.dart';
 
 @GenerateMocks([], customMocks: [
   MockSpec<CollectionReference<Map<String, dynamic>>>(

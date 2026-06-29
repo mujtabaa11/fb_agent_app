@@ -1,6 +1,6 @@
 # Test Helpers
 
-This directory contains shared test infrastructure for the Launchpad project.
+This directory contains shared test infrastructure for the Football Agent Mate project.
 
 ## Mocking Approach
 
@@ -28,7 +28,7 @@ Use `@GenerateMocks` from the `mockito` package when you need:
 // Example: mockito-generated mock
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:template_app/features/auth/repositories/auth_repository.dart';
+import 'package:football_agent_mate/features/auth/repositories/auth_repository.dart';
 
 @GenerateMocks([AuthRepository])
 import 'my_test.mocks.dart';
@@ -296,7 +296,7 @@ Pass overrides to `pumpApp()`:
 
 ```dart
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/features/auth/providers/auth_providers.dart';
+import 'package:football_agent_mate/features/auth/providers/auth_providers.dart';
 import '../helpers/mock_providers.dart';
 import '../helpers/test_utils.dart';
 
@@ -336,8 +336,8 @@ lib/core/theme/app_theme.dart       → test/core/theme/app_theme_test.dart
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/data/result.dart';
-import 'package:template_app/features/auth/providers/auth_providers.dart';
+import 'package:football_agent_mate/core/data/result.dart';
+import 'package:football_agent_mate/features/auth/providers/auth_providers.dart';
 import '../helpers/mock_providers.dart';
 import '../helpers/test_utils.dart';
 

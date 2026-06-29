@@ -7,7 +7,7 @@ part of 'biometric_preference_notifier.dart';
 // **************************************************************************
 
 String _$biometricPreferenceNotifierHash() =>
-    r'4db08e159d4b779971577a8f4304c6b6d24a557a';
+    r'988dc322de29e1b410e486605ab9a79e6ba93306';
 
 /// Notifier that manages the biometric lock preference for the current user.
 ///

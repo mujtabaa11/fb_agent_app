@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:template_app/features/biometric/services/biometric_service.dart';
+import 'package:football_agent_mate/features/biometric/services/biometric_service.dart';
 
 @GenerateMocks([LocalAuthentication])
 import 'biometric_service_test.mocks.dart';

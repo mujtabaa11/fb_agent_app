@@ -1,8 +1,6 @@
-# Launchpad
+# Football Agent Mate
 
-A production-quality Flutter mobile boilerplate. Clone, configure, and start building — auth, navigation, theming, localization, Firebase services, data layer, and CI/CD are already wired up.
-
-Every new Flutter project wastes its first sprint doing the same foundational work. Launchpad eliminates that entirely. This is not a demo app or a tutorial — it is a reusable, opinionated starting point that embeds best practices from the first line of code.
+A mobile app for football agents, built on a production-quality Flutter foundation — auth, navigation, theming, localization, Firebase services, data layer, and CI/CD are already wired up.
 
 - Zero hardcoded strings (all via `AppLocalizations`), zero hardcoded visual values (all via theme tokens)
 - Accessibility built in from day one — `Semantics` labels on all interactive elements, 44x44pt minimum touch targets
@@ -77,7 +75,7 @@ Riverpod (code-gen with `@riverpod`) is used consistently for auth state, theme 
 1. **Clone the repo**
 
    ```bash
-   git clone <repo-url> && cd template_app
+   git clone <repo-url> && cd fb_agent_app
    ```
 
 2. **Add Firebase config files**
@@ -248,7 +246,7 @@ To see events in the Firebase Console's DebugView in real time, enable the debug
 **Android:**
 
 ```bash
-adb shell setprop debug.firebase.analytics.app com.template.template_app
+adb shell setprop debug.firebase.analytics.app com.footballagentmate.app
 ```
 
 To disable:
@@ -841,9 +839,9 @@ When adding new screens or features, add `Semantics` labels in the same commit a
 
 ### ARB Files as Source of Truth
 
-Launchpad uses Flutter's ARB files (`l10n/app_en.arb`) as the single source of truth for all user-facing strings. Every key in the ARB file includes a `@description` field that provides context to both human translators and AI translation tools. The description should answer: what the string is, where it appears, and what it does.
+This project uses Flutter's ARB files (`l10n/app_en.arb`) as the single source of truth for all user-facing strings. Every key in the ARB file includes a `@description` field that provides context to both human translators and AI translation tools. The description should answer: what the string is, where it appears, and what it does.
 
-**Every new ARB key added to a project built on Launchpad must include a descriptive `@description` field.** Generic descriptions like `"Button label"` lead to poor translations — write descriptions that disambiguate context, e.g. `"Primary submit button on the sign-up screen. Tapping it creates a new account with the entered email and password."`.
+**Every new ARB key added must include a descriptive `@description` field.** Generic descriptions like `"Button label"` lead to poor translations — write descriptions that disambiguate context, e.g. `"Primary submit button on the sign-up screen. Tapping it creates a new account with the entered email and password."`.
 
 ### Android — Google Play Continuous Translation (Gemini)
 
@@ -902,8 +900,8 @@ Both light and dark `ThemeData` objects are wired to `MaterialApp` via `AppTheme
 
 The app supports deep links via a custom URL scheme and universal links (HTTPS).
 
-- **Custom scheme:** `launchpad://` (e.g. `launchpad://home`, `launchpad://profile`)
-- **Universal link:** `https://template.launchpad.app/` (e.g. `https://template.launchpad.app/home`)
+- **Custom scheme:** `footballagentmate://` (e.g. `footballagentmate://home`, `footballagentmate://profile`)
+- **Universal link:** `https://app.footballagentmate.com/` (e.g. `https://app.footballagentmate.com/home`)
 
 Malformed or unrecognised deep link URLs are handled gracefully — the app opens to `/home` (authenticated) or `/login` (unauthenticated) and never crashes.
 
@@ -912,13 +910,13 @@ Malformed or unrecognised deep link URLs are handled gracefully — the app open
 **iOS Simulator:**
 
 ```bash
-xcrun simctl openurl booted "launchpad://home"
+xcrun simctl openurl booted "footballagentmate://home"
 ```
 
 **Android Emulator:**
 
 ```bash
-adb shell am start -W -a android.intent.action.VIEW -d "launchpad://home"
+adb shell am start -W -a android.intent.action.VIEW -d "footballagentmate://home"
 ```
 
 ### Adding a New Deep Link Route
@@ -929,9 +927,9 @@ Add the route to `lib/routing/router.dart` — no other changes are needed. The 
 
 When adapting this template for your project, update the placeholder scheme and host in the following files:
 
-1. **`android/app/src/main/AndroidManifest.xml`** — change the `android:host` and `android:scheme` values in the deep link intent filters
-2. **`ios/Runner/Info.plist`** — change the `launchpad` string in `CFBundleURLSchemes` and update the `CFBundleURLName`
-3. **This README** — update the scheme and host references above
+1. **`android/app/src/main/AndroidManifest.xml`** — the `android:host` and `android:scheme` values in the deep link intent filters
+2. **`ios/Runner/Info.plist`** — the `CFBundleURLSchemes` and `CFBundleURLName` entries
+3. **This README** — the scheme and host references above
 
 ### Universal Links (HTTPS) — Production Setup
 

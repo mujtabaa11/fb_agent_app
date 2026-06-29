@@ -16,7 +16,7 @@ abstract final class AppConstants {
 
   /// Application title used where a plain [String] is required (e.g.
   /// [MaterialApp.title]) and [AppLocalizations] is not available.
-  static const String appTitle = 'Launchpad';
+  static const String appTitle = 'Football Agent Mate';
 
   // ---------------------------------------------------------------------------
   // Environment

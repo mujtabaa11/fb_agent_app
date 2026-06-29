@@ -12,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:template_app/core/constants/storage_keys.dart';
-import 'package:template_app/core/theme/theme_notifier.dart';
+import 'package:football_agent_mate/core/constants/storage_keys.dart';
+import 'package:football_agent_mate/core/theme/theme_notifier.dart';
 
 void main() {
   // ---------------------------------------------------------------------------

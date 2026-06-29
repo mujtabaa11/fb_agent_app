@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Launchpad';
+  String get appTitle => 'Football Agent Mate';
 
   @override
   String get loading => 'Loading...';
@@ -312,7 +312,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verifyEmailCheckLabel => 'Checking verification status';
 
   @override
-  String get onboardingWelcomeTitle => 'Welcome to Launchpad';
+  String get onboardingWelcomeTitle => 'Welcome to Football Agent Mate';
 
   @override
   String get onboardingWelcomeSubtitle =>

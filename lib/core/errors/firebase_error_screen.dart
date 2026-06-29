@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 // UI strings — zero hardcoded strings inline.
 // ---------------------------------------------------------------------------
 
-const String _kAppTitle = 'Launchpad';
+const String _kAppTitle = 'Football Agent Mate';
 const String _kErrorIconLabel = 'Error icon';
 const String _kSetupNote =
     'Check the README for Firebase setup instructions.';

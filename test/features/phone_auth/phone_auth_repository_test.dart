@@ -14,10 +14,10 @@ import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:template_app/core/data/result.dart';
-import 'package:template_app/core/errors/app_exceptions.dart';
-import 'package:template_app/features/auth/models/auth_user.dart';
-import 'package:template_app/features/auth/repositories/auth_repository.dart';
+import 'package:football_agent_mate/core/data/result.dart';
+import 'package:football_agent_mate/core/errors/app_exceptions.dart';
+import 'package:football_agent_mate/features/auth/models/auth_user.dart';
+import 'package:football_agent_mate/features/auth/repositories/auth_repository.dart';
 
 @GenerateMocks([
   fb.FirebaseAuth,

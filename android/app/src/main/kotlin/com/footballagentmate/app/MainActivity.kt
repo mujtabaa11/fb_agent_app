@@ -1,4 +1,4 @@
-package com.template.template_app
+package com.footballagentmate.app
 
 import io.flutter.embedding.android.FlutterActivity
 

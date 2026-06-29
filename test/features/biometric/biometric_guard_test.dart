@@ -17,12 +17,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/services/crashlytics_service.dart';
-import 'package:template_app/features/auth/models/auth_user.dart';
-import 'package:template_app/features/auth/providers/auth_providers.dart';
-import 'package:template_app/features/biometric/providers/biometric_preference_notifier.dart';
-import 'package:template_app/features/biometric/providers/biometric_providers.dart';
-import 'package:template_app/features/biometric/widgets/biometric_guard.dart';
+import 'package:football_agent_mate/core/services/crashlytics_service.dart';
+import 'package:football_agent_mate/features/auth/models/auth_user.dart';
+import 'package:football_agent_mate/features/auth/providers/auth_providers.dart';
+import 'package:football_agent_mate/features/biometric/providers/biometric_preference_notifier.dart';
+import 'package:football_agent_mate/features/biometric/providers/biometric_providers.dart';
+import 'package:football_agent_mate/features/biometric/widgets/biometric_guard.dart';
 
 import '../../helpers/mock_providers.dart';
 import '../../helpers/test_utils.dart';

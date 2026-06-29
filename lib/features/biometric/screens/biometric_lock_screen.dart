@@ -8,7 +8,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:template_app/l10n/app_localizations.dart';
+import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/widgets/accessible_touch_target.dart';

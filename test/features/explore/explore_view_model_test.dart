@@ -6,14 +6,14 @@ library;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/data/base_repository.dart';
-import 'package:template_app/core/data/paginated_result.dart';
-import 'package:template_app/core/data/query_options.dart';
-import 'package:template_app/core/data/repository_providers.dart';
-import 'package:template_app/core/data/result.dart';
-import 'package:template_app/core/errors/app_exceptions.dart';
-import 'package:template_app/features/explore/presentation/explore_view_model.dart';
-import 'package:template_app/features/profile/data/user_profile_model.dart';
+import 'package:football_agent_mate/core/data/base_repository.dart';
+import 'package:football_agent_mate/core/data/paginated_result.dart';
+import 'package:football_agent_mate/core/data/query_options.dart';
+import 'package:football_agent_mate/core/data/repository_providers.dart';
+import 'package:football_agent_mate/core/data/result.dart';
+import 'package:football_agent_mate/core/errors/app_exceptions.dart';
+import 'package:football_agent_mate/features/explore/presentation/explore_view_model.dart';
+import 'package:football_agent_mate/features/profile/data/user_profile_model.dart';
 
 import '../../helpers/mock_providers.dart';
 

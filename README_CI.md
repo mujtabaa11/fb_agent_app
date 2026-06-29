@@ -1,8 +1,8 @@
-# Launchpad CI/CD Setup Guide
+# Football Agent Mate CI/CD Setup Guide
 
 ## Overview
 
-This project ships with pre-built GitHub Actions workflows for continuous integration and automated QA distribution. The workflows are ready to use out of the box — each project that clones Launchpad only needs to complete the setup steps below before the workflows will run successfully.
+This project ships with pre-built GitHub Actions workflows for continuous integration and automated QA distribution. The workflows are ready to use out of the box — you only need to complete the setup steps below before the workflows will run successfully.
 
 | Workflow | File | Trigger | Purpose |
 |---|---|---|---|
@@ -144,7 +144,7 @@ The file `ios/ExportOptions.plist` is committed with placeholder values. Before 
 |---|---|
 | `teamID` | Apple Developer Portal > Membership > **Team ID** (a 10-character alphanumeric string). |
 | `method` | Use `ad-hoc` for Firebase App Distribution. Use `development` if you are using a development provisioning profile instead of a distribution one. Use `app-store` for TestFlight/App Store builds. |
-| `YOUR_BUNDLE_ID` (key under `provisioningProfiles`) | The bundle identifier of your app (e.g. `com.template.templateApp`). Must match the value in `ios/Runner.xcodeproj`. |
+| `YOUR_BUNDLE_ID` (key under `provisioningProfiles`) | The bundle identifier of your app (e.g. `com.footballagentmate.app`). Must match the value in `ios/Runner.xcodeproj`. |
 | `YOUR_PROVISIONING_PROFILE_NAME` (value under `provisioningProfiles`) | Apple Developer Portal > Profiles > select your profile > the **Name** field (not the UUID). |
 
 ### Certificate Setup

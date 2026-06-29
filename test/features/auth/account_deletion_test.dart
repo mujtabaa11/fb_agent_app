@@ -12,10 +12,10 @@ library;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/core/data/result.dart';
-import 'package:template_app/core/errors/app_exceptions.dart';
-import 'package:template_app/features/auth/providers/auth_providers.dart';
-import 'package:template_app/features/auth/repositories/auth_repository.dart';
+import 'package:football_agent_mate/core/data/result.dart';
+import 'package:football_agent_mate/core/errors/app_exceptions.dart';
+import 'package:football_agent_mate/features/auth/providers/auth_providers.dart';
+import 'package:football_agent_mate/features/auth/repositories/auth_repository.dart';
 
 import '../../helpers/mock_providers.dart';
 

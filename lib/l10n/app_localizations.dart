@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// The application name displayed in the app bar, task switcher, and browser tab title.
   ///
   /// In en, this message translates to:
-  /// **'Launchpad'**
+  /// **'Football Agent Mate'**
   String get appTitle;
 
   /// Generic loading indicator text shown alongside a spinner while data is being fetched or an action is in progress.
@@ -659,7 +659,7 @@ abstract class AppLocalizations {
   /// Title for the first onboarding page. Placeholder — replace with project-specific copy.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Launchpad'**
+  /// **'Welcome to Football Agent Mate'**
   String get onboardingWelcomeTitle;
 
   /// Subtitle for the first onboarding page. Placeholder — replace with project-specific copy.

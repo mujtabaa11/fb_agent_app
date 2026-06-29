@@ -9,7 +9,7 @@ import 'dart:ui';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:template_app/l10n/app_localizations.dart';
+import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import '../constants/storage_keys.dart';
 

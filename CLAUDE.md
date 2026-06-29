@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**template_app** — A production-quality Flutter mobile boilerplate ("Launchpad"). Currently in initial scaffold phase with dependencies configured but feature modules not yet implemented. The `main.dart` still contains default Flutter counter demo code.
+**football_agent_mate** — A mobile app for football agents, built on a production-quality Flutter boilerplate. Features include authentication, navigation, theming, localization, Firebase services, data layer, and CI/CD.
 
 ## Commands
 
@@ -51,7 +51,7 @@ Feature modules should follow a self-contained structure with their own models, 
 ## Key Conventions
 
 - SDK constraint: `>=3.0.0 <4.0.0`
-- Android: Java 17, Kotlin DSL (`build.gradle.kts`), package `com.template.template_app`
+- Android: Java 17, Kotlin DSL (`build.gradle.kts`), package `com.footballagentmate.app`
 - Generated files (`.g.dart`) are produced by `build_runner` — run code generation after modifying `@riverpod` annotated providers
 - Linting: `flutter_lints` + `custom_lint` with `riverpod_lint`
 - Firebase config files (`google-services.json`, `GoogleService-Info.plist`) are gitignored — must be added per environment

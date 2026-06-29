@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
 
-  "appTitle": "Launchpad",
+  "appTitle": "Football Agent Mate",
   "@appTitle": { "description": "The application name displayed in the app bar, task switcher, and browser tab title." },
 
   "loading": "Loading...",
@@ -280,7 +280,7 @@
   "verifyEmailCheckLabel": "Checking verification status",
   "@verifyEmailCheckLabel": { "description": "Screen-reader-only accessibility label for the progress indicator shown while checking email verification status." },
 
-  "onboardingWelcomeTitle": "Welcome to Launchpad",
+  "onboardingWelcomeTitle": "Welcome to Football Agent Mate",
   "@onboardingWelcomeTitle": { "description": "Title for the first onboarding page. Placeholder — replace with project-specific copy." },
 
   "onboardingWelcomeSubtitle": "Your production-ready Flutter boilerplate. Everything you need to build, ship, and scale — already set up.",
