@@ -6,6 +6,8 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../theme/app_colors.dart';
+
 // ---------------------------------------------------------------------------
 // UI strings — zero hardcoded strings inline.
 // ---------------------------------------------------------------------------
@@ -42,7 +44,7 @@ class FirebaseErrorScreen extends StatelessWidget {
                     child: const ExcludeSemantics(
                       child: Icon(
                         Icons.error_outline,
-                        color: Colors.red,
+                        color: AppColors.error,
                         size: 64,
                       ),
                     ),
@@ -62,7 +64,7 @@ class FirebaseErrorScreen extends StatelessWidget {
                     child: const Text(
                       _kSetupNote,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                      style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
                     ),
                   ),
                 ],

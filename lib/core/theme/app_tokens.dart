@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+
 /// Design tokens for the application.
 ///
-/// All color pairs have been verified to meet WCAG AA contrast minimums
-/// (4.5:1 for normal text, 3:1 for large text).
+/// Color values are sourced from [AppColors] (the official Agent Mate palette).
 abstract final class AppTokens {
   // ---------------------------------------------------------------------------
   // Colors — Light scheme
   // ---------------------------------------------------------------------------
 
-  static const Color primaryLight = Color(0xFF1E3A5F);
-  static const Color onPrimaryLight = Color(0xFFFFFFFF); // 11.50:1
-  static const Color secondaryLight = Color(0xFF2D6A9F);
-  static const Color onSecondaryLight = Color(0xFFFFFFFF); // 5.72:1
-  static const Color backgroundLight = Color(0xFFF5F7FA);
-  static const Color onBackgroundLight = Color(0xFF1A1A2E); // 15.89:1
-  static const Color surfaceLight = Color(0xFFFFFFFF);
-  static const Color onSurfaceLight = Color(0xFF1A1A2E); // 17.06:1
-  static const Color errorLight = Color(0xFFB00020);
-  static const Color onErrorLight = Color(0xFFFFFFFF); // 7.33:1
+  static const Color primaryLight = AppColors.primary;
+  static const Color onPrimaryLight = AppColors.onPrimary;
+  static const Color secondaryLight = AppColors.primaryLight;
+  static const Color onSecondaryLight = AppColors.onPrimary;
+  static const Color backgroundLight = AppColors.background;
+  static const Color onBackgroundLight = AppColors.textPrimary;
+  static const Color surfaceLight = AppColors.surface;
+  static const Color onSurfaceLight = AppColors.textPrimary;
+  static const Color errorLight = AppColors.error;
+  static const Color onErrorLight = AppColors.onPrimary;
 
   // ---------------------------------------------------------------------------
   // Colors — Dark scheme
   // ---------------------------------------------------------------------------
 
-  static const Color primaryDark = Color(0xFF90CAF9);
-  static const Color onPrimaryDark = Color(0xFF0D1B2A); // 9.94:1
-  static const Color secondaryDark = Color(0xFF64B5F6);
-  static const Color onSecondaryDark = Color(0xFF0D1B2A); // 7.85:1
-  static const Color backgroundDark = Color(0xFF0D1B2A);
-  static const Color onBackgroundDark = Color(0xFFE8EAF6); // 14.52:1
-  static const Color surfaceDark = Color(0xFF1A2D42);
-  static const Color onSurfaceDark = Color(0xFFE8EAF6); // 11.70:1
-  static const Color errorDark = Color(0xFFCF6679);
-  static const Color onErrorDark = Color(0xFF1A1A2E); // 4.74:1
+  static const Color primaryDark = AppColors.primaryLight;
+  static const Color onPrimaryDark = AppColors.onPrimary;
+  static const Color secondaryDark = AppColors.primaryLight;
+  static const Color onSecondaryDark = AppColors.onPrimary;
+  static const Color backgroundDark = AppColors.backgroundDark;
+  static const Color onBackgroundDark = AppColors.textPrimaryDark;
+  static const Color surfaceDark = AppColors.surfaceDark;
+  static const Color onSurfaceDark = AppColors.textPrimaryDark;
+  static const Color errorDark = AppColors.errorDark;
+  static const Color onErrorDark = AppColors.textPrimary;
 
   // ---------------------------------------------------------------------------
   // Typography
