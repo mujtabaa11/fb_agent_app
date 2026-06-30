@@ -997,6 +997,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'An account with this phone number already exists.'**
   String get phoneAccountExistsError;
+
+  /// Accessibility label for a player card in a list.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, {position} at {club}'**
+  String playerCardLabel(String name, String position, String club);
+
+  /// Accessibility label for a market post card.
+  ///
+  /// In en, this message translates to:
+  /// **'{postType}: {details}'**
+  String postCardLabel(String postType, String details);
+
+  /// Accessibility label for a conversation card.
+  ///
+  /// In en, this message translates to:
+  /// **'Conversation with {name}: {lastMessage}'**
+  String conversationCardLabel(String name, String lastMessage);
+
+  /// Accessibility label for the photo upload field.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload photo'**
+  String get photoUploadLabel;
+
+  /// Accessibility label when a document file is selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Document selected: {fileName}'**
+  String documentSelectedLabel(String fileName);
+
+  /// Accessibility label for the remove document button.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove document'**
+  String get removeDocumentLabel;
+
+  /// Accessibility label for the document upload button.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload {label}'**
+  String uploadDocumentLabel(String label);
+
+  /// Accessibility label for a family contact list item.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, {relationship}'**
+  String familyContactLabel(String name, String relationship);
+
+  /// Accessibility label for a document list item.
+  ///
+  /// In en, this message translates to:
+  /// **'{label}, uploaded {date}'**
+  String documentItemLabel(String label, String date);
+
+  /// Accessibility label for a note list item.
+  ///
+  /// In en, this message translates to:
+  /// **'Note: {content}'**
+  String noteItemLabel(String content);
+
+  /// Accessibility label for edit action buttons.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get editLabel;
+
+  /// Accessibility label for delete action buttons.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteLabel;
+
+  /// Accessibility label for view action buttons.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get viewLabel;
+
+  /// Label for retry button in error states.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retryLabel;
+
+  /// Title for the developer component showcase screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Component Showcase'**
+  String get showcaseTitle;
+
+  /// Section header for cards in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards'**
+  String get showcaseCards;
+
+  /// Section header for form elements in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Form Elements'**
+  String get showcaseFormElements;
+
+  /// Section header for buttons in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Buttons'**
+  String get showcaseButtons;
+
+  /// Section header for list items in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'List Items'**
+  String get showcaseListItems;
+
+  /// Section header for avatars in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatars'**
+  String get showcaseAvatars;
+
+  /// Section header for badges in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Badges & Tags'**
+  String get showcaseBadges;
+
+  /// Section header for empty states in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty States'**
+  String get showcaseEmptyStates;
+
+  /// Section header for feedback components in the component showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback'**
+  String get showcaseFeedback;
+
+  /// Badge label for active client player status.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Client'**
+  String get statusActiveClient;
+
+  /// Badge label for prospect player status.
+  ///
+  /// In en, this message translates to:
+  /// **'Prospect'**
+  String get statusProspect;
+
+  /// Badge label for former client player status.
+  ///
+  /// In en, this message translates to:
+  /// **'Former Client'**
+  String get statusFormerClient;
+
+  /// Badge label for player available post type.
+  ///
+  /// In en, this message translates to:
+  /// **'Player Available'**
+  String get postTypePlayerAvailable;
+
+  /// Badge label for need a player post type.
+  ///
+  /// In en, this message translates to:
+  /// **'Need a Player'**
+  String get postTypeNeedPlayer;
+
+  /// Title for empty player list state.
+  ///
+  /// In en, this message translates to:
+  /// **'No players yet'**
+  String get emptyPlayersTitle;
+
+  /// Subtitle for empty player list state.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first player to get started.'**
+  String get emptyPlayersSubtitle;
+
+  /// Generic error message for inline error states.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load data. Please try again.'**
+  String get errorLoadingData;
 }
 
 class _AppLocalizationsDelegate

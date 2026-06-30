@@ -449,5 +449,98 @@
   "@phoneInvalidCodeError": { "description": "Error message shown when the user enters an incorrect OTP code." },
 
   "phoneAccountExistsError": "An account with this phone number already exists.",
-  "@phoneAccountExistsError": { "description": "Error message shown when the phone number is already associated with another account." }
+  "@phoneAccountExistsError": { "description": "Error message shown when the phone number is already associated with another account." },
+
+  "playerCardLabel": "{name}, {position} at {club}",
+  "@playerCardLabel": { "description": "Accessibility label for a player card in a list.", "placeholders": { "name": { "type": "String" }, "position": { "type": "String" }, "club": { "type": "String" } } },
+
+  "postCardLabel": "{postType}: {details}",
+  "@postCardLabel": { "description": "Accessibility label for a market post card.", "placeholders": { "postType": { "type": "String" }, "details": { "type": "String" } } },
+
+  "conversationCardLabel": "Conversation with {name}: {lastMessage}",
+  "@conversationCardLabel": { "description": "Accessibility label for a conversation card.", "placeholders": { "name": { "type": "String" }, "lastMessage": { "type": "String" } } },
+
+  "photoUploadLabel": "Upload photo",
+  "@photoUploadLabel": { "description": "Accessibility label for the photo upload field." },
+
+  "documentSelectedLabel": "Document selected: {fileName}",
+  "@documentSelectedLabel": { "description": "Accessibility label when a document file is selected.", "placeholders": { "fileName": { "type": "String" } } },
+
+  "removeDocumentLabel": "Remove document",
+  "@removeDocumentLabel": { "description": "Accessibility label for the remove document button." },
+
+  "uploadDocumentLabel": "Upload {label}",
+  "@uploadDocumentLabel": { "description": "Accessibility label for the document upload button.", "placeholders": { "label": { "type": "String" } } },
+
+  "familyContactLabel": "{name}, {relationship}",
+  "@familyContactLabel": { "description": "Accessibility label for a family contact list item.", "placeholders": { "name": { "type": "String" }, "relationship": { "type": "String" } } },
+
+  "documentItemLabel": "{label}, uploaded {date}",
+  "@documentItemLabel": { "description": "Accessibility label for a document list item.", "placeholders": { "label": { "type": "String" }, "date": { "type": "String" } } },
+
+  "noteItemLabel": "Note: {content}",
+  "@noteItemLabel": { "description": "Accessibility label for a note list item.", "placeholders": { "content": { "type": "String" } } },
+
+  "editLabel": "Edit",
+  "@editLabel": { "description": "Accessibility label for edit action buttons." },
+
+  "deleteLabel": "Delete",
+  "@deleteLabel": { "description": "Accessibility label for delete action buttons." },
+
+  "viewLabel": "View",
+  "@viewLabel": { "description": "Accessibility label for view action buttons." },
+
+  "retryLabel": "Retry",
+  "@retryLabel": { "description": "Label for retry button in error states." },
+
+  "showcaseTitle": "Component Showcase",
+  "@showcaseTitle": { "description": "Title for the developer component showcase screen." },
+
+  "showcaseCards": "Cards",
+  "@showcaseCards": { "description": "Section header for cards in the component showcase." },
+
+  "showcaseFormElements": "Form Elements",
+  "@showcaseFormElements": { "description": "Section header for form elements in the component showcase." },
+
+  "showcaseButtons": "Buttons",
+  "@showcaseButtons": { "description": "Section header for buttons in the component showcase." },
+
+  "showcaseListItems": "List Items",
+  "@showcaseListItems": { "description": "Section header for list items in the component showcase." },
+
+  "showcaseAvatars": "Avatars",
+  "@showcaseAvatars": { "description": "Section header for avatars in the component showcase." },
+
+  "showcaseBadges": "Badges & Tags",
+  "@showcaseBadges": { "description": "Section header for badges in the component showcase." },
+
+  "showcaseEmptyStates": "Empty States",
+  "@showcaseEmptyStates": { "description": "Section header for empty states in the component showcase." },
+
+  "showcaseFeedback": "Feedback",
+  "@showcaseFeedback": { "description": "Section header for feedback components in the component showcase." },
+
+  "statusActiveClient": "Active Client",
+  "@statusActiveClient": { "description": "Badge label for active client player status." },
+
+  "statusProspect": "Prospect",
+  "@statusProspect": { "description": "Badge label for prospect player status." },
+
+  "statusFormerClient": "Former Client",
+  "@statusFormerClient": { "description": "Badge label for former client player status." },
+
+  "postTypePlayerAvailable": "Player Available",
+  "@postTypePlayerAvailable": { "description": "Badge label for player available post type." },
+
+  "postTypeNeedPlayer": "Need a Player",
+  "@postTypeNeedPlayer": { "description": "Badge label for need a player post type." },
+
+  "emptyPlayersTitle": "No players yet",
+  "@emptyPlayersTitle": { "description": "Title for empty player list state." },
+
+  "emptyPlayersSubtitle": "Add your first player to get started.",
+  "@emptyPlayersSubtitle": { "description": "Subtitle for empty player list state." },
+
+  "errorLoadingData": "Failed to load data. Please try again.",
+  "@errorLoadingData": { "description": "Generic error message for inline error states." }
 }

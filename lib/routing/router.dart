@@ -13,6 +13,7 @@ library;
 import 'dart:async';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,7 @@ import '../features/auth/screens/forgot_password_screen.dart';
 import '../features/auth/screens/login_screen.dart';
 import '../features/auth/screens/sign_up_screen.dart';
 import '../features/auth/screens/verify_email_screen.dart';
+import '../features/dev_showcase/screens/component_showcase_screen.dart';
 import '../features/onboarding/screens/onboarding_screen.dart';
 import '../features/phone_auth/screens/otp_screen.dart';
 import '../features/phone_auth/screens/phone_input_screen.dart';
@@ -257,6 +259,12 @@ GoRouter createRouter(AuthRepository authRepository) {
         );
       },
     ),
+
+    if (kDebugMode)
+      GoRoute(
+        path: '/dev/showcase',
+        builder: (context, state) => const ComponentShowcaseScreen(),
+      ),
 
     // -----------------------------------------------------------------------
     // Navigation shell — bottom nav & side drawer

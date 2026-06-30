@@ -322,5 +322,98 @@
   "@phoneInvalidCodeError": { "description": "Invalid OTP code error" },
 
   "phoneAccountExistsError": "يوجد حساب مسجل بالفعل بهذا الرقم.",
-  "@phoneAccountExistsError": { "description": "Phone number already exists error" }
+  "@phoneAccountExistsError": { "description": "Phone number already exists error" },
+
+  "playerCardLabel": "{name}، {position} في {club}",
+  "@playerCardLabel": { "description": "Accessibility label for a player card", "placeholders": { "name": { "type": "String" }, "position": { "type": "String" }, "club": { "type": "String" } } },
+
+  "postCardLabel": "{postType}: {details}",
+  "@postCardLabel": { "description": "Accessibility label for a post card", "placeholders": { "postType": { "type": "String" }, "details": { "type": "String" } } },
+
+  "conversationCardLabel": "محادثة مع {name}: {lastMessage}",
+  "@conversationCardLabel": { "description": "Accessibility label for a conversation card", "placeholders": { "name": { "type": "String" }, "lastMessage": { "type": "String" } } },
+
+  "photoUploadLabel": "رفع صورة",
+  "@photoUploadLabel": { "description": "Accessibility label for photo upload" },
+
+  "documentSelectedLabel": "المستند المحدد: {fileName}",
+  "@documentSelectedLabel": { "description": "Accessibility label for selected document", "placeholders": { "fileName": { "type": "String" } } },
+
+  "removeDocumentLabel": "إزالة المستند",
+  "@removeDocumentLabel": { "description": "Accessibility label for remove document button" },
+
+  "uploadDocumentLabel": "رفع {label}",
+  "@uploadDocumentLabel": { "description": "Accessibility label for document upload", "placeholders": { "label": { "type": "String" } } },
+
+  "familyContactLabel": "{name}، {relationship}",
+  "@familyContactLabel": { "description": "Accessibility label for family contact", "placeholders": { "name": { "type": "String" }, "relationship": { "type": "String" } } },
+
+  "documentItemLabel": "{label}، تم الرفع {date}",
+  "@documentItemLabel": { "description": "Accessibility label for document item", "placeholders": { "label": { "type": "String" }, "date": { "type": "String" } } },
+
+  "noteItemLabel": "ملاحظة: {content}",
+  "@noteItemLabel": { "description": "Accessibility label for note item", "placeholders": { "content": { "type": "String" } } },
+
+  "editLabel": "تعديل",
+  "@editLabel": { "description": "Accessibility label for edit button" },
+
+  "deleteLabel": "حذف",
+  "@deleteLabel": { "description": "Accessibility label for delete button" },
+
+  "viewLabel": "عرض",
+  "@viewLabel": { "description": "Accessibility label for view button" },
+
+  "retryLabel": "إعادة المحاولة",
+  "@retryLabel": { "description": "Label for retry button" },
+
+  "showcaseTitle": "عرض المكونات",
+  "@showcaseTitle": { "description": "Component showcase screen title" },
+
+  "showcaseCards": "البطاقات",
+  "@showcaseCards": { "description": "Cards section header" },
+
+  "showcaseFormElements": "عناصر النموذج",
+  "@showcaseFormElements": { "description": "Form elements section header" },
+
+  "showcaseButtons": "الأزرار",
+  "@showcaseButtons": { "description": "Buttons section header" },
+
+  "showcaseListItems": "عناصر القائمة",
+  "@showcaseListItems": { "description": "List items section header" },
+
+  "showcaseAvatars": "الصور الرمزية",
+  "@showcaseAvatars": { "description": "Avatars section header" },
+
+  "showcaseBadges": "الشارات والعلامات",
+  "@showcaseBadges": { "description": "Badges section header" },
+
+  "showcaseEmptyStates": "حالات فارغة",
+  "@showcaseEmptyStates": { "description": "Empty states section header" },
+
+  "showcaseFeedback": "التغذية الراجعة",
+  "@showcaseFeedback": { "description": "Feedback section header" },
+
+  "statusActiveClient": "عميل نشط",
+  "@statusActiveClient": { "description": "Active client badge label" },
+
+  "statusProspect": "مرشح",
+  "@statusProspect": { "description": "Prospect badge label" },
+
+  "statusFormerClient": "عميل سابق",
+  "@statusFormerClient": { "description": "Former client badge label" },
+
+  "postTypePlayerAvailable": "لاعب متاح",
+  "@postTypePlayerAvailable": { "description": "Player available badge label" },
+
+  "postTypeNeedPlayer": "مطلوب لاعب",
+  "@postTypeNeedPlayer": { "description": "Need a player badge label" },
+
+  "emptyPlayersTitle": "لا يوجد لاعبون بعد",
+  "@emptyPlayersTitle": { "description": "Empty player list title" },
+
+  "emptyPlayersSubtitle": "أضف أول لاعب للبدء.",
+  "@emptyPlayersSubtitle": { "description": "Empty player list subtitle" },
+
+  "errorLoadingData": "فشل تحميل البيانات. يرجى المحاولة مرة أخرى.",
+  "@errorLoadingData": { "description": "Generic inline error message" }
 }

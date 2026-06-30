@@ -506,4 +506,113 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get phoneAccountExistsError =>
       'An account with this phone number already exists.';
+
+  @override
+  String playerCardLabel(String name, String position, String club) {
+    return '$name, $position at $club';
+  }
+
+  @override
+  String postCardLabel(String postType, String details) {
+    return '$postType: $details';
+  }
+
+  @override
+  String conversationCardLabel(String name, String lastMessage) {
+    return 'Conversation with $name: $lastMessage';
+  }
+
+  @override
+  String get photoUploadLabel => 'Upload photo';
+
+  @override
+  String documentSelectedLabel(String fileName) {
+    return 'Document selected: $fileName';
+  }
+
+  @override
+  String get removeDocumentLabel => 'Remove document';
+
+  @override
+  String uploadDocumentLabel(String label) {
+    return 'Upload $label';
+  }
+
+  @override
+  String familyContactLabel(String name, String relationship) {
+    return '$name, $relationship';
+  }
+
+  @override
+  String documentItemLabel(String label, String date) {
+    return '$label, uploaded $date';
+  }
+
+  @override
+  String noteItemLabel(String content) {
+    return 'Note: $content';
+  }
+
+  @override
+  String get editLabel => 'Edit';
+
+  @override
+  String get deleteLabel => 'Delete';
+
+  @override
+  String get viewLabel => 'View';
+
+  @override
+  String get retryLabel => 'Retry';
+
+  @override
+  String get showcaseTitle => 'Component Showcase';
+
+  @override
+  String get showcaseCards => 'Cards';
+
+  @override
+  String get showcaseFormElements => 'Form Elements';
+
+  @override
+  String get showcaseButtons => 'Buttons';
+
+  @override
+  String get showcaseListItems => 'List Items';
+
+  @override
+  String get showcaseAvatars => 'Avatars';
+
+  @override
+  String get showcaseBadges => 'Badges & Tags';
+
+  @override
+  String get showcaseEmptyStates => 'Empty States';
+
+  @override
+  String get showcaseFeedback => 'Feedback';
+
+  @override
+  String get statusActiveClient => 'Active Client';
+
+  @override
+  String get statusProspect => 'Prospect';
+
+  @override
+  String get statusFormerClient => 'Former Client';
+
+  @override
+  String get postTypePlayerAvailable => 'Player Available';
+
+  @override
+  String get postTypeNeedPlayer => 'Need a Player';
+
+  @override
+  String get emptyPlayersTitle => 'No players yet';
+
+  @override
+  String get emptyPlayersSubtitle => 'Add your first player to get started.';
+
+  @override
+  String get errorLoadingData => 'Failed to load data. Please try again.';
 }

@@ -504,4 +504,113 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get phoneAccountExistsError => 'يوجد حساب مسجل بالفعل بهذا الرقم.';
+
+  @override
+  String playerCardLabel(String name, String position, String club) {
+    return '$name، $position في $club';
+  }
+
+  @override
+  String postCardLabel(String postType, String details) {
+    return '$postType: $details';
+  }
+
+  @override
+  String conversationCardLabel(String name, String lastMessage) {
+    return 'محادثة مع $name: $lastMessage';
+  }
+
+  @override
+  String get photoUploadLabel => 'رفع صورة';
+
+  @override
+  String documentSelectedLabel(String fileName) {
+    return 'المستند المحدد: $fileName';
+  }
+
+  @override
+  String get removeDocumentLabel => 'إزالة المستند';
+
+  @override
+  String uploadDocumentLabel(String label) {
+    return 'رفع $label';
+  }
+
+  @override
+  String familyContactLabel(String name, String relationship) {
+    return '$name، $relationship';
+  }
+
+  @override
+  String documentItemLabel(String label, String date) {
+    return '$label، تم الرفع $date';
+  }
+
+  @override
+  String noteItemLabel(String content) {
+    return 'ملاحظة: $content';
+  }
+
+  @override
+  String get editLabel => 'تعديل';
+
+  @override
+  String get deleteLabel => 'حذف';
+
+  @override
+  String get viewLabel => 'عرض';
+
+  @override
+  String get retryLabel => 'إعادة المحاولة';
+
+  @override
+  String get showcaseTitle => 'عرض المكونات';
+
+  @override
+  String get showcaseCards => 'البطاقات';
+
+  @override
+  String get showcaseFormElements => 'عناصر النموذج';
+
+  @override
+  String get showcaseButtons => 'الأزرار';
+
+  @override
+  String get showcaseListItems => 'عناصر القائمة';
+
+  @override
+  String get showcaseAvatars => 'الصور الرمزية';
+
+  @override
+  String get showcaseBadges => 'الشارات والعلامات';
+
+  @override
+  String get showcaseEmptyStates => 'حالات فارغة';
+
+  @override
+  String get showcaseFeedback => 'التغذية الراجعة';
+
+  @override
+  String get statusActiveClient => 'عميل نشط';
+
+  @override
+  String get statusProspect => 'مرشح';
+
+  @override
+  String get statusFormerClient => 'عميل سابق';
+
+  @override
+  String get postTypePlayerAvailable => 'لاعب متاح';
+
+  @override
+  String get postTypeNeedPlayer => 'مطلوب لاعب';
+
+  @override
+  String get emptyPlayersTitle => 'لا يوجد لاعبون بعد';
+
+  @override
+  String get emptyPlayersSubtitle => 'أضف أول لاعب للبدء.';
+
+  @override
+  String get errorLoadingData => 'فشل تحميل البيانات. يرجى المحاولة مرة أخرى.';
 }
