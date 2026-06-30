@@ -1,0 +1,103 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── HELPER FUNCTIONS ──────────────────────────
+    
+    // Is the user logged in?
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Is the user accessing their own document?
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    // Is the user a participant in a conversation?
+    function isParticipant(conversationId) {
+      return request.auth.uid in 
+        get(/databases/$(database)/documents/conversations/$(conversationId)).data.participantIds;
+    }
+
+    // ── USERS ─────────────────────────────────────
+    match /users/{userId} {
+      // Any logged-in agent can read any profile
+      // (needed for public profiles on Market posts)
+      allow read: if isAuthenticated();
+      
+      // Only the agent themselves can write their own profile
+      allow write: if isOwner(userId);
+    }
+
+    // ── PLAYERS ───────────────────────────────────
+    match /players/{playerId} {
+      // Only the owning agent can read or write their players
+      allow read, write: if isAuthenticated() 
+        && resource.data.agentId == request.auth.uid;
+
+      // Same rule applies to all subcollections
+      match /familyContacts/{contactId} {
+        allow read, write: if isAuthenticated() 
+          && get(/databases/$(database)/documents/players/$(playerId))
+            .data.agentId == request.auth.uid;
+      }
+
+      match /documents/{documentId} {
+        allow read, write: if isAuthenticated() 
+          && get(/databases/$(database)/documents/players/$(playerId))
+            .data.agentId == request.auth.uid;
+      }
+
+      match /notes/{noteId} {
+        allow read, write: if isAuthenticated() 
+          && get(/databases/$(database)/documents/players/$(playerId))
+            .data.agentId == request.auth.uid;
+      }
+    }
+
+    // ── MARKET POSTS ──────────────────────────────
+    match /market_posts/{postId} {
+      // Any logged-in agent can browse the Market feed
+      allow read: if isAuthenticated();
+      
+      // Only the owning agent can create, update, or delete their posts
+      allow write: if isAuthenticated() 
+        && resource.data.agentId == request.auth.uid;
+
+      // Allow creating a new post
+      allow create: if isAuthenticated() 
+        && request.resource.data.agentId == request.auth.uid;
+    }
+
+    // ── CONVERSATIONS ─────────────────────────────
+    match /conversations/{conversationId} {
+      // Only participants can read their conversation
+      allow read: if isAuthenticated() 
+        && request.auth.uid in resource.data.participantIds;
+
+      // Only participants can update (e.g. unread counts, last message)
+      allow update: if isAuthenticated() 
+        && request.auth.uid in resource.data.participantIds;
+
+      // Any logged-in agent can create a conversation
+      // but must include themselves as a participant
+      allow create: if isAuthenticated() 
+        && request.auth.uid in request.resource.data.participantIds;
+
+      // ── MESSAGES ──────────────────────────────
+      match /messages/{messageId} {
+        // Only participants can read messages
+        allow read: if isParticipant(conversationId);
+
+        // Only participants can send messages
+        // and the sender must be themselves
+        allow create: if isParticipant(conversationId) 
+          && request.resource.data.senderId == request.auth.uid;
+
+        // Messages cannot be edited or deleted in MVP
+        allow update, delete: if false;
+      }
+    }
+  }
+}

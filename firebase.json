@@ -1,1 +1,36 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"football-agent-mate","appId":"1:529666307539:android:7506a65f045b6fd2466b26","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"football-agent-mate","appId":"1:529666307539:ios:a2728ebfdfe698c9466b26","uploadDebugSymbols":true,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"football-agent-mate","configurations":{"android":"1:529666307539:android:7506a65f045b6fd2466b26","ios":"1:529666307539:ios:a2728ebfdfe698c9466b26"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "football-agent-mate",
+          "appId": "1:529666307539:android:7506a65f045b6fd2466b26",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "football-agent-mate",
+          "appId": "1:529666307539:ios:a2728ebfdfe698c9466b26",
+          "uploadDebugSymbols": true,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "football-agent-mate",
+          "configurations": {
+            "android": "1:529666307539:android:7506a65f045b6fd2466b26",
+            "ios": "1:529666307539:ios:a2728ebfdfe698c9466b26"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "europe-southwest1",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
