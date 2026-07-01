@@ -10,7 +10,6 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/widgets/am_avatar.dart';
 import '../../../core/widgets/am_destructive_button.dart';
-import '../../../core/widgets/am_document_list_item.dart';
 import '../../../core/widgets/am_empty_state.dart';
 import '../../../core/widgets/am_error_state.dart';
 import '../../../core/widgets/am_family_contact_list_item.dart';
@@ -24,6 +23,7 @@ import '../models/player_enums.dart';
 import '../models/player_model.dart';
 import '../providers/player_profile_provider.dart';
 import '../providers/player_providers.dart';
+import '../widgets/documents_section.dart';
 
 class PlayerProfileScreen extends ConsumerWidget {
   const PlayerProfileScreen({required this.playerId, super.key});
@@ -102,7 +102,7 @@ class _PlayerProfileBody extends ConsumerWidget {
                   _ContractFinancialSection(player: player),
                   _ContactSection(player: player),
                   _FamilyContactsSection(playerId: playerId),
-                  _DocumentsSection(playerId: playerId),
+                  DocumentsSection(playerId: playerId),
                   _NotesSection(playerId: playerId),
                 ],
               ),
@@ -814,63 +814,6 @@ class _FamilyContactsSection extends ConsumerWidget {
                         name: contact.name,
                         relationship: contact.relationship,
                         phoneNumber: contact.phoneNumber,
-                      ))
-                  .toList(),
-            );
-          },
-        ),
-      ],
-    );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Section 7 — Documents
-// ---------------------------------------------------------------------------
-
-class _DocumentsSection extends ConsumerWidget {
-  const _DocumentsSection({required this.playerId});
-
-  final String playerId;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final docsAsync = ref.watch(playerDocumentsProvider(playerId));
-    final dateFormat = DateFormat('dd MMM yyyy');
-
-    return _ProfileSection(
-      title: l10n.playerSectionDocuments,
-      children: [
-        docsAsync.when(
-          loading: () => const AmLoadingSkeleton(
-            variant: AmSkeletonVariant.listItem,
-          ),
-          error: (_, __) => AmErrorState(
-            message: l10n.errorLoadingData,
-            onRetry: () =>
-                ref.invalidate(playerDocumentsProvider(playerId)),
-          ),
-          data: (docs) {
-            if (docs.isEmpty) {
-              return AmEmptyState(
-                icon: Icons.folder_outlined,
-                title: l10n.playerNoDocuments,
-                subtitle: '',
-              );
-            }
-            return Column(
-              children: docs
-                  .map((doc) => AmDocumentListItem(
-                        label: doc.label,
-                        uploadDate: doc.uploadedAt != null
-                            ? dateFormat.format(doc.uploadedAt!)
-                            : '',
-                        fileType: doc.fileType,
-                        onView: () => launchUrl(
-                          Uri.parse(doc.fileUrl),
-                          mode: LaunchMode.externalApplication,
-                        ),
                       ))
                   .toList(),
             );

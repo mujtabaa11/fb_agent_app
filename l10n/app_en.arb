@@ -929,5 +929,89 @@
   "@editPlayerSuccess": { "description": "Snackbar message shown after a player is successfully updated." },
 
   "editPlayerError": "Failed to update player. Please try again.",
-  "@editPlayerError": { "description": "Snackbar message shown when updating a player fails." }
+  "@editPlayerError": { "description": "Snackbar message shown when updating a player fails." },
+
+  "documentsSection": "Documents",
+  "@documentsSection": { "description": "Section header for the documents section on the player profile screen." },
+
+  "addDocument": "Add Document",
+  "@addDocument": { "description": "Label for the button that opens the add document bottom sheet." },
+
+  "uploadDocument": "Upload Document",
+  "@uploadDocument": { "description": "Label for the submit button on the add document bottom sheet." },
+
+  "addDocumentTitle": "Add Document",
+  "@addDocumentTitle": { "description": "Title of the add document bottom sheet." },
+
+  "documentLabelField": "Document Type",
+  "@documentLabelField": { "description": "Label for the document type dropdown field." },
+
+  "documentCustomLabelField": "Specify Document Type",
+  "@documentCustomLabelField": { "description": "Label for the custom document type text field shown when Other is selected." },
+
+  "documentCustomLabelHint": "e.g. UEFA Licence, NDA",
+  "@documentCustomLabelHint": { "description": "Hint text for the custom document type text field." },
+
+  "documentFileField": "Select File",
+  "@documentFileField": { "description": "Label for the document file picker field." },
+
+  "emptyDocumentsTitle": "No Documents Yet",
+  "@emptyDocumentsTitle": { "description": "Title shown when a player has no documents uploaded." },
+
+  "emptyDocumentsMessage": "Upload contracts, passports, and certificates to keep everything in one place.",
+  "@emptyDocumentsMessage": { "description": "Subtitle shown when a player has no documents uploaded." },
+
+  "deleteDocumentTitle": "Delete Document?",
+  "@deleteDocumentTitle": { "description": "Title of the delete document confirmation dialog." },
+
+  "deleteDocumentMessage": "This action cannot be undone.",
+  "@deleteDocumentMessage": { "description": "Body text of the delete document confirmation dialog." },
+
+  "deleteButton": "Delete",
+  "@deleteButton": { "description": "Generic label for a destructive delete confirmation button." },
+
+  "cancelButton": "Cancel",
+  "@cancelButton": { "description": "Generic label for a cancel button." },
+
+  "documentUploadError": "Failed to upload document. Please try again.",
+  "@documentUploadError": { "description": "Error message shown when a document upload fails." },
+
+  "documentDeleteError": "Failed to delete document. Please try again.",
+  "@documentDeleteError": { "description": "Snackbar message shown when deleting a document fails." },
+
+  "documentFileTooLarge": "PDF files must be under 10MB. Please compress the file and try again.",
+  "@documentFileTooLarge": { "description": "Error message shown when a selected PDF exceeds the size limit." },
+
+  "documentFileTypeInvalid": "Only PDF, JPG, and PNG files are supported.",
+  "@documentFileTypeInvalid": { "description": "Error message shown when a selected file type is not supported." },
+
+  "labelPassport": "Passport",
+  "@labelPassport": { "description": "Document type label: Passport." },
+
+  "labelContract": "Contract",
+  "@labelContract": { "description": "Document type label: Contract." },
+
+  "labelRepresentationAgreement": "Representation Agreement (RA)",
+  "@labelRepresentationAgreement": { "description": "Document type label: Representation Agreement." },
+
+  "labelMedicalCertificate": "Medical Certificate",
+  "@labelMedicalCertificate": { "description": "Document type label: Medical Certificate." },
+
+  "labelWorkPermit": "Work Permit",
+  "@labelWorkPermit": { "description": "Document type label: Work Permit." },
+
+  "labelVisa": "Visa",
+  "@labelVisa": { "description": "Document type label: Visa." },
+
+  "labelTransferAgreement": "Transfer Agreement",
+  "@labelTransferAgreement": { "description": "Document type label: Transfer Agreement." },
+
+  "labelReleaseLetter": "Release Letter",
+  "@labelReleaseLetter": { "description": "Document type label: Release Letter." },
+
+  "labelInsurance": "Insurance",
+  "@labelInsurance": { "description": "Document type label: Insurance." },
+
+  "labelOther": "Other",
+  "@labelOther": { "description": "Document type label: Other, reveals a free-text field when selected." }
 }

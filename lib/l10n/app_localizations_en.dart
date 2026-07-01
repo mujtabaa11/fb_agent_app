@@ -1019,4 +1019,93 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get editPlayerError => 'Failed to update player. Please try again.';
+
+  @override
+  String get documentsSection => 'Documents';
+
+  @override
+  String get addDocument => 'Add Document';
+
+  @override
+  String get uploadDocument => 'Upload Document';
+
+  @override
+  String get addDocumentTitle => 'Add Document';
+
+  @override
+  String get documentLabelField => 'Document Type';
+
+  @override
+  String get documentCustomLabelField => 'Specify Document Type';
+
+  @override
+  String get documentCustomLabelHint => 'e.g. UEFA Licence, NDA';
+
+  @override
+  String get documentFileField => 'Select File';
+
+  @override
+  String get emptyDocumentsTitle => 'No Documents Yet';
+
+  @override
+  String get emptyDocumentsMessage =>
+      'Upload contracts, passports, and certificates to keep everything in one place.';
+
+  @override
+  String get deleteDocumentTitle => 'Delete Document?';
+
+  @override
+  String get deleteDocumentMessage => 'This action cannot be undone.';
+
+  @override
+  String get deleteButton => 'Delete';
+
+  @override
+  String get cancelButton => 'Cancel';
+
+  @override
+  String get documentUploadError =>
+      'Failed to upload document. Please try again.';
+
+  @override
+  String get documentDeleteError =>
+      'Failed to delete document. Please try again.';
+
+  @override
+  String get documentFileTooLarge =>
+      'PDF files must be under 10MB. Please compress the file and try again.';
+
+  @override
+  String get documentFileTypeInvalid =>
+      'Only PDF, JPG, and PNG files are supported.';
+
+  @override
+  String get labelPassport => 'Passport';
+
+  @override
+  String get labelContract => 'Contract';
+
+  @override
+  String get labelRepresentationAgreement => 'Representation Agreement (RA)';
+
+  @override
+  String get labelMedicalCertificate => 'Medical Certificate';
+
+  @override
+  String get labelWorkPermit => 'Work Permit';
+
+  @override
+  String get labelVisa => 'Visa';
+
+  @override
+  String get labelTransferAgreement => 'Transfer Agreement';
+
+  @override
+  String get labelReleaseLetter => 'Release Letter';
+
+  @override
+  String get labelInsurance => 'Insurance';
+
+  @override
+  String get labelOther => 'Other';
 }

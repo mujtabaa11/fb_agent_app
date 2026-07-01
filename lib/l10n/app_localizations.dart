@@ -1953,6 +1953,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to update player. Please try again.'**
   String get editPlayerError;
+
+  /// Section header for the documents section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get documentsSection;
+
+  /// Label for the button that opens the add document bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Document'**
+  String get addDocument;
+
+  /// Label for the submit button on the add document bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Document'**
+  String get uploadDocument;
+
+  /// Title of the add document bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Document'**
+  String get addDocumentTitle;
+
+  /// Label for the document type dropdown field.
+  ///
+  /// In en, this message translates to:
+  /// **'Document Type'**
+  String get documentLabelField;
+
+  /// Label for the custom document type text field shown when Other is selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Specify Document Type'**
+  String get documentCustomLabelField;
+
+  /// Hint text for the custom document type text field.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. UEFA Licence, NDA'**
+  String get documentCustomLabelHint;
+
+  /// Label for the document file picker field.
+  ///
+  /// In en, this message translates to:
+  /// **'Select File'**
+  String get documentFileField;
+
+  /// Title shown when a player has no documents uploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'No Documents Yet'**
+  String get emptyDocumentsTitle;
+
+  /// Subtitle shown when a player has no documents uploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload contracts, passports, and certificates to keep everything in one place.'**
+  String get emptyDocumentsMessage;
+
+  /// Title of the delete document confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Document?'**
+  String get deleteDocumentTitle;
+
+  /// Body text of the delete document confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone.'**
+  String get deleteDocumentMessage;
+
+  /// Generic label for a destructive delete confirmation button.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteButton;
+
+  /// Generic label for a cancel button.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelButton;
+
+  /// Error message shown when a document upload fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to upload document. Please try again.'**
+  String get documentUploadError;
+
+  /// Snackbar message shown when deleting a document fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete document. Please try again.'**
+  String get documentDeleteError;
+
+  /// Error message shown when a selected PDF exceeds the size limit.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF files must be under 10MB. Please compress the file and try again.'**
+  String get documentFileTooLarge;
+
+  /// Error message shown when a selected file type is not supported.
+  ///
+  /// In en, this message translates to:
+  /// **'Only PDF, JPG, and PNG files are supported.'**
+  String get documentFileTypeInvalid;
+
+  /// Document type label: Passport.
+  ///
+  /// In en, this message translates to:
+  /// **'Passport'**
+  String get labelPassport;
+
+  /// Document type label: Contract.
+  ///
+  /// In en, this message translates to:
+  /// **'Contract'**
+  String get labelContract;
+
+  /// Document type label: Representation Agreement.
+  ///
+  /// In en, this message translates to:
+  /// **'Representation Agreement (RA)'**
+  String get labelRepresentationAgreement;
+
+  /// Document type label: Medical Certificate.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical Certificate'**
+  String get labelMedicalCertificate;
+
+  /// Document type label: Work Permit.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Permit'**
+  String get labelWorkPermit;
+
+  /// Document type label: Visa.
+  ///
+  /// In en, this message translates to:
+  /// **'Visa'**
+  String get labelVisa;
+
+  /// Document type label: Transfer Agreement.
+  ///
+  /// In en, this message translates to:
+  /// **'Transfer Agreement'**
+  String get labelTransferAgreement;
+
+  /// Document type label: Release Letter.
+  ///
+  /// In en, this message translates to:
+  /// **'Release Letter'**
+  String get labelReleaseLetter;
+
+  /// Document type label: Insurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get labelInsurance;
+
+  /// Document type label: Other, reveals a free-text field when selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get labelOther;
 }
 
 class _AppLocalizationsDelegate

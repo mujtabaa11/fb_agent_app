@@ -7,8 +7,8 @@ class PlayerDocumentModel {
     required this.id,
     required this.label,
     required this.fileUrl,
-    this.fileType,
-    this.uploadedAt,
+    required this.fileType,
+    required this.uploadedAt,
   });
 
   factory PlayerDocumentModel.fromJson(Map<String, dynamic> json) {
@@ -16,16 +16,25 @@ class PlayerDocumentModel {
       id: json['id'] as String? ?? '',
       label: json['label'] as String? ?? '',
       fileUrl: json['fileUrl'] as String? ?? '',
-      fileType: json['fileType'] as String?,
-      uploadedAt: _timestampToDateTime(json['uploadedAt']),
+      fileType: json['fileType'] as String? ?? '',
+      uploadedAt: _timestampToDateTime(json['uploadedAt']) ?? DateTime.now(),
     );
   }
 
   final String id;
   final String label;
   final String fileUrl;
-  final String? fileType;
-  final DateTime? uploadedAt;
+  final String fileType;
+  final DateTime uploadedAt;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'label': label,
+      'fileUrl': fileUrl,
+      'fileType': fileType,
+      'uploadedAt': Timestamp.fromDate(uploadedAt),
+    };
+  }
 
   static DateTime? _timestampToDateTime(Object? value) {
     if (value is Timestamp) return value.toDate();

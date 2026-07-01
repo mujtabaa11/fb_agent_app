@@ -16,4 +16,9 @@ abstract class PlayerRepository {
   Stream<Result<List<FamilyContactModel>>> watchFamilyContacts(String playerId);
   Stream<Result<List<PlayerDocumentModel>>> watchDocuments(String playerId);
   Stream<Result<List<PlayerNoteModel>>> watchNotes(String playerId);
+  Future<Result<PlayerDocumentModel>> addDocument(
+    String playerId,
+    PlayerDocumentModel document,
+  );
+  Future<Result<void>> deleteDocument(String playerId, String documentId);
 }

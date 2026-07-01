@@ -189,10 +189,53 @@ class PlayerRepositoryImpl implements PlayerRepository {
   }
 
   @override
+  Future<Result<PlayerDocumentModel>> addDocument(
+    String playerId,
+    PlayerDocumentModel document,
+  ) async {
+    try {
+      final docRef =
+          _collection.doc(playerId).collection('documents').doc(document.id);
+      await docRef.set(document.toJson());
+
+      return Success(document);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<void>> deleteDocument(
+    String playerId,
+    String documentId,
+  ) async {
+    try {
+      await _collection
+          .doc(playerId)
+          .collection('documents')
+          .doc(documentId)
+          .delete();
+
+      return const Success(null);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
   Stream<Result<List<PlayerDocumentModel>>> watchDocuments(String playerId) {
     return _collection
         .doc(playerId)
         .collection('documents')
+        .orderBy('uploadedAt', descending: true)
         .snapshots()
         .transform(
       StreamTransformer<QuerySnapshot<Map<String, dynamic>>,
