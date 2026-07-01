@@ -908,5 +908,26 @@
   "@playerNotFoundBody": { "description": "Body text for the player not found empty state." },
 
   "playerProfileBack": "Back",
-  "@playerProfileBack": { "description": "Label for the back button on the player not found state." }
+  "@playerProfileBack": { "description": "Label for the back button on the player not found state." },
+
+  "editPlayerSave": "Save Changes",
+  "@editPlayerSave": { "description": "Label for the save button on the edit player form." },
+
+  "editPlayerDiscardTitle": "Discard Changes?",
+  "@editPlayerDiscardTitle": { "description": "Title of the discard changes dialog shown when navigating away from the edit player form with unsaved changes." },
+
+  "editPlayerDiscardMessage": "You have unsaved changes. Are you sure you want to discard them?",
+  "@editPlayerDiscardMessage": { "description": "Body text of the discard changes dialog on the edit player form." },
+
+  "editPlayerDiscardConfirm": "Discard",
+  "@editPlayerDiscardConfirm": { "description": "Confirm button label in the edit player discard changes dialog." },
+
+  "editPlayerDiscardCancel": "Keep Editing",
+  "@editPlayerDiscardCancel": { "description": "Cancel button label in the edit player discard changes dialog." },
+
+  "editPlayerSuccess": "Player updated successfully",
+  "@editPlayerSuccess": { "description": "Snackbar message shown after a player is successfully updated." },
+
+  "editPlayerError": "Failed to update player. Please try again.",
+  "@editPlayerError": { "description": "Snackbar message shown when updating a player fails." }
 }

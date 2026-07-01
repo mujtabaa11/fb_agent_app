@@ -997,4 +997,26 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get playerProfileBack => 'Back';
+
+  @override
+  String get editPlayerSave => 'Save Changes';
+
+  @override
+  String get editPlayerDiscardTitle => 'Discard Changes?';
+
+  @override
+  String get editPlayerDiscardMessage =>
+      'You have unsaved changes. Are you sure you want to discard them?';
+
+  @override
+  String get editPlayerDiscardConfirm => 'Discard';
+
+  @override
+  String get editPlayerDiscardCancel => 'Keep Editing';
+
+  @override
+  String get editPlayerSuccess => 'Player updated successfully';
+
+  @override
+  String get editPlayerError => 'Failed to update player. Please try again.';
 }

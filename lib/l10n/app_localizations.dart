@@ -1911,6 +1911,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get playerProfileBack;
+
+  /// Label for the save button on the edit player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get editPlayerSave;
+
+  /// Title of the discard changes dialog shown when navigating away from the edit player form with unsaved changes.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard Changes?'**
+  String get editPlayerDiscardTitle;
+
+  /// Body text of the discard changes dialog on the edit player form.
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. Are you sure you want to discard them?'**
+  String get editPlayerDiscardMessage;
+
+  /// Confirm button label in the edit player discard changes dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get editPlayerDiscardConfirm;
+
+  /// Cancel button label in the edit player discard changes dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep Editing'**
+  String get editPlayerDiscardCancel;
+
+  /// Snackbar message shown after a player is successfully updated.
+  ///
+  /// In en, this message translates to:
+  /// **'Player updated successfully'**
+  String get editPlayerSuccess;
+
+  /// Snackbar message shown when updating a player fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update player. Please try again.'**
+  String get editPlayerError;
 }
 
 class _AppLocalizationsDelegate
