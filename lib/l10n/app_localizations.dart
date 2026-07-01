@@ -634,59 +634,65 @@ abstract class AppLocalizations {
   /// **'Checking verification status'**
   String get verifyEmailCheckLabel;
 
-  /// Title for the first onboarding page. Placeholder — replace with project-specific copy.
+  /// Title for the first onboarding page.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Football Agent Mate'**
-  String get onboardingWelcomeTitle;
+  /// **'Your Players. Your Network. One App.'**
+  String get onboardingSlide1Title;
 
-  /// Subtitle for the first onboarding page. Placeholder — replace with project-specific copy.
+  /// Subtitle for the first onboarding page.
   ///
   /// In en, this message translates to:
-  /// **'Your production-ready Flutter boilerplate. Everything you need to build, ship, and scale — already set up.'**
-  String get onboardingWelcomeSubtitle;
+  /// **'Agent Mate is built for football agents who mean business.'**
+  String get onboardingSlide1Body;
 
-  /// Title for the second onboarding page. Placeholder — replace with project-specific copy.
+  /// Title for the second onboarding page.
   ///
   /// In en, this message translates to:
-  /// **'Build Faster'**
-  String get onboardingBuildFasterTitle;
+  /// **'Manage Every Client in One Place'**
+  String get onboardingSlide2Title;
 
-  /// Subtitle for the second onboarding page. Placeholder — replace with project-specific copy.
+  /// Subtitle for the second onboarding page.
   ///
   /// In en, this message translates to:
-  /// **'Auth, routing, theming, localization, and more — pre-built so you can focus on what makes your app unique.'**
-  String get onboardingBuildFasterSubtitle;
+  /// **'Register your players, track contracts, store documents, and never miss an important date.'**
+  String get onboardingSlide2Body;
 
-  /// Title for the third onboarding page. Placeholder — replace with project-specific copy.
+  /// Title for the third onboarding page.
   ///
   /// In en, this message translates to:
-  /// **'Ship with Confidence'**
-  String get onboardingShipTitle;
+  /// **'Connect With Agents Worldwide'**
+  String get onboardingSlide3Title;
 
-  /// Subtitle for the third onboarding page. Placeholder — replace with project-specific copy.
+  /// Subtitle for the third onboarding page.
   ///
   /// In en, this message translates to:
-  /// **'Production-quality architecture, tested and documented. Start building your next great app today.'**
-  String get onboardingShipSubtitle;
+  /// **'Post opportunities, discover players, and close deals — all inside Agent Mate.'**
+  String get onboardingSlide3Body;
 
-  /// Button label to skip the onboarding flow and proceed directly to the next screen.
+  /// Button label on the last onboarding page that completes the onboarding flow and navigates to sign up.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get onboardingGetStarted;
+
+  /// Button label on the last onboarding page that completes the onboarding flow and navigates to login.
+  ///
+  /// In en, this message translates to:
+  /// **'I already have an account'**
+  String get onboardingHaveAccount;
+
+  /// Button label to skip the onboarding flow and proceed directly to sign up.
   ///
   /// In en, this message translates to:
   /// **'Skip'**
-  String get onboardingSkipButton;
+  String get onboardingSkip;
 
   /// Button label to advance to the next onboarding page.
   ///
   /// In en, this message translates to:
   /// **'Next'**
   String get onboardingNextButton;
-
-  /// Button label on the last onboarding page that completes the onboarding flow.
-  ///
-  /// In en, this message translates to:
-  /// **'Get Started'**
-  String get onboardingGetStartedButton;
 
   /// Screen-reader-only accessibility label announcing the current page position in the onboarding carousel.
   ///

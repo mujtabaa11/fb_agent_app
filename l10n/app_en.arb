@@ -271,32 +271,35 @@
   "verifyEmailCheckLabel": "Checking verification status",
   "@verifyEmailCheckLabel": { "description": "Screen-reader-only accessibility label for the progress indicator shown while checking email verification status." },
 
-  "onboardingWelcomeTitle": "Welcome to Football Agent Mate",
-  "@onboardingWelcomeTitle": { "description": "Title for the first onboarding page. Placeholder — replace with project-specific copy." },
+  "onboardingSlide1Title": "Your Players. Your Network. One App.",
+  "@onboardingSlide1Title": { "description": "Title for the first onboarding page." },
 
-  "onboardingWelcomeSubtitle": "Your production-ready Flutter boilerplate. Everything you need to build, ship, and scale — already set up.",
-  "@onboardingWelcomeSubtitle": { "description": "Subtitle for the first onboarding page. Placeholder — replace with project-specific copy." },
+  "onboardingSlide1Body": "Agent Mate is built for football agents who mean business.",
+  "@onboardingSlide1Body": { "description": "Subtitle for the first onboarding page." },
 
-  "onboardingBuildFasterTitle": "Build Faster",
-  "@onboardingBuildFasterTitle": { "description": "Title for the second onboarding page. Placeholder — replace with project-specific copy." },
+  "onboardingSlide2Title": "Manage Every Client in One Place",
+  "@onboardingSlide2Title": { "description": "Title for the second onboarding page." },
 
-  "onboardingBuildFasterSubtitle": "Auth, routing, theming, localization, and more — pre-built so you can focus on what makes your app unique.",
-  "@onboardingBuildFasterSubtitle": { "description": "Subtitle for the second onboarding page. Placeholder — replace with project-specific copy." },
+  "onboardingSlide2Body": "Register your players, track contracts, store documents, and never miss an important date.",
+  "@onboardingSlide2Body": { "description": "Subtitle for the second onboarding page." },
 
-  "onboardingShipTitle": "Ship with Confidence",
-  "@onboardingShipTitle": { "description": "Title for the third onboarding page. Placeholder — replace with project-specific copy." },
+  "onboardingSlide3Title": "Connect With Agents Worldwide",
+  "@onboardingSlide3Title": { "description": "Title for the third onboarding page." },
 
-  "onboardingShipSubtitle": "Production-quality architecture, tested and documented. Start building your next great app today.",
-  "@onboardingShipSubtitle": { "description": "Subtitle for the third onboarding page. Placeholder — replace with project-specific copy." },
+  "onboardingSlide3Body": "Post opportunities, discover players, and close deals — all inside Agent Mate.",
+  "@onboardingSlide3Body": { "description": "Subtitle for the third onboarding page." },
 
-  "onboardingSkipButton": "Skip",
-  "@onboardingSkipButton": { "description": "Button label to skip the onboarding flow and proceed directly to the next screen." },
+  "onboardingGetStarted": "Get Started",
+  "@onboardingGetStarted": { "description": "Button label on the last onboarding page that completes the onboarding flow and navigates to sign up." },
+
+  "onboardingHaveAccount": "I already have an account",
+  "@onboardingHaveAccount": { "description": "Button label on the last onboarding page that completes the onboarding flow and navigates to login." },
+
+  "onboardingSkip": "Skip",
+  "@onboardingSkip": { "description": "Button label to skip the onboarding flow and proceed directly to sign up." },
 
   "onboardingNextButton": "Next",
   "@onboardingNextButton": { "description": "Button label to advance to the next onboarding page." },
-
-  "onboardingGetStartedButton": "Get Started",
-  "@onboardingGetStartedButton": { "description": "Button label on the last onboarding page that completes the onboarding flow." },
 
   "onboardingPageIndicator": "Page {current} of {total}",
   "@onboardingPageIndicator": { "description": "Screen-reader-only accessibility label announcing the current page position in the onboarding carousel.", "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },

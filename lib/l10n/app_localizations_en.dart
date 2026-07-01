@@ -303,34 +303,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verifyEmailCheckLabel => 'Checking verification status';
 
   @override
-  String get onboardingWelcomeTitle => 'Welcome to Football Agent Mate';
+  String get onboardingSlide1Title => 'Your Players. Your Network. One App.';
 
   @override
-  String get onboardingWelcomeSubtitle =>
-      'Your production-ready Flutter boilerplate. Everything you need to build, ship, and scale — already set up.';
+  String get onboardingSlide1Body =>
+      'Agent Mate is built for football agents who mean business.';
 
   @override
-  String get onboardingBuildFasterTitle => 'Build Faster';
+  String get onboardingSlide2Title => 'Manage Every Client in One Place';
 
   @override
-  String get onboardingBuildFasterSubtitle =>
-      'Auth, routing, theming, localization, and more — pre-built so you can focus on what makes your app unique.';
+  String get onboardingSlide2Body =>
+      'Register your players, track contracts, store documents, and never miss an important date.';
 
   @override
-  String get onboardingShipTitle => 'Ship with Confidence';
+  String get onboardingSlide3Title => 'Connect With Agents Worldwide';
 
   @override
-  String get onboardingShipSubtitle =>
-      'Production-quality architecture, tested and documented. Start building your next great app today.';
+  String get onboardingSlide3Body =>
+      'Post opportunities, discover players, and close deals — all inside Agent Mate.';
 
   @override
-  String get onboardingSkipButton => 'Skip';
+  String get onboardingGetStarted => 'Get Started';
+
+  @override
+  String get onboardingHaveAccount => 'I already have an account';
+
+  @override
+  String get onboardingSkip => 'Skip';
 
   @override
   String get onboardingNextButton => 'Next';
-
-  @override
-  String get onboardingGetStartedButton => 'Get Started';
 
   @override
   String onboardingPageIndicator(int current, int total) {

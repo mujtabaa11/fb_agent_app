@@ -70,10 +70,11 @@ The `OnboardingPageContent` widget is in `widgets/onboarding_page_content.dart` 
 
 All onboarding strings live in the ARB files under the `onboarding` prefix:
 
-- `onboardingWelcomeTitle`, `onboardingWelcomeSubtitle`
-- `onboardingBuildFasterTitle`, `onboardingBuildFasterSubtitle`
-- `onboardingShipTitle`, `onboardingShipSubtitle`
-- `onboardingSkipButton`, `onboardingNextButton`, `onboardingGetStartedButton`
+- `onboardingSlide1Title`, `onboardingSlide1Body`
+- `onboardingSlide2Title`, `onboardingSlide2Body`
+- `onboardingSlide3Title`, `onboardingSlide3Body`
+- `onboardingGetStarted`, `onboardingHaveAccount` (final page CTAs)
+- `onboardingSkip`, `onboardingNextButton`
 - `onboardingPageIndicator` (with `{current}` and `{total}` placeholders)
 
 Add new keys to `l10n/app_en.arb` (and any future locale ARB files), then run:

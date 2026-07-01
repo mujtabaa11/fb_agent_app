@@ -7,6 +7,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:football_agent_mate/l10n/app_localizations.dart';
 
+import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tokens.dart';
 
 /// A row of dots that highlights the current page in the onboarding carousel.
@@ -30,7 +31,6 @@ class OnboardingPageIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final colorScheme = Theme.of(context).colorScheme;
 
     return Semantics(
       label: l10n.onboardingPageIndicator(currentPage + 1, pageCount),
@@ -47,9 +47,7 @@ class OnboardingPageIndicator extends StatelessWidget {
               width: isActive ? _activeDotWidth : _dotSize,
               height: _dotSize,
               decoration: BoxDecoration(
-                color: isActive
-                    ? colorScheme.primary
-                    : colorScheme.onSurface.withValues(alpha: 0.3),
+                color: isActive ? AppColors.primary : AppColors.border,
                 borderRadius: BorderRadius.circular(_dotSize / 2),
               ),
             );
