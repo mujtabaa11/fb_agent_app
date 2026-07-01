@@ -909,4 +909,92 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorSavePlayer => 'Failed to save player. Please try again.';
+
+  @override
+  String get playerProfileEdit => 'Edit';
+
+  @override
+  String get playerProfileDelete => 'Delete';
+
+  @override
+  String get playerDeleteTitle => 'Delete Player';
+
+  @override
+  String get playerDeleteConfirmation =>
+      'Are you sure you want to delete this player? This action cannot be undone.';
+
+  @override
+  String get playerDeleteConfirm => 'Delete';
+
+  @override
+  String get playerDeleteCancel => 'Cancel';
+
+  @override
+  String get playerDeleteSuccess => 'Player deleted successfully';
+
+  @override
+  String get playerDeleteError => 'Failed to delete player. Please try again.';
+
+  @override
+  String get playerSectionIdentity => 'Identity';
+
+  @override
+  String get playerSectionFootball => 'Football Details';
+
+  @override
+  String get playerSectionRepresentation => 'Representation';
+
+  @override
+  String get playerSectionContract => 'Contract & Financial';
+
+  @override
+  String get playerSectionContact => 'Contact';
+
+  @override
+  String get playerSectionFamily => 'Family Contacts';
+
+  @override
+  String get playerSectionDocuments => 'Documents';
+
+  @override
+  String get playerSectionNotes => 'Notes';
+
+  @override
+  String playerAgeYears(int age) {
+    return '$age years old';
+  }
+
+  @override
+  String get playerContractExpiringSoon => 'Expiring soon';
+
+  @override
+  String get playerNoFamilyContacts => 'No family contacts added';
+
+  @override
+  String get playerNoDocuments => 'No documents uploaded';
+
+  @override
+  String get playerNoNotes => 'No notes added';
+
+  @override
+  String get playerNotFound => 'Player not found';
+
+  @override
+  String get playerProfileOpenTransfermarkt => 'View on Transfermarkt';
+
+  @override
+  String get playerProfileCallNumber => 'Call';
+
+  @override
+  String get playerProfileSendEmail => 'Email';
+
+  @override
+  String get playerProfileWhatsApp => 'WhatsApp';
+
+  @override
+  String get playerNotFoundBody =>
+      'This player may have been removed or the link is invalid.';
+
+  @override
+  String get playerProfileBack => 'Back';
 }

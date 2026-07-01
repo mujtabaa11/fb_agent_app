@@ -1743,6 +1743,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to save player. Please try again.'**
   String get errorSavePlayer;
+
+  /// Tooltip for the edit button in the player profile app bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get playerProfileEdit;
+
+  /// Tooltip for the delete button in the player profile app bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get playerProfileDelete;
+
+  /// Title of the delete player confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Player'**
+  String get playerDeleteTitle;
+
+  /// Body text of the delete player confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this player? This action cannot be undone.'**
+  String get playerDeleteConfirmation;
+
+  /// Confirm button label in the delete player confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get playerDeleteConfirm;
+
+  /// Cancel button label in the delete player confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get playerDeleteCancel;
+
+  /// Snackbar message shown after a player is successfully deleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Player deleted successfully'**
+  String get playerDeleteSuccess;
+
+  /// Snackbar message shown when player deletion fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete player. Please try again.'**
+  String get playerDeleteError;
+
+  /// Section header for the identity section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Identity'**
+  String get playerSectionIdentity;
+
+  /// Section header for the football details section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Football Details'**
+  String get playerSectionFootball;
+
+  /// Section header for the representation section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Representation'**
+  String get playerSectionRepresentation;
+
+  /// Section header for the contract and financial section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Contract & Financial'**
+  String get playerSectionContract;
+
+  /// Section header for the contact section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get playerSectionContact;
+
+  /// Section header for the family contacts section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Contacts'**
+  String get playerSectionFamily;
+
+  /// Section header for the documents section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get playerSectionDocuments;
+
+  /// Section header for the notes section on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get playerSectionNotes;
+
+  /// Displays the player's age calculated from date of birth.
+  ///
+  /// In en, this message translates to:
+  /// **'{age} years old'**
+  String playerAgeYears(int age);
+
+  /// Warning label shown next to contract dates expiring within 90 days.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiring soon'**
+  String get playerContractExpiringSoon;
+
+  /// Empty state message for the family contacts section.
+  ///
+  /// In en, this message translates to:
+  /// **'No family contacts added'**
+  String get playerNoFamilyContacts;
+
+  /// Empty state message for the documents section.
+  ///
+  /// In en, this message translates to:
+  /// **'No documents uploaded'**
+  String get playerNoDocuments;
+
+  /// Empty state message for the notes section.
+  ///
+  /// In en, this message translates to:
+  /// **'No notes added'**
+  String get playerNoNotes;
+
+  /// Message shown when a player document does not exist or has been deleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Player not found'**
+  String get playerNotFound;
+
+  /// Accessibility label for the Transfermarkt link on the player profile.
+  ///
+  /// In en, this message translates to:
+  /// **'View on Transfermarkt'**
+  String get playerProfileOpenTransfermarkt;
+
+  /// Accessibility label for tapping a phone number to open the dialer.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get playerProfileCallNumber;
+
+  /// Accessibility label for tapping an email address to open the mail client.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get playerProfileSendEmail;
+
+  /// Accessibility label for tapping a WhatsApp number to open WhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp'**
+  String get playerProfileWhatsApp;
+
+  /// Body text for the player not found empty state.
+  ///
+  /// In en, this message translates to:
+  /// **'This player may have been removed or the link is invalid.'**
+  String get playerNotFoundBody;
+
+  /// Label for the back button on the player not found state.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get playerProfileBack;
 }
 
 class _AppLocalizationsDelegate

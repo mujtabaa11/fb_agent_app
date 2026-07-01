@@ -7,7 +7,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../core/data/result.dart';
 import '../../../core/errors/app_exceptions.dart';
+import '../models/family_contact_model.dart';
+import '../models/player_document_model.dart';
 import '../models/player_model.dart';
+import '../models/player_note_model.dart';
 import 'player_repository.dart';
 
 class PlayerRepositoryImpl implements PlayerRepository {
@@ -121,6 +124,125 @@ class PlayerRepositoryImpl implements PlayerRepository {
           } else {
             sink.add(
                 Failure(DataException(originalMessage: error.toString())));
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  Stream<Result<PlayerModel?>> watchPlayer(String playerId) {
+    return _collection.doc(playerId).snapshots().transform(
+      StreamTransformer<DocumentSnapshot<Map<String, dynamic>>,
+          Result<PlayerModel?>>.fromHandlers(
+        handleData: (snapshot, sink) {
+          if (!snapshot.exists) {
+            sink.add(const Success(null));
+            return;
+          }
+          final data = snapshot.data()!;
+          data['id'] = snapshot.id;
+          sink.add(Success(PlayerModel.fromJson(data)));
+        },
+        handleError: (error, stackTrace, sink) {
+          if (error is FirebaseException) {
+            sink.add(Failure(_mapFirebaseException(error)));
+          } else if (error is SocketException) {
+            sink.add(Failure(const NetworkException()));
+          } else {
+            sink.add(Failure(DataException(originalMessage: error.toString())));
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  Stream<Result<List<FamilyContactModel>>> watchFamilyContacts(
+      String playerId) {
+    return _collection
+        .doc(playerId)
+        .collection('familyContacts')
+        .snapshots()
+        .transform(
+      StreamTransformer<QuerySnapshot<Map<String, dynamic>>,
+          Result<List<FamilyContactModel>>>.fromHandlers(
+        handleData: (snapshot, sink) {
+          final contacts = snapshot.docs.map((doc) {
+            final data = doc.data();
+            data['id'] = doc.id;
+            return FamilyContactModel.fromJson(data);
+          }).toList();
+          sink.add(Success(contacts));
+        },
+        handleError: (error, stackTrace, sink) {
+          if (error is FirebaseException) {
+            sink.add(Failure(_mapFirebaseException(error)));
+          } else if (error is SocketException) {
+            sink.add(Failure(const NetworkException()));
+          } else {
+            sink.add(Failure(DataException(originalMessage: error.toString())));
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  Stream<Result<List<PlayerDocumentModel>>> watchDocuments(String playerId) {
+    return _collection
+        .doc(playerId)
+        .collection('documents')
+        .snapshots()
+        .transform(
+      StreamTransformer<QuerySnapshot<Map<String, dynamic>>,
+          Result<List<PlayerDocumentModel>>>.fromHandlers(
+        handleData: (snapshot, sink) {
+          final docs = snapshot.docs.map((doc) {
+            final data = doc.data();
+            data['id'] = doc.id;
+            return PlayerDocumentModel.fromJson(data);
+          }).toList();
+          sink.add(Success(docs));
+        },
+        handleError: (error, stackTrace, sink) {
+          if (error is FirebaseException) {
+            sink.add(Failure(_mapFirebaseException(error)));
+          } else if (error is SocketException) {
+            sink.add(Failure(const NetworkException()));
+          } else {
+            sink.add(Failure(DataException(originalMessage: error.toString())));
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  Stream<Result<List<PlayerNoteModel>>> watchNotes(String playerId) {
+    return _collection
+        .doc(playerId)
+        .collection('notes')
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .transform(
+      StreamTransformer<QuerySnapshot<Map<String, dynamic>>,
+          Result<List<PlayerNoteModel>>>.fromHandlers(
+        handleData: (snapshot, sink) {
+          final notes = snapshot.docs.map((doc) {
+            final data = doc.data();
+            data['id'] = doc.id;
+            return PlayerNoteModel.fromJson(data);
+          }).toList();
+          sink.add(Success(notes));
+        },
+        handleError: (error, stackTrace, sink) {
+          if (error is FirebaseException) {
+            sink.add(Failure(_mapFirebaseException(error)));
+          } else if (error is SocketException) {
+            sink.add(Failure(const NetworkException()));
+          } else {
+            sink.add(Failure(DataException(originalMessage: error.toString())));
           }
         },
       ),
