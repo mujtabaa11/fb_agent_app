@@ -12,7 +12,6 @@ import '../../../core/widgets/am_avatar.dart';
 import '../../../core/widgets/am_destructive_button.dart';
 import '../../../core/widgets/am_empty_state.dart';
 import '../../../core/widgets/am_error_state.dart';
-import '../../../core/widgets/am_family_contact_list_item.dart';
 import '../../../core/widgets/am_loading_skeleton.dart';
 import '../../../core/widgets/am_status_badge.dart';
 import '../../../core/widgets/am_text_button.dart';
@@ -23,6 +22,7 @@ import '../models/player_model.dart';
 import '../providers/player_profile_provider.dart';
 import '../providers/player_providers.dart';
 import '../widgets/documents_section.dart';
+import '../widgets/family_contacts_section.dart';
 import '../widgets/notes_section.dart';
 
 class PlayerProfileScreen extends ConsumerWidget {
@@ -101,7 +101,7 @@ class _PlayerProfileBody extends ConsumerWidget {
                   _RepresentationSection(player: player),
                   _ContractFinancialSection(player: player),
                   _ContactSection(player: player),
-                  _FamilyContactsSection(playerId: playerId),
+                  FamilyContactsSection(playerId: playerId),
                   DocumentsSection(playerId: playerId),
                   NotesSection(playerId: playerId),
                 ],
@@ -770,56 +770,6 @@ class _ContactRow extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Section 6 — Family Contacts
-// ---------------------------------------------------------------------------
-
-class _FamilyContactsSection extends ConsumerWidget {
-  const _FamilyContactsSection({required this.playerId});
-
-  final String playerId;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final contactsAsync = ref.watch(familyContactsProvider(playerId));
-
-    return _ProfileSection(
-      title: l10n.playerSectionFamily,
-      children: [
-        contactsAsync.when(
-          loading: () => const AmLoadingSkeleton(
-            variant: AmSkeletonVariant.listItem,
-          ),
-          error: (_, __) => AmErrorState(
-            message: l10n.errorLoadingData,
-            onRetry: () =>
-                ref.invalidate(familyContactsProvider(playerId)),
-          ),
-          data: (contacts) {
-            if (contacts.isEmpty) {
-              return AmEmptyState(
-                icon: Icons.people_outline,
-                title: l10n.playerNoFamilyContacts,
-                subtitle: '',
-              );
-            }
-            return Column(
-              children: contacts
-                  .map((contact) => AmFamilyContactListItem(
-                        name: contact.name,
-                        relationship: contact.relationship,
-                        phoneNumber: contact.phoneNumber,
-                      ))
-                  .toList(),
-            );
-          },
-        ),
-      ],
     );
   }
 }

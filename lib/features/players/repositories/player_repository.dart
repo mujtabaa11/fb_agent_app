@@ -27,4 +27,13 @@ abstract class PlayerRepository {
     PlayerNoteModel note,
   );
   Future<Result<void>> deleteNote(String playerId, String noteId);
+  Future<Result<FamilyContactModel>> addFamilyContact(
+    String playerId,
+    FamilyContactModel contact,
+  );
+  Future<Result<FamilyContactModel>> updateFamilyContact(
+    String playerId,
+    FamilyContactModel contact,
+  );
+  Future<Result<void>> deleteFamilyContact(String playerId, String contactId);
 }

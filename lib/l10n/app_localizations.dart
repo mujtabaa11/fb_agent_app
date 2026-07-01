@@ -2170,6 +2170,90 @@ abstract class AppLocalizations {
   /// **'Note content cannot be empty.'**
   String get validationNoteEmpty;
 
+  /// Label for the button that opens the add family contact bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Contact'**
+  String get addContact;
+
+  /// Label for the action that opens the edit family contact bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Contact'**
+  String get editContact;
+
+  /// Title of the bottom sheet when adding a new family contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Contact'**
+  String get addContactTitle;
+
+  /// Title of the bottom sheet when editing an existing family contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Contact'**
+  String get editContactTitle;
+
+  /// Label for the submit button when adding a family contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Contact'**
+  String get saveContact;
+
+  /// Label for the submit button when editing a family contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Contact'**
+  String get updateContact;
+
+  /// Label for the name field on the family contact form.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get fieldName;
+
+  /// Label for the relationship field on the family contact form.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship'**
+  String get fieldRelationship;
+
+  /// Hint text for the relationship field on the family contact form.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Father, Wife, Brother'**
+  String get fieldRelationshipHint;
+
+  /// Title of the delete family contact confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Contact?'**
+  String get deleteContactTitle;
+
+  /// Body text of the delete family contact confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone.'**
+  String get deleteContactMessage;
+
+  /// Error message shown when adding a family contact fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save contact. Please try again.'**
+  String get contactAddError;
+
+  /// Error message shown when updating a family contact fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update contact. Please try again.'**
+  String get contactUpdateError;
+
+  /// Snackbar message shown when deleting a family contact fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete contact. Please try again.'**
+  String get contactDeleteError;
+
   /// Document type label: Passport.
   ///
   /// In en, this message translates to:

@@ -1135,6 +1135,50 @@ class AppLocalizationsEn extends AppLocalizations {
   String get validationNoteEmpty => 'Note content cannot be empty.';
 
   @override
+  String get addContact => 'Add Contact';
+
+  @override
+  String get editContact => 'Edit Contact';
+
+  @override
+  String get addContactTitle => 'Add Contact';
+
+  @override
+  String get editContactTitle => 'Edit Contact';
+
+  @override
+  String get saveContact => 'Save Contact';
+
+  @override
+  String get updateContact => 'Update Contact';
+
+  @override
+  String get fieldName => 'Name';
+
+  @override
+  String get fieldRelationship => 'Relationship';
+
+  @override
+  String get fieldRelationshipHint => 'e.g. Father, Wife, Brother';
+
+  @override
+  String get deleteContactTitle => 'Delete Contact?';
+
+  @override
+  String get deleteContactMessage => 'This action cannot be undone.';
+
+  @override
+  String get contactAddError => 'Failed to save contact. Please try again.';
+
+  @override
+  String get contactUpdateError =>
+      'Failed to update contact. Please try again.';
+
+  @override
+  String get contactDeleteError =>
+      'Failed to delete contact. Please try again.';
+
+  @override
   String get labelPassport => 'Passport';
 
   @override

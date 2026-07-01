@@ -353,6 +353,72 @@ class PlayerRepositoryImpl implements PlayerRepository {
     }
   }
 
+  @override
+  Future<Result<FamilyContactModel>> addFamilyContact(
+    String playerId,
+    FamilyContactModel contact,
+  ) async {
+    try {
+      final docRef = _collection
+          .doc(playerId)
+          .collection('familyContacts')
+          .doc(contact.id);
+      await docRef.set(contact.toJson());
+
+      return Success(contact);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<FamilyContactModel>> updateFamilyContact(
+    String playerId,
+    FamilyContactModel contact,
+  ) async {
+    try {
+      await _collection
+          .doc(playerId)
+          .collection('familyContacts')
+          .doc(contact.id)
+          .update(contact.toJson());
+
+      return Success(contact);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<void>> deleteFamilyContact(
+    String playerId,
+    String contactId,
+  ) async {
+    try {
+      await _collection
+          .doc(playerId)
+          .collection('familyContacts')
+          .doc(contactId)
+          .delete();
+
+      return const Success(null);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
   static AppException _mapFirebaseException(FirebaseException e) {
     return switch (e.code) {
       'not-found' => const DocumentNotFoundException(),

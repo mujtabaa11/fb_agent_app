@@ -1039,6 +1039,48 @@
   "validationNoteEmpty": "Note content cannot be empty.",
   "@validationNoteEmpty": { "description": "Inline validation error shown when the note content field is empty on submit." },
 
+  "addContact": "Add Contact",
+  "@addContact": { "description": "Label for the button that opens the add family contact bottom sheet." },
+
+  "editContact": "Edit Contact",
+  "@editContact": { "description": "Label for the action that opens the edit family contact bottom sheet." },
+
+  "addContactTitle": "Add Contact",
+  "@addContactTitle": { "description": "Title of the bottom sheet when adding a new family contact." },
+
+  "editContactTitle": "Edit Contact",
+  "@editContactTitle": { "description": "Title of the bottom sheet when editing an existing family contact." },
+
+  "saveContact": "Save Contact",
+  "@saveContact": { "description": "Label for the submit button when adding a family contact." },
+
+  "updateContact": "Update Contact",
+  "@updateContact": { "description": "Label for the submit button when editing a family contact." },
+
+  "fieldName": "Name",
+  "@fieldName": { "description": "Label for the name field on the family contact form." },
+
+  "fieldRelationship": "Relationship",
+  "@fieldRelationship": { "description": "Label for the relationship field on the family contact form." },
+
+  "fieldRelationshipHint": "e.g. Father, Wife, Brother",
+  "@fieldRelationshipHint": { "description": "Hint text for the relationship field on the family contact form." },
+
+  "deleteContactTitle": "Delete Contact?",
+  "@deleteContactTitle": { "description": "Title of the delete family contact confirmation dialog." },
+
+  "deleteContactMessage": "This action cannot be undone.",
+  "@deleteContactMessage": { "description": "Body text of the delete family contact confirmation dialog." },
+
+  "contactAddError": "Failed to save contact. Please try again.",
+  "@contactAddError": { "description": "Error message shown when adding a family contact fails." },
+
+  "contactUpdateError": "Failed to update contact. Please try again.",
+  "@contactUpdateError": { "description": "Error message shown when updating a family contact fails." },
+
+  "contactDeleteError": "Failed to delete contact. Please try again.",
+  "@contactDeleteError": { "description": "Snackbar message shown when deleting a family contact fails." },
+
   "labelPassport": "Passport",
   "@labelPassport": { "description": "Document type label: Passport." },
 
