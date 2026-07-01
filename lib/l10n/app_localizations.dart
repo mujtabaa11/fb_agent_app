@@ -1293,6 +1293,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} unread messages'**
   String unreadMessagesBadgeLabel(int count);
+
+  /// Step counter displayed in the setup wizard header, e.g. '1 / 4'.
+  ///
+  /// In en, this message translates to:
+  /// **'{current} / {total}'**
+  String setupStepCounter(int current, int total);
+
+  /// Label for the next-step button in the account setup wizard.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get setupNext;
+
+  /// Label for the back button in the account setup wizard.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get setupBack;
+
+  /// Label for the logout text button on step 1 of the account setup wizard.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get setupLogout;
+
+  /// Label for the final submit button on step 4 of the account setup wizard.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Setup'**
+  String get setupCompleteButton;
+
+  /// Generic error message displayed when saving the agent profile fails during setup.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get setupErrorGeneric;
+
+  /// Title for step 1 of the account setup wizard — profile photo upload.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Your Photo'**
+  String get setupStep1Title;
+
+  /// Subtitle for step 1 of the account setup wizard — profile photo upload.
+  ///
+  /// In en, this message translates to:
+  /// **'Help other agents recognise you on the platform.'**
+  String get setupStep1Subtitle;
+
+  /// Title for step 2 of the account setup wizard — name and country.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Identity'**
+  String get setupStep2Title;
+
+  /// Subtitle for step 2 of the account setup wizard — name and country.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us who you are and where you operate.'**
+  String get setupStep2Subtitle;
+
+  /// Label for the full name text field in setup step 2.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get setupFullName;
+
+  /// Label for the country dropdown in setup step 2.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get setupCountry;
+
+  /// Title for step 3 of the account setup wizard — FIFA licensing.
+  ///
+  /// In en, this message translates to:
+  /// **'FIFA Status'**
+  String get setupStep3Title;
+
+  /// Subtitle for step 3 of the account setup wizard — FIFA licensing.
+  ///
+  /// In en, this message translates to:
+  /// **'Let other agents know your licensing status.'**
+  String get setupStep3Subtitle;
+
+  /// Label for the FIFA registration toggle in setup step 3.
+  ///
+  /// In en, this message translates to:
+  /// **'I am a FIFA Licensed Agent'**
+  String get setupFifaRegistered;
+
+  /// Label for the FIFA licence number text field in setup step 3.
+  ///
+  /// In en, this message translates to:
+  /// **'FIFA Licence Number'**
+  String get setupLicenceNumber;
+
+  /// Title for step 4 of the account setup wizard — optional profile details.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional Details'**
+  String get setupStep4Title;
+
+  /// Subtitle for step 4 of the account setup wizard — optional profile details.
+  ///
+  /// In en, this message translates to:
+  /// **'Round out your public profile.'**
+  String get setupStep4Subtitle;
+
+  /// Info banner text on step 4 of setup explaining that the fields are optional.
+  ///
+  /// In en, this message translates to:
+  /// **'These details are optional. You can always add or update them later from your profile.'**
+  String get setupOptionalNotice;
+
+  /// Label for the bio text field in setup step 4.
+  ///
+  /// In en, this message translates to:
+  /// **'Bio'**
+  String get setupBio;
+
+  /// Label for the agency name text field in setup step 4.
+  ///
+  /// In en, this message translates to:
+  /// **'Agency Name'**
+  String get setupAgencyName;
+
+  /// Label for the years of experience dropdown in setup step 4.
+  ///
+  /// In en, this message translates to:
+  /// **'Years of Experience'**
+  String get setupYearsOfExperience;
+
+  /// Label for the phone number text field in setup step 4.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get setupPhoneNumber;
+
+  /// Label for the WhatsApp toggle in setup step 4.
+  ///
+  /// In en, this message translates to:
+  /// **'This number is on WhatsApp'**
+  String get setupIsPhoneOnWhatsApp;
+
+  /// Singular year label for the years of experience dropdown.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} year'**
+  String setupYearsSingular(int count);
+
+  /// Plural years label for the years of experience dropdown.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} years'**
+  String setupYearsPlural(int count);
 }
 
 class _AppLocalizationsDelegate

@@ -674,4 +674,91 @@ class AppLocalizationsEn extends AppLocalizations {
   String unreadMessagesBadgeLabel(int count) {
     return '$count unread messages';
   }
+
+  @override
+  String setupStepCounter(int current, int total) {
+    return '$current / $total';
+  }
+
+  @override
+  String get setupNext => 'Next';
+
+  @override
+  String get setupBack => 'Back';
+
+  @override
+  String get setupLogout => 'Log Out';
+
+  @override
+  String get setupCompleteButton => 'Complete Setup';
+
+  @override
+  String get setupErrorGeneric => 'Something went wrong. Please try again.';
+
+  @override
+  String get setupStep1Title => 'Add Your Photo';
+
+  @override
+  String get setupStep1Subtitle =>
+      'Help other agents recognise you on the platform.';
+
+  @override
+  String get setupStep2Title => 'Your Identity';
+
+  @override
+  String get setupStep2Subtitle => 'Tell us who you are and where you operate.';
+
+  @override
+  String get setupFullName => 'Full Name';
+
+  @override
+  String get setupCountry => 'Country';
+
+  @override
+  String get setupStep3Title => 'FIFA Status';
+
+  @override
+  String get setupStep3Subtitle =>
+      'Let other agents know your licensing status.';
+
+  @override
+  String get setupFifaRegistered => 'I am a FIFA Licensed Agent';
+
+  @override
+  String get setupLicenceNumber => 'FIFA Licence Number';
+
+  @override
+  String get setupStep4Title => 'Additional Details';
+
+  @override
+  String get setupStep4Subtitle => 'Round out your public profile.';
+
+  @override
+  String get setupOptionalNotice =>
+      'These details are optional. You can always add or update them later from your profile.';
+
+  @override
+  String get setupBio => 'Bio';
+
+  @override
+  String get setupAgencyName => 'Agency Name';
+
+  @override
+  String get setupYearsOfExperience => 'Years of Experience';
+
+  @override
+  String get setupPhoneNumber => 'Phone Number';
+
+  @override
+  String get setupIsPhoneOnWhatsApp => 'This number is on WhatsApp';
+
+  @override
+  String setupYearsSingular(int count) {
+    return '$count year';
+  }
+
+  @override
+  String setupYearsPlural(int count) {
+    return '$count years';
+  }
 }

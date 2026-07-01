@@ -599,5 +599,83 @@
   "@editProfileTitle": { "description": "Heading displayed at the top of the edit profile screen." },
 
   "unreadMessagesBadgeLabel": "{count} unread messages",
-  "@unreadMessagesBadgeLabel": { "description": "Screen-reader-only accessibility label for the unread message count badge on the Messages tab.", "placeholders": { "count": { "type": "int" } } }
+  "@unreadMessagesBadgeLabel": { "description": "Screen-reader-only accessibility label for the unread message count badge on the Messages tab.", "placeholders": { "count": { "type": "int" } } },
+
+  "setupStepCounter": "{current} / {total}",
+  "@setupStepCounter": { "description": "Step counter displayed in the setup wizard header, e.g. '1 / 4'.", "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+
+  "setupNext": "Next",
+  "@setupNext": { "description": "Label for the next-step button in the account setup wizard." },
+
+  "setupBack": "Back",
+  "@setupBack": { "description": "Label for the back button in the account setup wizard." },
+
+  "setupLogout": "Log Out",
+  "@setupLogout": { "description": "Label for the logout text button on step 1 of the account setup wizard." },
+
+  "setupCompleteButton": "Complete Setup",
+  "@setupCompleteButton": { "description": "Label for the final submit button on step 4 of the account setup wizard." },
+
+  "setupErrorGeneric": "Something went wrong. Please try again.",
+  "@setupErrorGeneric": { "description": "Generic error message displayed when saving the agent profile fails during setup." },
+
+  "setupStep1Title": "Add Your Photo",
+  "@setupStep1Title": { "description": "Title for step 1 of the account setup wizard — profile photo upload." },
+
+  "setupStep1Subtitle": "Help other agents recognise you on the platform.",
+  "@setupStep1Subtitle": { "description": "Subtitle for step 1 of the account setup wizard — profile photo upload." },
+
+  "setupStep2Title": "Your Identity",
+  "@setupStep2Title": { "description": "Title for step 2 of the account setup wizard — name and country." },
+
+  "setupStep2Subtitle": "Tell us who you are and where you operate.",
+  "@setupStep2Subtitle": { "description": "Subtitle for step 2 of the account setup wizard — name and country." },
+
+  "setupFullName": "Full Name",
+  "@setupFullName": { "description": "Label for the full name text field in setup step 2." },
+
+  "setupCountry": "Country",
+  "@setupCountry": { "description": "Label for the country dropdown in setup step 2." },
+
+  "setupStep3Title": "FIFA Status",
+  "@setupStep3Title": { "description": "Title for step 3 of the account setup wizard — FIFA licensing." },
+
+  "setupStep3Subtitle": "Let other agents know your licensing status.",
+  "@setupStep3Subtitle": { "description": "Subtitle for step 3 of the account setup wizard — FIFA licensing." },
+
+  "setupFifaRegistered": "I am a FIFA Licensed Agent",
+  "@setupFifaRegistered": { "description": "Label for the FIFA registration toggle in setup step 3." },
+
+  "setupLicenceNumber": "FIFA Licence Number",
+  "@setupLicenceNumber": { "description": "Label for the FIFA licence number text field in setup step 3." },
+
+  "setupStep4Title": "Additional Details",
+  "@setupStep4Title": { "description": "Title for step 4 of the account setup wizard — optional profile details." },
+
+  "setupStep4Subtitle": "Round out your public profile.",
+  "@setupStep4Subtitle": { "description": "Subtitle for step 4 of the account setup wizard — optional profile details." },
+
+  "setupOptionalNotice": "These details are optional. You can always add or update them later from your profile.",
+  "@setupOptionalNotice": { "description": "Info banner text on step 4 of setup explaining that the fields are optional." },
+
+  "setupBio": "Bio",
+  "@setupBio": { "description": "Label for the bio text field in setup step 4." },
+
+  "setupAgencyName": "Agency Name",
+  "@setupAgencyName": { "description": "Label for the agency name text field in setup step 4." },
+
+  "setupYearsOfExperience": "Years of Experience",
+  "@setupYearsOfExperience": { "description": "Label for the years of experience dropdown in setup step 4." },
+
+  "setupPhoneNumber": "Phone Number",
+  "@setupPhoneNumber": { "description": "Label for the phone number text field in setup step 4." },
+
+  "setupIsPhoneOnWhatsApp": "This number is on WhatsApp",
+  "@setupIsPhoneOnWhatsApp": { "description": "Label for the WhatsApp toggle in setup step 4." },
+
+  "setupYearsSingular": "{count} year",
+  "@setupYearsSingular": { "description": "Singular year label for the years of experience dropdown.", "placeholders": { "count": { "type": "int" } } },
+
+  "setupYearsPlural": "{count} years",
+  "@setupYearsPlural": { "description": "Plural years label for the years of experience dropdown.", "placeholders": { "count": { "type": "int" } } }
 }

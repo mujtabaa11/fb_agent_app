@@ -1,18 +1,31 @@
-/// Riverpod providers for the current agent's Firestore profile.
 library;
+
+import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../core/data/repository_providers.dart';
+import '../../../core/data/result.dart';
 import '../models/user_model.dart';
+import 'auth_providers.dart';
 
 part 'agent_providers.g.dart';
 
-/// The current agent's Firestore profile.
-///
-/// Placeholder — returns `null` until Phase 0 account setup wires this to
-/// the `users` collection. The route guard treats `null` as an incomplete
-/// profile and redirects to `/setup`.
+@riverpod
+Stream<UserModel?> _agentStream(_AgentStreamRef ref) {
+  final authUser = ref.watch(authStateChangesProvider).valueOrNull;
+  if (authUser == null) return Stream.value(null);
+
+  final repo = ref.watch(userRepositoryProvider);
+  return repo.watchStream(authUser.uid).map((result) {
+    return switch (result) {
+      Success(:final value) => value,
+      Failure() => null,
+    };
+  });
+}
+
 @riverpod
 UserModel? currentAgent(CurrentAgentRef ref) {
-  return null;
+  return ref.watch(_agentStreamProvider).valueOrNull;
 }
