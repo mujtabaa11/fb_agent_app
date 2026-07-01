@@ -149,15 +149,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorBoundaryFallback => 'Something went wrong.';
 
   @override
-  String get languageLabel => 'Language';
-
-  @override
-  String get selectLanguageTitle => 'Select Language';
-
-  @override
-  String get deviceDefaultLanguage => 'Device Default';
-
-  @override
   String get profileTitle => 'Profile';
 
   @override

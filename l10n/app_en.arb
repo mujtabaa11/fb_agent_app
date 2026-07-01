@@ -136,15 +136,6 @@
   "errorBoundaryFallback": "Something went wrong.",
   "@errorBoundaryFallback": { "description": "Hardcoded fallback error message displayed by the global error boundary widget when the app crashes and localized strings are unavailable." },
 
-  "languageLabel": "Language",
-  "@languageLabel": { "description": "Row label in the Settings section of the side drawer, identifying the language selection control." },
-
-  "selectLanguageTitle": "Select Language",
-  "@selectLanguageTitle": { "description": "Title displayed at the top of the language picker bottom sheet that appears when the user taps the language setting in the drawer." },
-
-  "deviceDefaultLanguage": "Device Default",
-  "@deviceDefaultLanguage": { "description": "Option in the language picker bottom sheet that resets the app locale to follow the device's system language setting." },
-
   "profileTitle": "Profile",
   "@profileTitle": { "description": "Heading displayed at the top of the profile screen." },
 

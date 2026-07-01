@@ -9,7 +9,9 @@
 /// - Single-page mode: shows "Get Started" directly, no "Next" or "Skip".
 /// - Android back press: does nothing (prevents navigating to a nonexistent
 ///   previous route). On Android this means the system handles it (exit app).
-/// - RTL: swipe direction, button positions, and page indicator all mirror.
+/// - Directional layout: swipe direction, button positions, and page
+///   indicator use directional properties so they would mirror correctly if
+///   an RTL locale is added in the future.
 /// - [PageController] is properly disposed.
 library;
 

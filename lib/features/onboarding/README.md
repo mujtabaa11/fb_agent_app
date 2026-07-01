@@ -34,7 +34,7 @@ The page indicator, navigation controls, and single-page mode all adapt automati
 
 1. Add an entry to `defaultOnboardingPages` with your `IconData`, title accessor, and subtitle accessor.
 2. Add two localized string accessors (one for title, one for subtitle) that reference `AppLocalizations` getters.
-3. Add the corresponding keys to `l10n/app_en.arb` and `l10n/app_ar.arb`.
+3. Add the corresponding keys to `l10n/app_en.arb` (the only ARB file for now; add corresponding keys to any future locale ARB files too).
 4. Run `flutter gen-l10n` to regenerate the localizations class.
 
 Example — adding a 4th page:
@@ -76,7 +76,7 @@ All onboarding strings live in the ARB files under the `onboarding` prefix:
 - `onboardingSkipButton`, `onboardingNextButton`, `onboardingGetStartedButton`
 - `onboardingPageIndicator` (with `{current}` and `{total}` placeholders)
 
-Add new keys to both `l10n/app_en.arb` and `l10n/app_ar.arb`, then run:
+Add new keys to `l10n/app_en.arb` (and any future locale ARB files), then run:
 
 ```bash
 flutter gen-l10n

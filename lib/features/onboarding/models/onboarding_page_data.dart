@@ -30,7 +30,7 @@ class OnboardingPageData {
 /// Placeholder onboarding pages shipped with the boilerplate.
 ///
 /// To customize: add, remove, or reorder entries in this list. Each entry
-/// needs a corresponding ARB key in `app_en.arb` and `app_ar.arb`.
+/// needs a corresponding ARB key in `app_en.arb`.
 const List<OnboardingPageData> defaultOnboardingPages = [
   OnboardingPageData(
     icon: Icons.rocket_launch_outlined,

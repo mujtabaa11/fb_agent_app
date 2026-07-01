@@ -287,7 +287,7 @@ void main() {
 | `tester`                 | `WidgetTester`    | (required)      | The tester from `testWidgets`.                                              |
 | `child`                  | `Widget`          | (required)      | The widget under test.                                                      |
 | `overrides`              | `List<Override>`  | `[]`            | Riverpod provider overrides.                                                |
-| `locale`                 | `Locale`          | `Locale('en')`  | Locale — use `Locale('ar')` for RTL.                                        |
+| `locale`                 | `Locale`          | `Locale('en')`  | Locale passed to `MaterialApp.router`. English is currently the only supported locale. |
 | `hasCompletedOnboarding` | `bool`            | `true`          | Sets the onboarding flag in SharedPreferences. Default bypasses onboarding. |
 
 ## How to Override a Provider in a Test
@@ -360,19 +360,6 @@ void main() {
         overrides: [
           authRepositoryProvider.overrideWithValue(fakeAuth),
         ],
-      );
-
-      expect(find.text('Login Form'), findsOneWidget);
-    });
-
-    testWidgets('supports RTL layout', (tester) async {
-      await pumpApp(
-        tester,
-        const Scaffold(body: Text('Login Form')),
-        overrides: [
-          authRepositoryProvider.overrideWithValue(fakeAuth),
-        ],
-        locale: const Locale('ar'),
       );
 
       expect(find.text('Login Form'), findsOneWidget);

@@ -12,11 +12,11 @@ A mobile app for football agents, built on a production-quality Flutter foundati
 
 **Onboarding** — Swipeable PageView carousel with skip/next/done navigation, shown once on first launch. Completion flag persisted to SharedPreferences. Router guard enforces a four-state redirect chain: onboarding → login → email verification → home. Placeholder content is customizable — see `features/onboarding/README.md`.
 
-**Navigation** — Bottom tab bar (Home, Explore, Profile) with GoRouter, side drawer with user area / nav links / theme toggle / locale switcher / logout, route guard with four-state redirect chain (onboarding → login → email verification → home), biometric lock overlay above the router, deep link support with post-login redirect for protected routes
+**Navigation** — Bottom tab bar (Home, Explore, Profile) with GoRouter, side drawer with user area / nav links / theme toggle / logout, route guard with four-state redirect chain (onboarding → login → email verification → home), biometric lock overlay above the router, deep link support with post-login redirect for protected routes
 
 **Theming** — Centralized design token system (colors, typography, spacing, border radius), light and dark mode with WCAG AA contrast ratios verified, theme toggle with persistence across sessions
 
-**Localization** — Flutter `gen-l10n` with ARB files (add a language by adding one file), RTL support with directional properties throughout, runtime locale switcher in the side drawer
+**Localization** — Flutter `gen-l10n` with ARB files. English-only for the MVP, but the string architecture (all UI text via `AppLocalizations`, directional properties throughout) is ready for additional languages, including RTL, to be added later by dropping in a new ARB file
 
 **Accessibility** — Semantic labels on all interactive elements, reusable `AccessibleTouchTarget` wrapper (44x44pt minimum), `AccessibilityChecklist.md` in repo for adding new screens
 
@@ -698,8 +698,7 @@ lib/
 │   └── shell/             # Bottom nav bar, side drawer, tab screens
 ├── routing/               # GoRouter config and route guards
 l10n/
-├── app_en.arb             # English source strings (ARB format)
-└── app_ar.arb             # Arabic translations
+└── app_en.arb             # English source strings (ARB format, template + only locale for now)
 ```
 
 ## Firestore Data Layer
@@ -830,10 +829,13 @@ When adding new screens or features, add `Semantics` labels in the same commit a
 
 ## Adding a New Language
 
-1. Create a new ARB file in `l10n/` (e.g. `app_ar.arb` for Arabic).
+The app is English-only for the MVP, but the ARB-based string architecture is ready for additional languages:
+
+1. Create a new ARB file in `l10n/` (e.g. `app_es.arb` for Spanish, `app_ar.arb` for Arabic).
 2. Copy all keys from `app_en.arb` and translate the values.
-3. Add the locale to `supportedLocales` in `lib/app.dart`.
+3. `AppLocalizations.supportedLocales` picks up the new locale automatically the next time localizations are regenerated — no manual list to edit.
 4. Run `flutter gen-l10n` (or let `build_runner` handle it).
+5. If the new locale is RTL (e.g. Arabic, Hebrew), the app's directional layout properties (`EdgeInsetsDirectional`, `AlignmentDirectional`, etc.) already mirror correctly — no additional layout work should be needed.
 
 ## Localization & AI Translation
 
@@ -871,7 +873,7 @@ Xcode's String Catalog (`.xcstrings`) format provides AI-assisted translation po
    - Context errors — nouns translated as verbs or vice versa (e.g. "Book" as a noun vs. an action)
    - Broken placeholder variables — `{userName}` rendered as literal text instead of a substitution token
    - UI clipping — languages with longer average word length (German, Finnish, Greek) may overflow fixed-width UI elements
-5. **Test RTL languages** (Arabic, Hebrew) using the locale switcher built into the side drawer to verify layout mirroring and text alignment
+5. **Test RTL languages** (Arabic, Hebrew) by passing an RTL `Locale` to `MaterialApp` (e.g. in a test harness or a debug-only override) to verify layout mirroring and text alignment before adding a permanent way for users to switch locale
 
 ## Customising Theme Tokens
 

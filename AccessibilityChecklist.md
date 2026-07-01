@@ -68,6 +68,9 @@ Follow this checklist before marking any new screen or component as done.
 
 ## 9. RTL Layout Audit
 
+The app currently ships English only, but layouts must stay RTL-ready so an RTL
+language can be added later without a layout rewrite.
+
 - [ ] All padding and margin use `EdgeInsetsDirectional` (not `EdgeInsets`).
 - [ ] All alignment use `AlignmentDirectional` (not `Alignment`).
 - [ ] Icons that imply direction (e.g., arrows) are mirrored or replaced in RTL.

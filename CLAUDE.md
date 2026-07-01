@@ -56,3 +56,4 @@ Feature modules should follow a self-contained structure with their own models, 
 - Linting: `flutter_lints` + `custom_lint` with `riverpod_lint`
 - Firebase config files (`google-services.json`, `GoogleService-Info.plist`) are gitignored — must be added per environment
 - When building a signed production release (APK/AAB), verify that any `TestConfig` flags (e.g., `SKIP_LOCATION_VALIDATION`, `SKIP_PHONE_VALIDATION`) are set to `false`
+- **Localization:** English-only for the MVP (`l10n/app_en.arb` is the sole ARB file). All UI strings still go through `AppLocalizations`/gen-l10n — never hardcode strings — and layouts still use directional properties (`EdgeInsetsDirectional`, `AlignmentDirectional`), so the app is well-positioned to add more languages, including RTL ones, later by dropping in a new ARB file

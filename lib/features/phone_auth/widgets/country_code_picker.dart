@@ -1,7 +1,9 @@
 /// Searchable bottom sheet for selecting a country code.
 ///
 /// Displays flag emoji, country name, and dial code for each entry.
-/// Filters by name or dial code. RTL-compatible with 44x44pt touch targets.
+/// Filters by name or dial code. Uses directional layout properties with
+/// 44x44pt touch targets, so it stays compatible with RTL locales if one is
+/// added in the future.
 library;
 
 import 'package:flutter/material.dart';

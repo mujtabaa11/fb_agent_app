@@ -8,7 +8,6 @@ import 'package:go_router/go_router.dart';
 import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import '../../../core/data/result.dart';
-import '../../../core/l10n/locale_notifier.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/theme/theme_notifier.dart';
@@ -184,9 +183,6 @@ class AppDrawer extends ConsumerWidget {
               ),
             ),
 
-            // Locale switcher
-            _LocaleSwitcherTile(ref: ref),
-
             // Biometric toggle — hidden when biometrics not available
             const _BiometricToggleTile(),
 
@@ -240,116 +236,6 @@ class AppDrawer extends ConsumerWidget {
           );
         }
     }
-  }
-}
-
-/// Locale switcher tile with bottom sheet picker.
-class _LocaleSwitcherTile extends StatelessWidget {
-  const _LocaleSwitcherTile({required this.ref});
-
-  final WidgetRef ref;
-
-  /// Native language names — proper nouns, not translated.
-  static const _localeNames = {
-    'en': 'English',
-    'ar': 'العربية',
-  };
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final currentLocale =
-        ref.watch(localeNotifierProvider).valueOrNull;
-    final displayName = currentLocale != null
-        ? _localeNames[currentLocale.languageCode] ??
-            currentLocale.languageCode
-        : l10n.deviceDefaultLanguage;
-
-    return Semantics(
-      button: true,
-      label: '${l10n.languageLabel}: $displayName',
-      child: ListTile(
-        leading: const ExcludeSemantics(
-          child: Icon(Icons.language),
-        ),
-        title: Text(l10n.languageLabel),
-        trailing: Text(displayName),
-        contentPadding: const EdgeInsetsDirectional.symmetric(
-          horizontal: AppTokens.space16,
-        ),
-        onTap: () => _showLocalePicker(context, currentLocale),
-      ),
-    );
-  }
-
-  void _showLocalePicker(BuildContext context, Locale? currentLocale) {
-    final l10n = AppLocalizations.of(context)!;
-
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (sheetContext) {
-        return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(AppTokens.space16),
-                child: Text(
-                  l10n.selectLanguageTitle,
-                  style: Theme.of(sheetContext).textTheme.titleMedium,
-                ),
-              ),
-              const Divider(height: 1),
-
-              // Device Default option
-              Semantics(
-                button: true,
-                label: l10n.deviceDefaultLanguage,
-                selected: currentLocale == null,
-                child: ListTile(
-                  title: Text(l10n.deviceDefaultLanguage),
-                  trailing: currentLocale == null
-                      ? const Icon(Icons.check)
-                      : null,
-                  minTileHeight: 48,
-                  onTap: () {
-                    ref
-                        .read(localeNotifierProvider.notifier)
-                        .setLocale(null);
-                    Navigator.of(sheetContext).pop();
-                  },
-                ),
-              ),
-
-              // One tile per supported locale
-              ...AppLocalizations.supportedLocales.map((locale) {
-                final name =
-                    _localeNames[locale.languageCode] ?? locale.languageCode;
-                final isSelected =
-                    currentLocale?.languageCode == locale.languageCode;
-
-                return Semantics(
-                  button: true,
-                  label: name,
-                  selected: isSelected,
-                  child: ListTile(
-                    title: Text(name),
-                    trailing: isSelected ? const Icon(Icons.check) : null,
-                    minTileHeight: 48,
-                    onTap: () {
-                      ref
-                          .read(localeNotifierProvider.notifier)
-                          .setLocale(locale);
-                      Navigator.of(sheetContext).pop();
-                    },
-                  ),
-                );
-              }),
-            ],
-          ),
-        );
-      },
-    );
   }
 }
 

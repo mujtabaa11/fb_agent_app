@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'app_localizations_ar.dart';
 import 'app_localizations_en.dart';
 
 // ignore_for_file: type=lint
@@ -93,10 +92,7 @@ abstract class AppLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('ar'),
-    Locale('en')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
   /// The application name displayed in the app bar, task switcher, and browser tab title.
   ///
@@ -367,24 +363,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong.'**
   String get errorBoundaryFallback;
-
-  /// Row label in the Settings section of the side drawer, identifying the language selection control.
-  ///
-  /// In en, this message translates to:
-  /// **'Language'**
-  String get languageLabel;
-
-  /// Title displayed at the top of the language picker bottom sheet that appears when the user taps the language setting in the drawer.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Language'**
-  String get selectLanguageTitle;
-
-  /// Option in the language picker bottom sheet that resets the app locale to follow the device's system language setting.
-  ///
-  /// In en, this message translates to:
-  /// **'Device Default'**
-  String get deviceDefaultLanguage;
 
   /// Heading displayed at the top of the profile screen.
   ///
@@ -1322,7 +1300,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['ar', 'en'].contains(locale.languageCode);
+      <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1331,8 +1309,6 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'ar':
-      return AppLocalizationsAr();
     case 'en':
       return AppLocalizationsEn();
   }

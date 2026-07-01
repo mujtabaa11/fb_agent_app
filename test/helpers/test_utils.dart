@@ -24,7 +24,8 @@ import 'mock_providers.dart';
 /// The shell includes:
 ///   - [ProviderScope] with optional [overrides]
 ///   - [MaterialApp.router] with a single-route [GoRouter]
-///   - [AppLocalizations] delegates (EN + AR)
+///   - [AppLocalizations] delegates (English only for now; more locales can
+///     be added later without changing this shape)
 ///   - Light theme by default
 ///   - A default [FakeConnectivityService] (online) so that widgets depending
 ///     on [connectivityStatusProvider] resolve correctly without explicit setup.
@@ -37,7 +38,7 @@ import 'mock_providers.dart';
 ///     [FakeConnectivityService] whose initial status is
 ///     [ConnectivityStatus.offline].
 ///   - [locale] — the locale passed to [MaterialApp.router]. Defaults to
-///     English (`en`). Pass `Locale('ar')` for RTL testing.
+///     English (`en`), currently the only supported locale.
 ///   - [hasCompletedOnboarding] — whether the onboarding flag is set in
 ///     [SharedPreferences]. Defaults to `true` so that all existing tests
 ///     bypass onboarding. Set to `false` in onboarding-specific tests.
