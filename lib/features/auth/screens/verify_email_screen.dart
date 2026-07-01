@@ -114,7 +114,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
         final user = repo.currentUser;
         if (user != null && user.emailVerified) {
           _pollTimer?.cancel();
-          if (mounted) context.go('/home');
+          if (mounted) context.go('/dashboard');
           return;
         }
         if (!silent && mounted) {

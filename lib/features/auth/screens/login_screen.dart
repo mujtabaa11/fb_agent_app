@@ -49,7 +49,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     ref.read(pendingLinkEmailProvider.notifier).clear();
     ref.read(authRepositoryProvider).clearPendingLink();
     if (linked == true) {
-      context.go('/home');
+      context.go('/dashboard');
     }
   }
 
@@ -64,7 +64,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final user =
         await ref.read(googleSsoProvider.notifier).signInWithGoogle();
     if (user != null && mounted) {
-      context.go('/home');
+      context.go('/dashboard');
     }
   }
 
@@ -72,7 +72,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final user =
         await ref.read(appleSsoProvider.notifier).signInWithApple();
     if (user != null && mounted) {
-      context.go('/home');
+      context.go('/dashboard');
     }
   }
 

@@ -122,7 +122,8 @@ void main() async {
 
   // Create the router with the Riverpod-managed AuthRepository so the router
   // and all providers share the same instance (avoids stale-state bugs).
-  final appRouter = createRouter(container.read(authRepositoryProvider));
+  final appRouter =
+      createRouter(container.read(authRepositoryProvider), container);
 
   runApp(
     ErrorBoundary(

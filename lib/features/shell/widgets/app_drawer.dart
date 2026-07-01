@@ -9,8 +9,11 @@ import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import '../../../core/data/result.dart';
 import '../../../core/l10n/locale_notifier.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/theme/theme_notifier.dart';
+import '../../../core/widgets/am_avatar.dart';
+import '../../auth/providers/agent_providers.dart';
 import '../../auth/providers/auth_providers.dart';
 import '../../biometric/providers/biometric_preference_notifier.dart';
 import '../../biometric/providers/biometric_providers.dart';
@@ -32,7 +35,7 @@ class AppDrawer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final userAsync = ref.watch(authStateChangesProvider);
+    final agent = ref.watch(currentAgentProvider);
     final currentMode =
         ref.watch(themeNotifierProvider).valueOrNull ?? ThemeMode.system;
 
@@ -41,7 +44,7 @@ class AppDrawer extends ConsumerWidget {
         child: Column(
           children: [
             // ----------------------------------------------------------
-            // User header
+            // Agent header
             // ----------------------------------------------------------
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(
@@ -52,40 +55,32 @@ class AppDrawer extends ConsumerWidget {
               ),
               child: Row(
                 children: [
-                  Semantics(
-                    label: l10n.userAvatarLabel,
-                    child: ExcludeSemantics(
-                      child: CircleAvatar(
-                        radius: 24,
-                        backgroundColor: theme.colorScheme.primaryContainer,
-                        child: Icon(
-                          Icons.person,
-                          color: theme.colorScheme.onPrimaryContainer,
-                        ),
-                      ),
-                    ),
+                  AmAvatar(
+                    imageUrl: agent?.avatarUrl,
+                    name: agent?.fullName,
+                    size: AmAvatarSize.large,
+                    semanticsLabel: l10n.userAvatarLabel,
                   ),
                   const SizedBox(width: AppTokens.space12),
                   Expanded(
-                    child: userAsync.when(
-                      data: (user) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (user?.displayName != null)
-                            Text(
-                              user!.displayName!,
-                              style: theme.textTheme.titleMedium,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (agent?.fullName != null)
                           Text(
-                            user?.email ?? '',
-                            style: theme.textTheme.bodySmall,
+                            agent!.fullName,
+                            style: theme.textTheme.titleMedium
+                                ?.copyWith(color: AppColors.textPrimary),
                             overflow: TextOverflow.ellipsis,
                           ),
-                        ],
-                      ),
-                      loading: () => const SizedBox.shrink(),
-                      error: (_, __) => const SizedBox.shrink(),
+                        if (agent?.country != null)
+                          Text(
+                            agent!.country,
+                            style: theme.textTheme.bodySmall
+                                ?.copyWith(color: AppColors.textSecondary),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                      ],
                     ),
                   ),
                 ],
@@ -96,30 +91,34 @@ class AppDrawer extends ConsumerWidget {
             // ----------------------------------------------------------
             // Navigation links
             // ----------------------------------------------------------
+            if (agent != null)
+              _NavTile(
+                icon: Icons.person_outline,
+                activeIcon: Icons.person,
+                label: l10n.drawerViewProfile,
+                path: '/market/agent/${agent.id}',
+                currentPath: currentPath,
+                onTap: () =>
+                    _navigateTo(context, '/market/agent/${agent.id}'),
+              ),
             _NavTile(
-              icon: Icons.home_outlined,
-              activeIcon: Icons.home,
-              label: l10n.navHome,
-              path: '/home',
+              icon: Icons.edit_outlined,
+              activeIcon: Icons.edit,
+              label: l10n.drawerEditProfile,
+              path: '/profile/edit',
               currentPath: currentPath,
-              onTap: () => _navigateTo(context, '/home'),
+              onTap: () => _navigateTo(context, '/profile/edit'),
             ),
-            _NavTile(
-              icon: Icons.explore_outlined,
-              activeIcon: Icons.explore,
-              label: l10n.navExplore,
-              path: '/explore',
-              currentPath: currentPath,
-              onTap: () => _navigateTo(context, '/explore'),
-            ),
-            _NavTile(
-              icon: Icons.person_outlined,
-              activeIcon: Icons.person,
-              label: l10n.navProfile,
-              path: '/profile',
-              currentPath: currentPath,
-              onTap: () => _navigateTo(context, '/profile'),
-            ),
+
+            if (kDebugMode)
+              _NavTile(
+                icon: Icons.widgets_outlined,
+                activeIcon: Icons.widgets,
+                label: l10n.showcaseTitle,
+                path: '/dev/showcase',
+                currentPath: currentPath,
+                onTap: () => _navigateTo(context, '/dev/showcase'),
+              ),
 
             const Divider(height: 1),
 

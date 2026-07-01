@@ -613,4 +613,69 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorLoadingData => 'فشل تحميل البيانات. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get navDashboard => 'لوحة التحكم';
+
+  @override
+  String get navPlayers => 'اللاعبون';
+
+  @override
+  String get navMarket => 'السوق';
+
+  @override
+  String get navMessages => 'الرسائل';
+
+  @override
+  String get drawerViewProfile => 'عرض الملف الشخصي العام';
+
+  @override
+  String get drawerEditProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get setupTitle => 'أكمل ملفك الشخصي';
+
+  @override
+  String get dashboardTitle => 'لوحة التحكم';
+
+  @override
+  String get playersTitle => 'اللاعبون';
+
+  @override
+  String get marketTitle => 'السوق';
+
+  @override
+  String get messagesTitle => 'الرسائل';
+
+  @override
+  String get addPlayerTitle => 'إضافة لاعب';
+
+  @override
+  String get playerProfileTitle => 'الملف الشخصي للاعب';
+
+  @override
+  String get editPlayerTitle => 'تعديل اللاعب';
+
+  @override
+  String get createPostTitle => 'إنشاء منشور';
+
+  @override
+  String get postDetailTitle => 'تفاصيل المنشور';
+
+  @override
+  String get myPostsTitle => 'منشوراتي';
+
+  @override
+  String get agentPublicProfileTitle => 'الملف الشخصي للوكيل';
+
+  @override
+  String get chatTitle => 'محادثة';
+
+  @override
+  String get editProfileTitle => 'تعديل الملف الشخصي';
+
+  @override
+  String unreadMessagesBadgeLabel(int count) {
+    return '$count رسائل غير مقروءة';
+  }
 }

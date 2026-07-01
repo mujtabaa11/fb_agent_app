@@ -2,16 +2,17 @@
 ///
 /// The production router in `lib/routing/router.dart` uses module-level globals,
 /// so we cannot inject dependencies directly. Instead, we build a test-local
-/// [GoRouter] that replicates the four-state redirect chain with controllable
-/// onboarding and auth flags.
+/// [GoRouter] that replicates the five-state redirect chain with controllable
+/// onboarding, auth, and profile-completeness flags.
 ///
 /// Tests verify the redirect path, NOT rendered widget content.
 ///
-/// The four-state priority chain:
+/// The five-state priority chain:
 ///   1. Onboarding not completed → `/onboarding`
 ///   2. Unauthenticated → `/login`
 ///   3. Email/password user with unverified email → `/verify-email`
-///   4. Authenticated and verified (or SSO) → `/home`
+///   4. Profile incomplete (or not yet loaded) → `/setup`
+///   5. Authenticated, verified, and profile complete → `/dashboard`
 library;
 
 import 'package:flutter/material.dart';
@@ -68,7 +69,12 @@ void main() {
   late _TestAuthChangeNotifier authNotifier;
   late _TestOnboardingFlagNotifier onboardingNotifier;
 
-  /// Builds a [GoRouter] with the full four-state redirect logic from
+  /// Whether the fake agent's profile is complete. `null` mirrors
+  /// [currentAgentProvider] returning `null` (profile not yet loaded) —
+  /// both are treated as incomplete by the guard.
+  bool? isProfileComplete;
+
+  /// Builds a [GoRouter] with the full five-state redirect logic from
   /// production, backed by test-controllable fakes.
   GoRouter buildTestRouter({String initialLocation = '/splash'}) {
     final refreshNotifier =
@@ -85,6 +91,7 @@ void main() {
         final isSplash = location == '/splash';
         final isVerifyEmail = location == '/verify-email';
         final isOnboarding = location == '/onboarding';
+        final isSetup = location == '/setup';
 
         // 1. Onboarding flag still loading — hold on splash.
         if (onboardingNotifier.isLoading) return isSplash ? null : '/splash';
@@ -110,10 +117,22 @@ void main() {
           // 5. Unverified email/password user — redirect to verification.
           if (needsVerification && !isVerifyEmail) return '/verify-email';
 
-          // 6. Verified (or SSO) user on auth/splash/verify/onboarding → home.
-          if (!needsVerification &&
-              (isAuthRoute || isSplash || isVerifyEmail || isOnboarding)) {
-            return '/home';
+          if (!needsVerification) {
+            final profileIncomplete = isProfileComplete != true;
+
+            // 6. Profile incomplete (or not yet loaded) — redirect to setup.
+            if (profileIncomplete && !isSetup) return '/setup';
+
+            // 7. Profile complete but on setup/auth/splash/verify/onboarding
+            //    — redirect to the dashboard.
+            if (!profileIncomplete &&
+                (isAuthRoute ||
+                    isSplash ||
+                    isVerifyEmail ||
+                    isOnboarding ||
+                    isSetup)) {
+              return '/dashboard';
+            }
           }
         }
 
@@ -154,18 +173,23 @@ void main() {
           builder: (context, state) =>
               const Scaffold(body: Text('verify-email')),
         ),
+        GoRoute(
+          path: '/setup',
+          builder: (context, state) =>
+              const Scaffold(body: Text('setup')),
+        ),
         ShellRoute(
           builder: (context, state, child) => child,
           routes: [
             GoRoute(
-              path: '/home',
+              path: '/dashboard',
               builder: (context, state) =>
-                  const Scaffold(body: Text('home')),
+                  const Scaffold(body: Text('dashboard')),
             ),
             GoRoute(
-              path: '/explore',
+              path: '/players',
               builder: (context, state) =>
-                  const Scaffold(body: Text('explore')),
+                  const Scaffold(body: Text('players')),
             ),
             GoRoute(
               path: '/profile',
@@ -190,6 +214,7 @@ void main() {
     fakeAuth = FakeAuthRepository();
     authNotifier = _TestAuthChangeNotifier();
     onboardingNotifier = _TestOnboardingFlagNotifier();
+    isProfileComplete = null;
   });
 
   tearDown(() {
@@ -207,7 +232,7 @@ void main() {
       onboardingNotifier =
           _TestOnboardingFlagNotifier(hasCompleted: false);
 
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
@@ -272,9 +297,10 @@ void main() {
           _TestOnboardingFlagNotifier(hasCompleted: true);
     });
 
-    testWidgets('navigating to /home redirects to /login, not /onboarding',
+    testWidgets(
+        'navigating to /dashboard redirects to /login, not /onboarding',
         (tester) async {
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
@@ -317,9 +343,9 @@ void main() {
       fakeAuth.fakeProvider = 'password';
     });
 
-    testWidgets('navigating to /home redirects to /verify-email',
+    testWidgets('navigating to /dashboard redirects to /verify-email',
         (tester) async {
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
@@ -330,10 +356,11 @@ void main() {
   });
 
   // ---------------------------------------------------------------------------
-  // Post-onboarding — authenticated and verified
+  // Post-onboarding — authenticated, verified, profile incomplete
   // ---------------------------------------------------------------------------
 
-  group('onboarding completed, authenticated and verified', () {
+  group('onboarding completed, authenticated and verified, profile incomplete',
+      () {
     setUp(() {
       onboardingNotifier =
           _TestOnboardingFlagNotifier(hasCompleted: true);
@@ -341,46 +368,84 @@ void main() {
       fakeAuth.fakeProvider = 'password';
     });
 
-    testWidgets('navigating to /home is allowed with no redirect',
+    testWidgets('navigating to /dashboard redirects to /setup',
         (tester) async {
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/setup',
+      );
+    });
+  });
+
+  // ---------------------------------------------------------------------------
+  // Post-onboarding — authenticated, verified, profile complete
+  // ---------------------------------------------------------------------------
+
+  group('onboarding completed, authenticated and verified, profile complete',
+      () {
+    setUp(() {
+      onboardingNotifier =
+          _TestOnboardingFlagNotifier(hasCompleted: true);
+      fakeAuth.setUser(createTestAuthUser(emailVerified: true));
+      fakeAuth.fakeProvider = 'password';
+      isProfileComplete = true;
+    });
+
+    testWidgets('navigating to /dashboard is allowed with no redirect',
+        (tester) async {
+      final router = buildTestRouter(initialLocation: '/dashboard');
+      await pumpRouter(tester, router);
+
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /login redirects to /home', (tester) async {
+    testWidgets('navigating to /login redirects to /dashboard',
+        (tester) async {
       final router = buildTestRouter(initialLocation: '/login');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /onboarding redirects to /home',
+    testWidgets('navigating to /onboarding redirects to /dashboard',
         (tester) async {
       final router = buildTestRouter(initialLocation: '/onboarding');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /splash redirects to /home',
+    testWidgets('navigating to /splash redirects to /dashboard',
         (tester) async {
       final router = buildTestRouter(initialLocation: '/splash');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
+      );
+    });
+
+    testWidgets('navigating to /setup redirects to /dashboard',
+        (tester) async {
+      final router = buildTestRouter(initialLocation: '/setup');
+      await pumpRouter(tester, router);
+
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/dashboard',
       );
     });
   });
@@ -395,17 +460,18 @@ void main() {
           _TestOnboardingFlagNotifier(hasCompleted: true);
       fakeAuth.setUser(createTestAuthUser(emailVerified: false));
       fakeAuth.fakeProvider = 'google.com';
+      isProfileComplete = true;
     });
 
     testWidgets(
-        'Google user is allowed to /home regardless of emailVerified',
+        'Google user is allowed to /dashboard regardless of emailVerified',
         (tester) async {
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
   });

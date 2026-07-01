@@ -415,5 +415,68 @@
   "@emptyPlayersSubtitle": { "description": "Empty player list subtitle" },
 
   "errorLoadingData": "فشل تحميل البيانات. يرجى المحاولة مرة أخرى.",
-  "@errorLoadingData": { "description": "Generic inline error message" }
+  "@errorLoadingData": { "description": "Generic inline error message" },
+
+  "navDashboard": "لوحة التحكم",
+  "@navDashboard": { "description": "Dashboard tab label" },
+
+  "navPlayers": "اللاعبون",
+  "@navPlayers": { "description": "Players tab label" },
+
+  "navMarket": "السوق",
+  "@navMarket": { "description": "Market tab label" },
+
+  "navMessages": "الرسائل",
+  "@navMessages": { "description": "Messages tab label" },
+
+  "drawerViewProfile": "عرض الملف الشخصي العام",
+  "@drawerViewProfile": { "description": "View public profile drawer item" },
+
+  "drawerEditProfile": "تعديل الملف الشخصي",
+  "@drawerEditProfile": { "description": "Edit profile drawer item" },
+
+  "setupTitle": "أكمل ملفك الشخصي",
+  "@setupTitle": { "description": "Account setup screen title" },
+
+  "dashboardTitle": "لوحة التحكم",
+  "@dashboardTitle": { "description": "Dashboard screen title" },
+
+  "playersTitle": "اللاعبون",
+  "@playersTitle": { "description": "Player list screen title" },
+
+  "marketTitle": "السوق",
+  "@marketTitle": { "description": "Market feed screen title" },
+
+  "messagesTitle": "الرسائل",
+  "@messagesTitle": { "description": "Conversation list screen title" },
+
+  "addPlayerTitle": "إضافة لاعب",
+  "@addPlayerTitle": { "description": "Add player screen title" },
+
+  "playerProfileTitle": "الملف الشخصي للاعب",
+  "@playerProfileTitle": { "description": "Player profile screen title" },
+
+  "editPlayerTitle": "تعديل اللاعب",
+  "@editPlayerTitle": { "description": "Edit player screen title" },
+
+  "createPostTitle": "إنشاء منشور",
+  "@createPostTitle": { "description": "Create market post screen title" },
+
+  "postDetailTitle": "تفاصيل المنشور",
+  "@postDetailTitle": { "description": "Market post detail screen title" },
+
+  "myPostsTitle": "منشوراتي",
+  "@myPostsTitle": { "description": "My posts screen title" },
+
+  "agentPublicProfileTitle": "الملف الشخصي للوكيل",
+  "@agentPublicProfileTitle": { "description": "Agent public profile screen title" },
+
+  "chatTitle": "محادثة",
+  "@chatTitle": { "description": "Conversation chat screen title" },
+
+  "editProfileTitle": "تعديل الملف الشخصي",
+  "@editProfileTitle": { "description": "Edit profile screen title" },
+
+  "unreadMessagesBadgeLabel": "{count} رسائل غير مقروءة",
+  "@unreadMessagesBadgeLabel": { "description": "Unread message count badge accessibility label", "placeholders": { "count": { "type": "int" } } }
 }

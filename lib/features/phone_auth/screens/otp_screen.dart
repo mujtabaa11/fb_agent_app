@@ -203,7 +203,7 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
     ref.listen(authStateChangesProvider, (previous, next) {
       final user = next.valueOrNull;
       if (user != null && mounted) {
-        context.go('/home');
+        context.go('/dashboard');
       }
     });
 

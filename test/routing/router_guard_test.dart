@@ -36,8 +36,14 @@ void main() {
   late FakeAuthRepository fakeAuth;
   late _TestAuthChangeNotifier refreshNotifier;
 
+  /// Whether the fake agent's profile is complete. `null` mirrors
+  /// [currentAgentProvider] returning `null` (profile not yet loaded) —
+  /// both are treated as incomplete by the guard.
+  bool? isProfileComplete;
+
   /// Builds a [GoRouter] with the same redirect logic as production, but
-  /// backed by [fakeAuth] and [refreshNotifier] for test control.
+  /// backed by [fakeAuth], [refreshNotifier], and [isProfileComplete] for
+  /// test control.
   ///
   /// Routes use simple [Scaffold] widgets with a [Text] label — we test the
   /// redirect path, not rendered content.
@@ -52,6 +58,7 @@ void main() {
             location == '/forgot-password';
         final isSplash = location == '/splash';
         final isVerifyEmail = location == '/verify-email';
+        final isSetup = location == '/setup';
 
         if (refreshNotifier.isLoading) return null;
 
@@ -66,9 +73,18 @@ void main() {
 
           if (needsVerification && !isVerifyEmail) return '/verify-email';
 
-          if (!needsVerification &&
-              (isAuthRoute || isSplash || isVerifyEmail)) {
-            return '/home';
+          if (!needsVerification) {
+            final profileIncomplete = isProfileComplete != true;
+
+            if (profileIncomplete && !isSetup) return '/setup';
+
+            if (!profileIncomplete &&
+                (isAuthRoute ||
+                    isSplash ||
+                    isVerifyEmail ||
+                    isSetup)) {
+              return '/dashboard';
+            }
           }
         }
 
@@ -104,18 +120,23 @@ void main() {
           builder: (context, state) =>
               const Scaffold(body: Text('verify-email')),
         ),
+        GoRoute(
+          path: '/setup',
+          builder: (context, state) =>
+              const Scaffold(body: Text('setup')),
+        ),
         ShellRoute(
           builder: (context, state, child) => child,
           routes: [
             GoRoute(
-              path: '/home',
+              path: '/dashboard',
               builder: (context, state) =>
-                  const Scaffold(body: Text('home')),
+                  const Scaffold(body: Text('dashboard')),
             ),
             GoRoute(
-              path: '/explore',
+              path: '/players',
               builder: (context, state) =>
-                  const Scaffold(body: Text('explore')),
+                  const Scaffold(body: Text('players')),
             ),
             GoRoute(
               path: '/profile',
@@ -139,6 +160,7 @@ void main() {
   setUp(() {
     fakeAuth = FakeAuthRepository();
     refreshNotifier = _TestAuthChangeNotifier();
+    isProfileComplete = null;
   });
 
   tearDown(() {
@@ -150,8 +172,9 @@ void main() {
   // ---------------------------------------------------------------------------
 
   group('unauthenticated user', () {
-    testWidgets('navigating to /home redirects to /login', (tester) async {
-      final router = buildTestRouter(initialLocation: '/home');
+    testWidgets('navigating to /dashboard redirects to /login',
+        (tester) async {
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
@@ -160,8 +183,8 @@ void main() {
       );
     });
 
-    testWidgets('navigating to /explore redirects to /login', (tester) async {
-      final router = buildTestRouter(initialLocation: '/explore');
+    testWidgets('navigating to /players redirects to /login', (tester) async {
+      final router = buildTestRouter(initialLocation: '/players');
       await pumpRouter(tester, router);
 
       expect(
@@ -195,71 +218,134 @@ void main() {
   // Authenticated guards
   // ---------------------------------------------------------------------------
 
-  group('authenticated user', () {
+  group('authenticated user with complete profile', () {
     setUp(() {
       fakeAuth.setUser(createTestAuthUser());
+      isProfileComplete = true;
     });
 
-    testWidgets('navigating to /home is allowed with no redirect',
+    testWidgets('navigating to /dashboard is allowed with no redirect',
         (tester) async {
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /login redirects to /home', (tester) async {
+    testWidgets('navigating to /login redirects to /dashboard',
+        (tester) async {
       final router = buildTestRouter(initialLocation: '/login');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /signup redirects to /home', (tester) async {
+    testWidgets('navigating to /signup redirects to /dashboard',
+        (tester) async {
       final router = buildTestRouter(initialLocation: '/signup');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /forgot-password redirects to /home',
+    testWidgets('navigating to /forgot-password redirects to /dashboard',
         (tester) async {
       final router = buildTestRouter(initialLocation: '/forgot-password');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /splash redirects to /home', (tester) async {
+    testWidgets('navigating to /splash redirects to /dashboard',
+        (tester) async {
       final router = buildTestRouter(initialLocation: '/splash');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
-    testWidgets('navigating to /explore is allowed with no redirect',
+    testWidgets('navigating to /players is allowed with no redirect',
         (tester) async {
-      final router = buildTestRouter(initialLocation: '/explore');
+      final router = buildTestRouter(initialLocation: '/players');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/explore',
+        '/players',
+      );
+    });
+
+    testWidgets('navigating to /setup redirects to /dashboard',
+        (tester) async {
+      final router = buildTestRouter(initialLocation: '/setup');
+      await pumpRouter(tester, router);
+
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/dashboard',
+      );
+    });
+  });
+
+  // ---------------------------------------------------------------------------
+  // Profile completeness guard
+  // ---------------------------------------------------------------------------
+
+  group('authenticated user with incomplete profile', () {
+    setUp(() {
+      fakeAuth.setUser(createTestAuthUser());
+    });
+
+    testWidgets(
+        'navigating to /dashboard redirects to /setup when isProfileComplete is false',
+        (tester) async {
+      isProfileComplete = false;
+      final router = buildTestRouter(initialLocation: '/dashboard');
+      await pumpRouter(tester, router);
+
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/setup',
+      );
+    });
+
+    testWidgets(
+        'navigating to /dashboard redirects to /setup when agent is null (not yet loaded)',
+        (tester) async {
+      isProfileComplete = null;
+      final router = buildTestRouter(initialLocation: '/dashboard');
+      await pumpRouter(tester, router);
+
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/setup',
+      );
+    });
+
+    testWidgets('navigating to /setup is allowed with no redirect',
+        (tester) async {
+      isProfileComplete = false;
+      final router = buildTestRouter(initialLocation: '/setup');
+      await pumpRouter(tester, router);
+
+      expect(
+        router.routeInformationProvider.value.uri.path,
+        '/setup',
       );
     });
   });
@@ -293,7 +379,7 @@ void main() {
       fakeAuth.setUser(createTestAuthUser(emailVerified: false));
       fakeAuth.fakeProvider = 'password';
 
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
@@ -303,47 +389,50 @@ void main() {
     });
 
     testWidgets(
-        'authenticated email/password user with emailVerified true is allowed to /home',
+        'authenticated email/password user with emailVerified true is allowed to /dashboard',
         (tester) async {
       fakeAuth.setUser(createTestAuthUser(emailVerified: true));
       fakeAuth.fakeProvider = 'password';
+      isProfileComplete = true;
 
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
     testWidgets(
-        'authenticated Google user is allowed to /home regardless of emailVerified',
+        'authenticated Google user is allowed to /dashboard regardless of emailVerified',
         (tester) async {
       fakeAuth.setUser(createTestAuthUser(emailVerified: false));
       fakeAuth.fakeProvider = 'google.com';
+      isProfileComplete = true;
 
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
     testWidgets(
-        'authenticated Apple user is allowed to /home regardless of emailVerified',
+        'authenticated Apple user is allowed to /dashboard regardless of emailVerified',
         (tester) async {
       fakeAuth.setUser(createTestAuthUser(emailVerified: false));
       fakeAuth.fakeProvider = 'apple.com';
+      isProfileComplete = true;
 
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
@@ -363,17 +452,18 @@ void main() {
     });
 
     testWidgets(
-        'verified email/password user on /verify-email redirects to /home',
+        'verified email/password user on /verify-email redirects to /dashboard',
         (tester) async {
       fakeAuth.setUser(createTestAuthUser(emailVerified: true));
       fakeAuth.fakeProvider = 'password';
+      isProfileComplete = true;
 
       final router = buildTestRouter(initialLocation: '/verify-email');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
   });
@@ -384,7 +474,7 @@ void main() {
 
   group('phone auth user', () {
     testWidgets(
-        'phone-authenticated user is allowed to /home without email verification',
+        'phone-authenticated user is allowed to /dashboard without email verification',
         (tester) async {
       fakeAuth.setUser(createTestAuthUser(
         uid: 'phone-uid',
@@ -392,18 +482,19 @@ void main() {
         emailVerified: false,
       ));
       fakeAuth.fakeProvider = 'phone';
+      isProfileComplete = true;
 
-      final router = buildTestRouter(initialLocation: '/home');
+      final router = buildTestRouter(initialLocation: '/dashboard');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
 
     testWidgets(
-        'phone-authenticated user on /login redirects to /home',
+        'phone-authenticated user on /login redirects to /dashboard',
         (tester) async {
       fakeAuth.setUser(createTestAuthUser(
         uid: 'phone-uid',
@@ -411,13 +502,14 @@ void main() {
         emailVerified: false,
       ));
       fakeAuth.fakeProvider = 'phone';
+      isProfileComplete = true;
 
       final router = buildTestRouter(initialLocation: '/login');
       await pumpRouter(tester, router);
 
       expect(
         router.routeInformationProvider.value.uri.path,
-        '/home',
+        '/dashboard',
       );
     });
   });

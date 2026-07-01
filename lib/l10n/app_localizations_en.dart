@@ -615,4 +615,69 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorLoadingData => 'Failed to load data. Please try again.';
+
+  @override
+  String get navDashboard => 'Dashboard';
+
+  @override
+  String get navPlayers => 'Players';
+
+  @override
+  String get navMarket => 'Market';
+
+  @override
+  String get navMessages => 'Messages';
+
+  @override
+  String get drawerViewProfile => 'View Public Profile';
+
+  @override
+  String get drawerEditProfile => 'Edit Profile';
+
+  @override
+  String get setupTitle => 'Complete Your Profile';
+
+  @override
+  String get dashboardTitle => 'Dashboard';
+
+  @override
+  String get playersTitle => 'Players';
+
+  @override
+  String get marketTitle => 'Market';
+
+  @override
+  String get messagesTitle => 'Messages';
+
+  @override
+  String get addPlayerTitle => 'Add Player';
+
+  @override
+  String get playerProfileTitle => 'Player Profile';
+
+  @override
+  String get editPlayerTitle => 'Edit Player';
+
+  @override
+  String get createPostTitle => 'Create Post';
+
+  @override
+  String get postDetailTitle => 'Post Details';
+
+  @override
+  String get myPostsTitle => 'My Posts';
+
+  @override
+  String get agentPublicProfileTitle => 'Agent Profile';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get editProfileTitle => 'Edit Profile';
+
+  @override
+  String unreadMessagesBadgeLabel(int count) {
+    return '$count unread messages';
+  }
 }

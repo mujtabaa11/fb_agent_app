@@ -3,10 +3,12 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:football_agent_mate/l10n/app_localizations.dart';
 
 import '../../../core/widgets/offline_banner.dart';
+import '../../messaging/providers/messaging_providers.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/bottom_nav_bar.dart';
 
@@ -27,22 +29,28 @@ class _Tab {
 
 final _tabs = [
   _Tab(
-    path: '/home',
-    labelKey: (l10n) => l10n.navHome,
-    icon: Icons.home_outlined,
-    activeIcon: Icons.home,
+    path: '/dashboard',
+    labelKey: (l10n) => l10n.navDashboard,
+    icon: Icons.dashboard_outlined,
+    activeIcon: Icons.dashboard,
   ),
   _Tab(
-    path: '/explore',
-    labelKey: (l10n) => l10n.navExplore,
-    icon: Icons.explore_outlined,
-    activeIcon: Icons.explore,
+    path: '/players',
+    labelKey: (l10n) => l10n.navPlayers,
+    icon: Icons.people_outline,
+    activeIcon: Icons.people,
   ),
   _Tab(
-    path: '/profile',
-    labelKey: (l10n) => l10n.navProfile,
-    icon: Icons.person_outlined,
-    activeIcon: Icons.person,
+    path: '/market',
+    labelKey: (l10n) => l10n.navMarket,
+    icon: Icons.storefront_outlined,
+    activeIcon: Icons.storefront,
+  ),
+  _Tab(
+    path: '/messages',
+    labelKey: (l10n) => l10n.navMessages,
+    icon: Icons.chat_bubble_outline,
+    activeIcon: Icons.chat_bubble,
   ),
 ];
 
@@ -50,17 +58,17 @@ final _tabs = [
 ///
 /// Provides a [Scaffold] with a bottom [NavigationBar] and side [Drawer].
 /// The [child] parameter is the routed page provided by GoRouter.
-class ShellScreen extends StatefulWidget {
+class ShellScreen extends ConsumerStatefulWidget {
   const ShellScreen({required this.child, super.key});
 
   /// The child widget provided by [ShellRoute].
   final Widget child;
 
   @override
-  State<ShellScreen> createState() => _ShellScreenState();
+  ConsumerState<ShellScreen> createState() => _ShellScreenState();
 }
 
-class _ShellScreenState extends State<ShellScreen> {
+class _ShellScreenState extends ConsumerState<ShellScreen> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentIndex = 0;
 
@@ -98,6 +106,7 @@ class _ShellScreenState extends State<ShellScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final location = GoRouterState.of(context).matchedLocation;
+    final unreadCount = ref.watch(unreadMessagesCountProvider);
 
     return PopScope(
       canPop: false,
@@ -131,14 +140,53 @@ class _ShellScreenState extends State<ShellScreen> {
           destinations: [
             for (final tab in _tabs)
               NavigationDestination(
-                icon: ExcludeSemantics(child: Icon(tab.icon)),
-                selectedIcon: ExcludeSemantics(child: Icon(tab.activeIcon)),
+                icon: ExcludeSemantics(
+                  child: _TabIcon(
+                    icon: tab.icon,
+                    isMessages: tab.path == '/messages',
+                    unreadCount: unreadCount,
+                  ),
+                ),
+                selectedIcon: ExcludeSemantics(
+                  child: _TabIcon(
+                    icon: tab.activeIcon,
+                    isMessages: tab.path == '/messages',
+                    unreadCount: unreadCount,
+                  ),
+                ),
                 label: tab.labelKey(l10n),
               ),
           ],
         ),
         drawer: AppDrawer(currentPath: location),
       ),
+    );
+  }
+}
+
+/// A bottom-nav tab icon, optionally decorated with an unread-count badge.
+///
+/// Only the Messages tab passes [isMessages] as `true` — the badge is shown
+/// whenever [unreadCount] is greater than zero.
+class _TabIcon extends StatelessWidget {
+  const _TabIcon({
+    required this.icon,
+    required this.isMessages,
+    required this.unreadCount,
+  });
+
+  final IconData icon;
+  final bool isMessages;
+  final int unreadCount;
+
+  @override
+  Widget build(BuildContext context) {
+    final iconWidget = Icon(icon);
+    if (!isMessages || unreadCount <= 0) return iconWidget;
+
+    return Badge(
+      label: Text('$unreadCount'),
+      child: iconWidget,
     );
   }
 }

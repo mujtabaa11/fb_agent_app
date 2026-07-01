@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
 import 'app_tokens.dart';
 
 /// Application [ThemeData] for light and dark modes.
@@ -32,6 +33,7 @@ abstract final class AppTheme {
       inputDecorationTheme: _buildInputDecorationTheme(colorScheme),
       appBarTheme: _buildAppBarTheme(colorScheme),
       cardTheme: _buildCardTheme(),
+      navigationBarTheme: _buildNavigationBarTheme(),
     );
   }
 
@@ -61,6 +63,7 @@ abstract final class AppTheme {
       inputDecorationTheme: _buildInputDecorationTheme(colorScheme),
       appBarTheme: _buildAppBarTheme(colorScheme),
       cardTheme: _buildCardTheme(),
+      navigationBarTheme: _buildNavigationBarTheme(),
     );
   }
 
@@ -175,6 +178,28 @@ abstract final class AppTheme {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppTokens.radiusMd),
       ),
+    );
+  }
+
+  static NavigationBarThemeData _buildNavigationBarTheme() {
+    TextStyle labelStyle(Set<WidgetState> states) {
+      final isSelected = states.contains(WidgetState.selected);
+      return TextStyle(
+        fontSize: AppTokens.fontSizeXs,
+        fontFamily: AppTokens.fontFamily,
+        color: isSelected ? AppColors.primary : AppColors.textSecondary,
+      );
+    }
+
+    return NavigationBarThemeData(
+      iconTheme: WidgetStateProperty.resolveWith(
+        (states) => IconThemeData(
+          color: states.contains(WidgetState.selected)
+              ? AppColors.primary
+              : AppColors.textSecondary,
+        ),
+      ),
+      labelTextStyle: WidgetStateProperty.resolveWith(labelStyle),
     );
   }
 }

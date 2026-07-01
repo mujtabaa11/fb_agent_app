@@ -542,5 +542,68 @@
   "@emptyPlayersSubtitle": { "description": "Subtitle for empty player list state." },
 
   "errorLoadingData": "Failed to load data. Please try again.",
-  "@errorLoadingData": { "description": "Generic error message for inline error states." }
+  "@errorLoadingData": { "description": "Generic error message for inline error states." },
+
+  "navDashboard": "Dashboard",
+  "@navDashboard": { "description": "Label for the Dashboard tab in the bottom navigation bar. Navigates to the agent's dashboard screen." },
+
+  "navPlayers": "Players",
+  "@navPlayers": { "description": "Label for the Players tab in the bottom navigation bar. Navigates to the player list screen." },
+
+  "navMarket": "Market",
+  "@navMarket": { "description": "Label for the Market tab in the bottom navigation bar. Navigates to the market feed screen." },
+
+  "navMessages": "Messages",
+  "@navMessages": { "description": "Label for the Messages tab in the bottom navigation bar. Navigates to the conversation list screen." },
+
+  "drawerViewProfile": "View Public Profile",
+  "@drawerViewProfile": { "description": "Navigation item in the side drawer. Tapping it opens the current agent's public profile screen." },
+
+  "drawerEditProfile": "Edit Profile",
+  "@drawerEditProfile": { "description": "Navigation item in the side drawer. Tapping it opens the profile editing screen." },
+
+  "setupTitle": "Complete Your Profile",
+  "@setupTitle": { "description": "Heading displayed at the top of the account setup screen shown to agents with an incomplete profile." },
+
+  "dashboardTitle": "Dashboard",
+  "@dashboardTitle": { "description": "Heading displayed at the top of the dashboard screen." },
+
+  "playersTitle": "Players",
+  "@playersTitle": { "description": "Heading displayed at the top of the player list screen." },
+
+  "marketTitle": "Market",
+  "@marketTitle": { "description": "Heading displayed at the top of the market feed screen." },
+
+  "messagesTitle": "Messages",
+  "@messagesTitle": { "description": "Heading displayed at the top of the conversation list screen." },
+
+  "addPlayerTitle": "Add Player",
+  "@addPlayerTitle": { "description": "Heading displayed at the top of the add player screen." },
+
+  "playerProfileTitle": "Player Profile",
+  "@playerProfileTitle": { "description": "Heading displayed at the top of the player profile screen." },
+
+  "editPlayerTitle": "Edit Player",
+  "@editPlayerTitle": { "description": "Heading displayed at the top of the edit player screen." },
+
+  "createPostTitle": "Create Post",
+  "@createPostTitle": { "description": "Heading displayed at the top of the create market post screen." },
+
+  "postDetailTitle": "Post Details",
+  "@postDetailTitle": { "description": "Heading displayed at the top of the market post detail screen." },
+
+  "myPostsTitle": "My Posts",
+  "@myPostsTitle": { "description": "Heading displayed at the top of the agent's own market posts screen." },
+
+  "agentPublicProfileTitle": "Agent Profile",
+  "@agentPublicProfileTitle": { "description": "Heading displayed at the top of an agent's public profile screen." },
+
+  "chatTitle": "Chat",
+  "@chatTitle": { "description": "Heading displayed at the top of the conversation chat screen." },
+
+  "editProfileTitle": "Edit Profile",
+  "@editProfileTitle": { "description": "Heading displayed at the top of the edit profile screen." },
+
+  "unreadMessagesBadgeLabel": "{count} unread messages",
+  "@unreadMessagesBadgeLabel": { "description": "Screen-reader-only accessibility label for the unread message count badge on the Messages tab.", "placeholders": { "count": { "type": "int" } } }
 }

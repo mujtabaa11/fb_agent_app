@@ -3,11 +3,12 @@
 /// Uses [FirebaseAuthRepository] to check authentication state. All Firebase
 /// interaction goes through the repository — no direct Firebase calls here.
 ///
-/// The redirect guard evaluates four states in priority order:
+/// The redirect guard evaluates five states in priority order:
 ///   1. Onboarding not completed → `/onboarding`
 ///   2. Unauthenticated → `/login`
 ///   3. Email/password user with unverified email → `/verify-email`
-///   4. Authenticated and verified (or SSO) → `/home`
+///   4. Profile incomplete (or not yet loaded) → `/setup`
+///   5. Authenticated, verified, and profile complete → `/dashboard`
 library;
 
 import 'dart:async';
@@ -15,24 +16,38 @@ import 'dart:async';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/constants/storage_keys.dart';
 import '../core/widgets/splash_screen.dart';
 import '../features/auth/models/auth_user.dart';
+import '../features/auth/models/user_model.dart';
+import '../features/auth/providers/agent_providers.dart';
 import '../features/auth/repositories/auth_repository.dart';
 import '../features/auth/screens/forgot_password_screen.dart';
 import '../features/auth/screens/login_screen.dart';
 import '../features/auth/screens/sign_up_screen.dart';
 import '../features/auth/screens/verify_email_screen.dart';
 import '../features/dev_showcase/screens/component_showcase_screen.dart';
+import '../features/market/screens/agent_public_profile_screen.dart';
+import '../features/market/screens/create_post_screen.dart';
+import '../features/market/screens/market_feed_screen.dart';
+import '../features/market/screens/my_posts_screen.dart';
+import '../features/market/screens/post_detail_screen.dart';
+import '../features/messaging/screens/chat_screen.dart';
+import '../features/messaging/screens/conversation_list_screen.dart';
 import '../features/onboarding/screens/onboarding_screen.dart';
 import '../features/phone_auth/screens/otp_screen.dart';
 import '../features/phone_auth/screens/phone_input_screen.dart';
-import '../features/explore/presentation/user_detail_screen.dart';
-import '../features/shell/screens/explore_screen.dart';
-import '../features/shell/screens/home_screen.dart';
+import '../features/players/screens/add_player_screen.dart';
+import '../features/players/screens/edit_player_screen.dart';
+import '../features/players/screens/player_list_screen.dart';
+import '../features/players/screens/player_profile_screen.dart';
+import '../features/profile/screens/edit_profile_screen.dart';
+import '../features/setup/screens/account_setup_screen.dart';
+import '../features/dashboard/screens/dashboard_screen.dart';
 import '../features/shell/screens/profile_screen.dart';
 import '../features/shell/screens/shell_screen.dart';
 
@@ -114,6 +129,30 @@ class _AuthChangeNotifier extends ChangeNotifier {
 /// [OnboardingNotifier] can call [markCompleted] after persisting.
 final onboardingFlag = OnboardingFlagNotifier();
 
+// ---------------------------------------------------------------------------
+// Agent profile change notifier
+// ---------------------------------------------------------------------------
+
+/// A [ChangeNotifier] that bridges [currentAgentProvider] into GoRouter's
+/// [refreshListenable] so the redirect guard re-evaluates whenever the
+/// agent's Firestore profile (and its `isProfileComplete` flag) changes.
+class _AgentChangeNotifier extends ChangeNotifier {
+  _AgentChangeNotifier(ProviderContainer container) {
+    _subscription = container.listen(
+      currentAgentProvider,
+      (_, __) => notifyListeners(),
+    );
+  }
+
+  late final ProviderSubscription<UserModel?> _subscription;
+
+  @override
+  void dispose() {
+    _subscription.close();
+    super.dispose();
+  }
+}
+
 /// Transition builder that returns the child unmodified — used by shell tab
 /// routes so that switching bottom-nav tabs is instant with no animation.
 Widget _noTransition(
@@ -124,18 +163,23 @@ Widget _noTransition(
 ) =>
     child;
 
-/// Creates the application router using the given [authRepository].
+/// Creates the application router using the given [authRepository] and
+/// Riverpod [container].
 ///
-/// This ensures the router and Riverpod share the same [AuthRepository]
-/// instance, avoiding stale-state bugs (e.g. email-verified polling).
-GoRouter createRouter(AuthRepository authRepository) {
+/// Sharing the same [AuthRepository] instance as Riverpod avoids stale-state
+/// bugs (e.g. email-verified polling). Sharing the same [ProviderContainer]
+/// lets the redirect guard read [currentAgentProvider] directly.
+GoRouter createRouter(AuthRepository authRepository, ProviderContainer container) {
   final authNotifier =
       _AuthChangeNotifier(authRepository.authStateChanges);
+
+  final agentNotifier = _AgentChangeNotifier(container);
 
   final analyticsObserver =
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance);
 
-  final refreshNotifier = Listenable.merge([authNotifier, onboardingFlag]);
+  final refreshNotifier =
+      Listenable.merge([authNotifier, onboardingFlag, agentNotifier]);
 
   return GoRouter(
   initialLocation: '/splash',
@@ -155,7 +199,12 @@ GoRouter createRouter(AuthRepository authRepository) {
         !user.emailVerified) {
       router.go('/verify-email');
     } else {
-      router.go('/home');
+      final agent = container.read(currentAgentProvider);
+      if (agent == null || !agent.isProfileComplete) {
+        router.go('/setup');
+      } else {
+        router.go('/dashboard');
+      }
     }
   },
   redirect: (context, state) {
@@ -168,6 +217,7 @@ GoRouter createRouter(AuthRepository authRepository) {
     final isSplash = location == '/splash';
     final isVerifyEmail = location == '/verify-email';
     final isOnboarding = location == '/onboarding';
+    final isSetup = location == '/setup';
 
     // -----------------------------------------------------------------------
     // 1. Onboarding flag still loading — hold on splash. No flash.
@@ -205,12 +255,23 @@ GoRouter createRouter(AuthRepository authRepository) {
       // -------------------------------------------------------------------
       if (needsVerification && !isVerifyEmail) return '/verify-email';
 
-      // -------------------------------------------------------------------
-      // 6. Verified (or SSO) user on auth/splash/verify/onboarding → home.
-      // -------------------------------------------------------------------
-      if (!needsVerification &&
-          (isAuthRoute || isSplash || isVerifyEmail || isOnboarding)) {
-        return '/home';
+      if (!needsVerification) {
+        final agent = container.read(currentAgentProvider);
+        final profileIncomplete = agent == null || !agent.isProfileComplete;
+
+        // -----------------------------------------------------------------
+        // 6. Profile incomplete (or not yet loaded) — redirect to setup.
+        // -----------------------------------------------------------------
+        if (profileIncomplete && !isSetup) return '/setup';
+
+        // -----------------------------------------------------------------
+        // 7. Profile complete but on setup/auth/splash/verify/onboarding
+        //    — redirect to the dashboard.
+        // -----------------------------------------------------------------
+        if (!profileIncomplete &&
+            (isAuthRoute || isSplash || isVerifyEmail || isOnboarding || isSetup)) {
+          return '/dashboard';
+        }
       }
     }
 
@@ -260,6 +321,19 @@ GoRouter createRouter(AuthRepository authRepository) {
       },
     ),
 
+    GoRoute(
+      path: '/setup',
+      builder: (context, state) => const AccountSetupScreen(),
+    ),
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      path: '/profile/edit',
+      builder: (context, state) => const EditProfileScreen(),
+    ),
+
     if (kDebugMode)
       GoRoute(
         path: '/dev/showcase',
@@ -273,39 +347,90 @@ GoRouter createRouter(AuthRepository authRepository) {
       builder: (context, state, child) => ShellScreen(child: child),
       routes: [
         GoRoute(
-          path: '/home',
+          path: '/dashboard',
           pageBuilder: (context, state) => const CustomTransitionPage(
-            child: HomeScreen(),
+            child: DashboardScreen(),
             transitionsBuilder: _noTransition,
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
         ),
         GoRoute(
-          path: '/explore',
+          path: '/players',
           pageBuilder: (context, state) => const CustomTransitionPage(
-            child: ExploreScreen(),
+            child: PlayerListScreen(),
             transitionsBuilder: _noTransition,
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
           routes: [
             GoRoute(
-              path: ':userId',
-              builder: (context, state) => UserDetailScreen(
-                userId: state.pathParameters['userId']!,
+              path: 'add',
+              builder: (context, state) => const AddPlayerScreen(),
+            ),
+            GoRoute(
+              path: ':playerId',
+              builder: (context, state) => PlayerProfileScreen(
+                playerId: state.pathParameters['playerId']!,
+              ),
+              routes: [
+                GoRoute(
+                  path: 'edit',
+                  builder: (context, state) => EditPlayerScreen(
+                    playerId: state.pathParameters['playerId']!,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        GoRoute(
+          path: '/market',
+          pageBuilder: (context, state) => const CustomTransitionPage(
+            child: MarketFeedScreen(),
+            transitionsBuilder: _noTransition,
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
+          ),
+          routes: [
+            GoRoute(
+              path: 'post/create',
+              builder: (context, state) => const CreatePostScreen(),
+            ),
+            GoRoute(
+              path: 'post/:postId',
+              builder: (context, state) => PostDetailScreen(
+                postId: state.pathParameters['postId']!,
+              ),
+            ),
+            GoRoute(
+              path: 'my-posts',
+              builder: (context, state) => const MyPostsScreen(),
+            ),
+            GoRoute(
+              path: 'agent/:agentId',
+              builder: (context, state) => AgentPublicProfileScreen(
+                agentId: state.pathParameters['agentId']!,
               ),
             ),
           ],
         ),
         GoRoute(
-          path: '/profile',
+          path: '/messages',
           pageBuilder: (context, state) => const CustomTransitionPage(
-            child: ProfileScreen(),
+            child: ConversationListScreen(),
             transitionsBuilder: _noTransition,
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),
+          routes: [
+            GoRoute(
+              path: ':conversationId',
+              builder: (context, state) => ChatScreen(
+                conversationId: state.pathParameters['conversationId']!,
+              ),
+            ),
+          ],
         ),
       ],
     ),

@@ -1183,6 +1183,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load data. Please try again.'**
   String get errorLoadingData;
+
+  /// Label for the Dashboard tab in the bottom navigation bar. Navigates to the agent's dashboard screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get navDashboard;
+
+  /// Label for the Players tab in the bottom navigation bar. Navigates to the player list screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get navPlayers;
+
+  /// Label for the Market tab in the bottom navigation bar. Navigates to the market feed screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Market'**
+  String get navMarket;
+
+  /// Label for the Messages tab in the bottom navigation bar. Navigates to the conversation list screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Messages'**
+  String get navMessages;
+
+  /// Navigation item in the side drawer. Tapping it opens the current agent's public profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'View Public Profile'**
+  String get drawerViewProfile;
+
+  /// Navigation item in the side drawer. Tapping it opens the profile editing screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get drawerEditProfile;
+
+  /// Heading displayed at the top of the account setup screen shown to agents with an incomplete profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Your Profile'**
+  String get setupTitle;
+
+  /// Heading displayed at the top of the dashboard screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboardTitle;
+
+  /// Heading displayed at the top of the player list screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get playersTitle;
+
+  /// Heading displayed at the top of the market feed screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Market'**
+  String get marketTitle;
+
+  /// Heading displayed at the top of the conversation list screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Messages'**
+  String get messagesTitle;
+
+  /// Heading displayed at the top of the add player screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Player'**
+  String get addPlayerTitle;
+
+  /// Heading displayed at the top of the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Player Profile'**
+  String get playerProfileTitle;
+
+  /// Heading displayed at the top of the edit player screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Player'**
+  String get editPlayerTitle;
+
+  /// Heading displayed at the top of the create market post screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Post'**
+  String get createPostTitle;
+
+  /// Heading displayed at the top of the market post detail screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Details'**
+  String get postDetailTitle;
+
+  /// Heading displayed at the top of the agent's own market posts screen.
+  ///
+  /// In en, this message translates to:
+  /// **'My Posts'**
+  String get myPostsTitle;
+
+  /// Heading displayed at the top of an agent's public profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Agent Profile'**
+  String get agentPublicProfileTitle;
+
+  /// Heading displayed at the top of the conversation chat screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chatTitle;
+
+  /// Heading displayed at the top of the edit profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfileTitle;
+
+  /// Screen-reader-only accessibility label for the unread message count badge on the Messages tab.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} unread messages'**
+  String unreadMessagesBadgeLabel(int count);
 }
 
 class _AppLocalizationsDelegate
