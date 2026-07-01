@@ -761,4 +761,152 @@ class AppLocalizationsEn extends AppLocalizations {
   String setupYearsPlural(int count) {
     return '$count years';
   }
+
+  @override
+  String get savePlayer => 'Save Player';
+
+  @override
+  String get discardChangesTitle => 'Discard Changes?';
+
+  @override
+  String get discardChangesMessage =>
+      'You have unsaved changes. Are you sure you want to discard them?';
+
+  @override
+  String get discardButton => 'Discard';
+
+  @override
+  String get keepEditingButton => 'Keep Editing';
+
+  @override
+  String get sectionIdentity => 'Identity';
+
+  @override
+  String get sectionFootballDetails => 'Football Details';
+
+  @override
+  String get sectionRepresentation => 'Representation';
+
+  @override
+  String get sectionContractFinancial => 'Contract & Financial';
+
+  @override
+  String get sectionContact => 'Contact';
+
+  @override
+  String get sectionStatus => 'Status';
+
+  @override
+  String get fieldFullName => 'Full Name';
+
+  @override
+  String get fieldDateOfBirth => 'Date of Birth';
+
+  @override
+  String get fieldNationality => 'Nationality';
+
+  @override
+  String get fieldSecondNationality => 'Second Nationality';
+
+  @override
+  String get fieldCountryOfResidence => 'Country of Residence';
+
+  @override
+  String get fieldPreferredPosition => 'Preferred Position';
+
+  @override
+  String get fieldOtherPositions => 'Other Positions';
+
+  @override
+  String get fieldPreferredFoot => 'Preferred Foot';
+
+  @override
+  String get fieldCurrentClub => 'Current Club';
+
+  @override
+  String get fieldLeagueCountry => 'League Country';
+
+  @override
+  String get fieldMarketValue => 'Estimated Market Value';
+
+  @override
+  String get fieldTransfermarktUrl => 'Transfermarkt URL';
+
+  @override
+  String get fieldAgentContractStart => 'Agent Contract Start';
+
+  @override
+  String get fieldAgentContractExpiry => 'Agent Contract Expiry';
+
+  @override
+  String get fieldClubContractExpiry => 'Club Contract Expiry';
+
+  @override
+  String get fieldSalary => 'Salary';
+
+  @override
+  String get fieldPhoneNumber => 'Phone Number';
+
+  @override
+  String get fieldEmail => 'Email';
+
+  @override
+  String get fieldWhatsAppNumber => 'WhatsApp Number';
+
+  @override
+  String get fieldClientStatus => 'Client Status';
+
+  @override
+  String get positionGK => 'GK';
+
+  @override
+  String get positionCB => 'CB';
+
+  @override
+  String get positionLB => 'LB';
+
+  @override
+  String get positionRB => 'RB';
+
+  @override
+  String get positionCDM => 'CDM';
+
+  @override
+  String get positionCM => 'CM';
+
+  @override
+  String get positionCAM => 'CAM';
+
+  @override
+  String get positionLW => 'LW';
+
+  @override
+  String get positionRW => 'RW';
+
+  @override
+  String get positionST => 'ST';
+
+  @override
+  String get footLeft => 'Left';
+
+  @override
+  String get footRight => 'Right';
+
+  @override
+  String get footBoth => 'Both';
+
+  @override
+  String get validationRequired => 'This field is required';
+
+  @override
+  String get validationEmailInvalid => 'Please enter a valid email address';
+
+  @override
+  String get validationNameTooShort => 'Name must be at least 2 characters';
+
+  @override
+  String get validationPlayerTooYoung => 'Player must be at least 15 years old';
+
+  @override
+  String get errorSavePlayer => 'Failed to save player. Please try again.';
 }

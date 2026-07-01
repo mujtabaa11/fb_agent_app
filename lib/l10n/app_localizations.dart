@@ -1449,6 +1449,300 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} years'**
   String setupYearsPlural(int count);
+
+  /// Label for the save button on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Player'**
+  String get savePlayer;
+
+  /// Title for the discard confirmation dialog when leaving the add player form with unsaved changes.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard Changes?'**
+  String get discardChangesTitle;
+
+  /// Body text for the discard confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. Are you sure you want to discard them?'**
+  String get discardChangesMessage;
+
+  /// Destructive button label in the discard confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discardButton;
+
+  /// Button label in the discard confirmation dialog to dismiss and continue editing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep Editing'**
+  String get keepEditingButton;
+
+  /// Section header for the identity section of the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Identity'**
+  String get sectionIdentity;
+
+  /// Section header for the football details section of the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Football Details'**
+  String get sectionFootballDetails;
+
+  /// Section header for the representation section of the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Representation'**
+  String get sectionRepresentation;
+
+  /// Section header for the contract and financial section of the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Contract & Financial'**
+  String get sectionContractFinancial;
+
+  /// Section header for the contact section of the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get sectionContact;
+
+  /// Section header for the status section of the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get sectionStatus;
+
+  /// Label for the full name field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fieldFullName;
+
+  /// Label for the date of birth field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Birth'**
+  String get fieldDateOfBirth;
+
+  /// Label for the nationality dropdown on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality'**
+  String get fieldNationality;
+
+  /// Label for the optional second nationality field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Second Nationality'**
+  String get fieldSecondNationality;
+
+  /// Label for the country of residence dropdown on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Country of Residence'**
+  String get fieldCountryOfResidence;
+
+  /// Label for the preferred position dropdown on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferred Position'**
+  String get fieldPreferredPosition;
+
+  /// Label for the other positions multi-select chips on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Other Positions'**
+  String get fieldOtherPositions;
+
+  /// Label for the preferred foot dropdown on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferred Foot'**
+  String get fieldPreferredFoot;
+
+  /// Label for the current club field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Club'**
+  String get fieldCurrentClub;
+
+  /// Label for the league country field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'League Country'**
+  String get fieldLeagueCountry;
+
+  /// Label for the estimated market value field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated Market Value'**
+  String get fieldMarketValue;
+
+  /// Label for the Transfermarkt URL field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Transfermarkt URL'**
+  String get fieldTransfermarktUrl;
+
+  /// Label for the agent contract start date field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Agent Contract Start'**
+  String get fieldAgentContractStart;
+
+  /// Label for the agent contract expiry date field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Agent Contract Expiry'**
+  String get fieldAgentContractExpiry;
+
+  /// Label for the club contract expiry date field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Club Contract Expiry'**
+  String get fieldClubContractExpiry;
+
+  /// Label for the salary field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary'**
+  String get fieldSalary;
+
+  /// Label for the phone number field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get fieldPhoneNumber;
+
+  /// Label for the email field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get fieldEmail;
+
+  /// Label for the WhatsApp number field on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp Number'**
+  String get fieldWhatsAppNumber;
+
+  /// Label for the client status dropdown on the add player form.
+  ///
+  /// In en, this message translates to:
+  /// **'Client Status'**
+  String get fieldClientStatus;
+
+  /// Display label for the Goalkeeper position.
+  ///
+  /// In en, this message translates to:
+  /// **'GK'**
+  String get positionGK;
+
+  /// Display label for the Centre-Back position.
+  ///
+  /// In en, this message translates to:
+  /// **'CB'**
+  String get positionCB;
+
+  /// Display label for the Left-Back position.
+  ///
+  /// In en, this message translates to:
+  /// **'LB'**
+  String get positionLB;
+
+  /// Display label for the Right-Back position.
+  ///
+  /// In en, this message translates to:
+  /// **'RB'**
+  String get positionRB;
+
+  /// Display label for the Central Defensive Midfielder position.
+  ///
+  /// In en, this message translates to:
+  /// **'CDM'**
+  String get positionCDM;
+
+  /// Display label for the Central Midfielder position.
+  ///
+  /// In en, this message translates to:
+  /// **'CM'**
+  String get positionCM;
+
+  /// Display label for the Central Attacking Midfielder position.
+  ///
+  /// In en, this message translates to:
+  /// **'CAM'**
+  String get positionCAM;
+
+  /// Display label for the Left Winger position.
+  ///
+  /// In en, this message translates to:
+  /// **'LW'**
+  String get positionLW;
+
+  /// Display label for the Right Winger position.
+  ///
+  /// In en, this message translates to:
+  /// **'RW'**
+  String get positionRW;
+
+  /// Display label for the Striker position.
+  ///
+  /// In en, this message translates to:
+  /// **'ST'**
+  String get positionST;
+
+  /// Display label for left preferred foot.
+  ///
+  /// In en, this message translates to:
+  /// **'Left'**
+  String get footLeft;
+
+  /// Display label for right preferred foot.
+  ///
+  /// In en, this message translates to:
+  /// **'Right'**
+  String get footRight;
+
+  /// Display label for both-footed preference.
+  ///
+  /// In en, this message translates to:
+  /// **'Both'**
+  String get footBoth;
+
+  /// Validation error shown when a required field is left empty.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get validationRequired;
+
+  /// Validation error shown when the email format is invalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get validationEmailInvalid;
+
+  /// Validation error shown when the full name is less than 2 characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Name must be at least 2 characters'**
+  String get validationNameTooShort;
+
+  /// Validation error shown when the date of birth indicates the player is under 15 years old.
+  ///
+  /// In en, this message translates to:
+  /// **'Player must be at least 15 years old'**
+  String get validationPlayerTooYoung;
+
+  /// Error message shown in a snackbar when saving a player fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save player. Please try again.'**
+  String get errorSavePlayer;
 }
 
 class _AppLocalizationsDelegate

@@ -677,5 +677,152 @@
   "@setupYearsSingular": { "description": "Singular year label for the years of experience dropdown.", "placeholders": { "count": { "type": "int" } } },
 
   "setupYearsPlural": "{count} years",
-  "@setupYearsPlural": { "description": "Plural years label for the years of experience dropdown.", "placeholders": { "count": { "type": "int" } } }
+  "@setupYearsPlural": { "description": "Plural years label for the years of experience dropdown.", "placeholders": { "count": { "type": "int" } } },
+
+  "savePlayer": "Save Player",
+  "@savePlayer": { "description": "Label for the save button on the add player form." },
+
+  "discardChangesTitle": "Discard Changes?",
+  "@discardChangesTitle": { "description": "Title for the discard confirmation dialog when leaving the add player form with unsaved changes." },
+
+  "discardChangesMessage": "You have unsaved changes. Are you sure you want to discard them?",
+  "@discardChangesMessage": { "description": "Body text for the discard confirmation dialog." },
+
+  "discardButton": "Discard",
+  "@discardButton": { "description": "Destructive button label in the discard confirmation dialog." },
+
+  "keepEditingButton": "Keep Editing",
+  "@keepEditingButton": { "description": "Button label in the discard confirmation dialog to dismiss and continue editing." },
+
+  "sectionIdentity": "Identity",
+  "@sectionIdentity": { "description": "Section header for the identity section of the add player form." },
+
+  "sectionFootballDetails": "Football Details",
+  "@sectionFootballDetails": { "description": "Section header for the football details section of the add player form." },
+
+  "sectionRepresentation": "Representation",
+  "@sectionRepresentation": { "description": "Section header for the representation section of the add player form." },
+
+  "sectionContractFinancial": "Contract & Financial",
+  "@sectionContractFinancial": { "description": "Section header for the contract and financial section of the add player form." },
+
+  "sectionContact": "Contact",
+  "@sectionContact": { "description": "Section header for the contact section of the add player form." },
+
+  "sectionStatus": "Status",
+  "@sectionStatus": { "description": "Section header for the status section of the add player form." },
+
+  "fieldFullName": "Full Name",
+  "@fieldFullName": { "description": "Label for the full name field on the add player form." },
+
+  "fieldDateOfBirth": "Date of Birth",
+  "@fieldDateOfBirth": { "description": "Label for the date of birth field on the add player form." },
+
+  "fieldNationality": "Nationality",
+  "@fieldNationality": { "description": "Label for the nationality dropdown on the add player form." },
+
+  "fieldSecondNationality": "Second Nationality",
+  "@fieldSecondNationality": { "description": "Label for the optional second nationality field on the add player form." },
+
+  "fieldCountryOfResidence": "Country of Residence",
+  "@fieldCountryOfResidence": { "description": "Label for the country of residence dropdown on the add player form." },
+
+  "fieldPreferredPosition": "Preferred Position",
+  "@fieldPreferredPosition": { "description": "Label for the preferred position dropdown on the add player form." },
+
+  "fieldOtherPositions": "Other Positions",
+  "@fieldOtherPositions": { "description": "Label for the other positions multi-select chips on the add player form." },
+
+  "fieldPreferredFoot": "Preferred Foot",
+  "@fieldPreferredFoot": { "description": "Label for the preferred foot dropdown on the add player form." },
+
+  "fieldCurrentClub": "Current Club",
+  "@fieldCurrentClub": { "description": "Label for the current club field on the add player form." },
+
+  "fieldLeagueCountry": "League Country",
+  "@fieldLeagueCountry": { "description": "Label for the league country field on the add player form." },
+
+  "fieldMarketValue": "Estimated Market Value",
+  "@fieldMarketValue": { "description": "Label for the estimated market value field on the add player form." },
+
+  "fieldTransfermarktUrl": "Transfermarkt URL",
+  "@fieldTransfermarktUrl": { "description": "Label for the Transfermarkt URL field on the add player form." },
+
+  "fieldAgentContractStart": "Agent Contract Start",
+  "@fieldAgentContractStart": { "description": "Label for the agent contract start date field on the add player form." },
+
+  "fieldAgentContractExpiry": "Agent Contract Expiry",
+  "@fieldAgentContractExpiry": { "description": "Label for the agent contract expiry date field on the add player form." },
+
+  "fieldClubContractExpiry": "Club Contract Expiry",
+  "@fieldClubContractExpiry": { "description": "Label for the club contract expiry date field on the add player form." },
+
+  "fieldSalary": "Salary",
+  "@fieldSalary": { "description": "Label for the salary field on the add player form." },
+
+  "fieldPhoneNumber": "Phone Number",
+  "@fieldPhoneNumber": { "description": "Label for the phone number field on the add player form." },
+
+  "fieldEmail": "Email",
+  "@fieldEmail": { "description": "Label for the email field on the add player form." },
+
+  "fieldWhatsAppNumber": "WhatsApp Number",
+  "@fieldWhatsAppNumber": { "description": "Label for the WhatsApp number field on the add player form." },
+
+  "fieldClientStatus": "Client Status",
+  "@fieldClientStatus": { "description": "Label for the client status dropdown on the add player form." },
+
+  "positionGK": "GK",
+  "@positionGK": { "description": "Display label for the Goalkeeper position." },
+
+  "positionCB": "CB",
+  "@positionCB": { "description": "Display label for the Centre-Back position." },
+
+  "positionLB": "LB",
+  "@positionLB": { "description": "Display label for the Left-Back position." },
+
+  "positionRB": "RB",
+  "@positionRB": { "description": "Display label for the Right-Back position." },
+
+  "positionCDM": "CDM",
+  "@positionCDM": { "description": "Display label for the Central Defensive Midfielder position." },
+
+  "positionCM": "CM",
+  "@positionCM": { "description": "Display label for the Central Midfielder position." },
+
+  "positionCAM": "CAM",
+  "@positionCAM": { "description": "Display label for the Central Attacking Midfielder position." },
+
+  "positionLW": "LW",
+  "@positionLW": { "description": "Display label for the Left Winger position." },
+
+  "positionRW": "RW",
+  "@positionRW": { "description": "Display label for the Right Winger position." },
+
+  "positionST": "ST",
+  "@positionST": { "description": "Display label for the Striker position." },
+
+  "footLeft": "Left",
+  "@footLeft": { "description": "Display label for left preferred foot." },
+
+  "footRight": "Right",
+  "@footRight": { "description": "Display label for right preferred foot." },
+
+  "footBoth": "Both",
+  "@footBoth": { "description": "Display label for both-footed preference." },
+
+  "validationRequired": "This field is required",
+  "@validationRequired": { "description": "Validation error shown when a required field is left empty." },
+
+  "validationEmailInvalid": "Please enter a valid email address",
+  "@validationEmailInvalid": { "description": "Validation error shown when the email format is invalid." },
+
+  "validationNameTooShort": "Name must be at least 2 characters",
+  "@validationNameTooShort": { "description": "Validation error shown when the full name is less than 2 characters." },
+
+  "validationPlayerTooYoung": "Player must be at least 15 years old",
+  "@validationPlayerTooYoung": { "description": "Validation error shown when the date of birth indicates the player is under 15 years old." },
+
+  "errorSavePlayer": "Failed to save player. Please try again.",
+  "@errorSavePlayer": { "description": "Error message shown in a snackbar when saving a player fails." }
 }
