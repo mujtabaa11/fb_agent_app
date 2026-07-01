@@ -21,4 +21,10 @@ abstract class PlayerRepository {
     PlayerDocumentModel document,
   );
   Future<Result<void>> deleteDocument(String playerId, String documentId);
+  Future<Result<PlayerNoteModel>> addNote(String playerId, PlayerNoteModel note);
+  Future<Result<PlayerNoteModel>> updateNote(
+    String playerId,
+    PlayerNoteModel note,
+  );
+  Future<Result<void>> deleteNote(String playerId, String noteId);
 }

@@ -1080,6 +1080,61 @@ class AppLocalizationsEn extends AppLocalizations {
       'Only PDF, JPG, and PNG files are supported.';
 
   @override
+  String get notesSection => 'Notes';
+
+  @override
+  String get addNote => 'Add Note';
+
+  @override
+  String get editNote => 'Edit Note';
+
+  @override
+  String get addNoteTitle => 'Add Note';
+
+  @override
+  String get editNoteTitle => 'Edit Note';
+
+  @override
+  String get saveNote => 'Save Note';
+
+  @override
+  String get updateNote => 'Update Note';
+
+  @override
+  String get noteContentField => 'Note';
+
+  @override
+  String get noteContentHint => 'Write your note here...';
+
+  @override
+  String get emptyNotesTitle => 'No Notes Yet';
+
+  @override
+  String get emptyNotesMessage =>
+      'Add private notes, observations, and reminders for this player.';
+
+  @override
+  String get deleteNoteTitle => 'Delete Note?';
+
+  @override
+  String get deleteNoteMessage => 'This action cannot be undone.';
+
+  @override
+  String get noteEditedLabel => 'Edited';
+
+  @override
+  String get noteAddError => 'Failed to save note. Please try again.';
+
+  @override
+  String get noteUpdateError => 'Failed to update note. Please try again.';
+
+  @override
+  String get noteDeleteError => 'Failed to delete note. Please try again.';
+
+  @override
+  String get validationNoteEmpty => 'Note content cannot be empty.';
+
+  @override
   String get labelPassport => 'Passport';
 
   @override

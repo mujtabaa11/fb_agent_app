@@ -2062,6 +2062,114 @@ abstract class AppLocalizations {
   /// **'Only PDF, JPG, and PNG files are supported.'**
   String get documentFileTypeInvalid;
 
+  /// Section header for the notes section widget on the player profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notesSection;
+
+  /// Label for the button that opens the add note bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Note'**
+  String get addNote;
+
+  /// Label for the action that opens the edit note bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Note'**
+  String get editNote;
+
+  /// Title of the bottom sheet when adding a new note.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Note'**
+  String get addNoteTitle;
+
+  /// Title of the bottom sheet when editing an existing note.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Note'**
+  String get editNoteTitle;
+
+  /// Label for the submit button when adding a note.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Note'**
+  String get saveNote;
+
+  /// Label for the submit button when editing a note.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Note'**
+  String get updateNote;
+
+  /// Label for the note content text field.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get noteContentField;
+
+  /// Hint text for the note content text field.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your note here...'**
+  String get noteContentHint;
+
+  /// Title shown when a player has no notes.
+  ///
+  /// In en, this message translates to:
+  /// **'No Notes Yet'**
+  String get emptyNotesTitle;
+
+  /// Subtitle shown when a player has no notes.
+  ///
+  /// In en, this message translates to:
+  /// **'Add private notes, observations, and reminders for this player.'**
+  String get emptyNotesMessage;
+
+  /// Title of the delete note confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Note?'**
+  String get deleteNoteTitle;
+
+  /// Body text of the delete note confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone.'**
+  String get deleteNoteMessage;
+
+  /// Indicator shown next to a note's timestamp when it has been edited.
+  ///
+  /// In en, this message translates to:
+  /// **'Edited'**
+  String get noteEditedLabel;
+
+  /// Error message shown when adding a note fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save note. Please try again.'**
+  String get noteAddError;
+
+  /// Error message shown when updating a note fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update note. Please try again.'**
+  String get noteUpdateError;
+
+  /// Snackbar message shown when deleting a note fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete note. Please try again.'**
+  String get noteDeleteError;
+
+  /// Inline validation error shown when the note content field is empty on submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Note content cannot be empty.'**
+  String get validationNoteEmpty;
+
   /// Document type label: Passport.
   ///
   /// In en, this message translates to:

@@ -985,6 +985,60 @@
   "documentFileTypeInvalid": "Only PDF, JPG, and PNG files are supported.",
   "@documentFileTypeInvalid": { "description": "Error message shown when a selected file type is not supported." },
 
+  "notesSection": "Notes",
+  "@notesSection": { "description": "Section header for the notes section widget on the player profile screen." },
+
+  "addNote": "Add Note",
+  "@addNote": { "description": "Label for the button that opens the add note bottom sheet." },
+
+  "editNote": "Edit Note",
+  "@editNote": { "description": "Label for the action that opens the edit note bottom sheet." },
+
+  "addNoteTitle": "Add Note",
+  "@addNoteTitle": { "description": "Title of the bottom sheet when adding a new note." },
+
+  "editNoteTitle": "Edit Note",
+  "@editNoteTitle": { "description": "Title of the bottom sheet when editing an existing note." },
+
+  "saveNote": "Save Note",
+  "@saveNote": { "description": "Label for the submit button when adding a note." },
+
+  "updateNote": "Update Note",
+  "@updateNote": { "description": "Label for the submit button when editing a note." },
+
+  "noteContentField": "Note",
+  "@noteContentField": { "description": "Label for the note content text field." },
+
+  "noteContentHint": "Write your note here...",
+  "@noteContentHint": { "description": "Hint text for the note content text field." },
+
+  "emptyNotesTitle": "No Notes Yet",
+  "@emptyNotesTitle": { "description": "Title shown when a player has no notes." },
+
+  "emptyNotesMessage": "Add private notes, observations, and reminders for this player.",
+  "@emptyNotesMessage": { "description": "Subtitle shown when a player has no notes." },
+
+  "deleteNoteTitle": "Delete Note?",
+  "@deleteNoteTitle": { "description": "Title of the delete note confirmation dialog." },
+
+  "deleteNoteMessage": "This action cannot be undone.",
+  "@deleteNoteMessage": { "description": "Body text of the delete note confirmation dialog." },
+
+  "noteEditedLabel": "Edited",
+  "@noteEditedLabel": { "description": "Indicator shown next to a note's timestamp when it has been edited." },
+
+  "noteAddError": "Failed to save note. Please try again.",
+  "@noteAddError": { "description": "Error message shown when adding a note fails." },
+
+  "noteUpdateError": "Failed to update note. Please try again.",
+  "@noteUpdateError": { "description": "Error message shown when updating a note fails." },
+
+  "noteDeleteError": "Failed to delete note. Please try again.",
+  "@noteDeleteError": { "description": "Snackbar message shown when deleting a note fails." },
+
+  "validationNoteEmpty": "Note content cannot be empty.",
+  "@validationNoteEmpty": { "description": "Inline validation error shown when the note content field is empty on submit." },
+
   "labelPassport": "Passport",
   "@labelPassport": { "description": "Document type label: Passport." },
 

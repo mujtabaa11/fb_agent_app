@@ -14,7 +14,6 @@ import '../../../core/widgets/am_empty_state.dart';
 import '../../../core/widgets/am_error_state.dart';
 import '../../../core/widgets/am_family_contact_list_item.dart';
 import '../../../core/widgets/am_loading_skeleton.dart';
-import '../../../core/widgets/am_note_list_item.dart';
 import '../../../core/widgets/am_status_badge.dart';
 import '../../../core/widgets/am_text_button.dart';
 import '../../../l10n/app_localizations.dart';
@@ -24,6 +23,7 @@ import '../models/player_model.dart';
 import '../providers/player_profile_provider.dart';
 import '../providers/player_providers.dart';
 import '../widgets/documents_section.dart';
+import '../widgets/notes_section.dart';
 
 class PlayerProfileScreen extends ConsumerWidget {
   const PlayerProfileScreen({required this.playerId, super.key});
@@ -103,7 +103,7 @@ class _PlayerProfileBody extends ConsumerWidget {
                   _ContactSection(player: player),
                   _FamilyContactsSection(playerId: playerId),
                   DocumentsSection(playerId: playerId),
-                  _NotesSection(playerId: playerId),
+                  NotesSection(playerId: playerId),
                 ],
               ),
             ),
@@ -814,58 +814,6 @@ class _FamilyContactsSection extends ConsumerWidget {
                         name: contact.name,
                         relationship: contact.relationship,
                         phoneNumber: contact.phoneNumber,
-                      ))
-                  .toList(),
-            );
-          },
-        ),
-      ],
-    );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Section 8 — Notes
-// ---------------------------------------------------------------------------
-
-class _NotesSection extends ConsumerWidget {
-  const _NotesSection({required this.playerId});
-
-  final String playerId;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final notesAsync = ref.watch(playerNotesProvider(playerId));
-    final dateFormat = DateFormat('dd MMM yyyy HH:mm');
-
-    return _ProfileSection(
-      title: l10n.playerSectionNotes,
-      children: [
-        notesAsync.when(
-          loading: () => const AmLoadingSkeleton(
-            variant: AmSkeletonVariant.listItem,
-          ),
-          error: (_, __) => AmErrorState(
-            message: l10n.errorLoadingData,
-            onRetry: () =>
-                ref.invalidate(playerNotesProvider(playerId)),
-          ),
-          data: (notes) {
-            if (notes.isEmpty) {
-              return AmEmptyState(
-                icon: Icons.note_outlined,
-                title: l10n.playerNoNotes,
-                subtitle: '',
-              );
-            }
-            return Column(
-              children: notes
-                  .map((note) => AmNoteListItem(
-                        content: note.content,
-                        timestamp: note.createdAt != null
-                            ? dateFormat.format(note.createdAt!)
-                            : '',
                       ))
                   .toList(),
             );

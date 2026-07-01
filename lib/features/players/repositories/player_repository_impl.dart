@@ -292,6 +292,67 @@ class PlayerRepositoryImpl implements PlayerRepository {
     );
   }
 
+  @override
+  Future<Result<PlayerNoteModel>> addNote(
+    String playerId,
+    PlayerNoteModel note,
+  ) async {
+    try {
+      final docRef =
+          _collection.doc(playerId).collection('notes').doc(note.id);
+      await docRef.set(note.toJson());
+
+      return Success(note);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<PlayerNoteModel>> updateNote(
+    String playerId,
+    PlayerNoteModel note,
+  ) async {
+    try {
+      await _collection.doc(playerId).collection('notes').doc(note.id).update({
+        'content': note.content,
+        if (note.updatedAt != null)
+          'updatedAt': Timestamp.fromDate(note.updatedAt!),
+      });
+
+      return Success(note);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<void>> deleteNote(String playerId, String noteId) async {
+    try {
+      await _collection
+          .doc(playerId)
+          .collection('notes')
+          .doc(noteId)
+          .delete();
+
+      return const Success(null);
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
   static AppException _mapFirebaseException(FirebaseException e) {
     return switch (e.code) {
       'not-found' => const DocumentNotFoundException(),

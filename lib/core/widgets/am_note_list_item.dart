@@ -7,6 +7,7 @@ class AmNoteListItem extends StatelessWidget {
   const AmNoteListItem({
     required this.content,
     required this.timestamp,
+    this.isEdited = false,
     this.onEdit,
     this.onDelete,
     super.key,
@@ -14,6 +15,7 @@ class AmNoteListItem extends StatelessWidget {
 
   final String content;
   final String timestamp;
+  final bool isEdited;
   final VoidCallback? onEdit;
   final VoidCallback? onDelete;
 
@@ -47,7 +49,7 @@ class AmNoteListItem extends StatelessWidget {
                     ),
                     const SizedBox(height: AppTokens.space4),
                     Text(
-                      timestamp,
+                      isEdited ? '$timestamp · ${l10n.noteEditedLabel}' : timestamp,
                       style: textTheme.bodySmall?.copyWith(
                         color: colorScheme.onSurfaceVariant,
                       ),
