@@ -578,8 +578,8 @@ class _RepresentationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (player.agentContractStart == null &&
-        player.agentContractExpiry == null) {
+    if (player.representationAgreementStart == null &&
+        player.representationAgreementExpiry == null) {
       return const SizedBox.shrink();
     }
 
@@ -589,16 +589,16 @@ class _RepresentationSection extends StatelessWidget {
     return _ProfileSection(
       title: l10n.playerSectionRepresentation,
       children: [
-        if (player.agentContractStart != null)
+        if (player.representationAgreementStart != null)
           _DetailRow(
-            label: l10n.fieldAgentContractStart,
-            value: dateFormat.format(player.agentContractStart!),
+            label: l10n.fieldRepresentationAgreementStart,
+            value: dateFormat.format(player.representationAgreementStart!),
           ),
-        if (player.agentContractExpiry != null)
+        if (player.representationAgreementExpiry != null)
           _DetailRow(
-            label: l10n.fieldAgentContractExpiry,
-            value: dateFormat.format(player.agentContractExpiry!),
-            trailing: _isExpiringSoon(player.agentContractExpiry!)
+            label: l10n.fieldRepresentationAgreementExpiry,
+            value: dateFormat.format(player.representationAgreementExpiry!),
+            trailing: _isExpiringSoon(player.representationAgreementExpiry!)
                 ? _ExpiringWarning()
                 : null,
           ),

@@ -39,8 +39,8 @@ class PlayerFormBody extends StatelessWidget {
     required this.otherPositions,
     required this.preferredFoot,
     required this.marketValueCurrency,
-    required this.agentContractStart,
-    required this.agentContractExpiry,
+    required this.representationAgreementStart,
+    required this.representationAgreementExpiry,
     required this.clubContractExpiry,
     required this.salaryCurrency,
     required this.status,
@@ -54,8 +54,8 @@ class PlayerFormBody extends StatelessWidget {
     required this.onOtherPositionToggled,
     required this.onPreferredFootChanged,
     required this.onMarketValueCurrencyChanged,
-    required this.onAgentContractStartChanged,
-    required this.onAgentContractExpiryChanged,
+    required this.onRepresentationAgreementStartChanged,
+    required this.onRepresentationAgreementExpiryChanged,
     required this.onClubContractExpiryChanged,
     required this.onSalaryCurrencyChanged,
     required this.onStatusChanged,
@@ -104,8 +104,8 @@ class PlayerFormBody extends StatelessWidget {
   final Set<String> otherPositions;
   final PreferredFoot? preferredFoot;
   final String? marketValueCurrency;
-  final DateTime? agentContractStart;
-  final DateTime? agentContractExpiry;
+  final DateTime? representationAgreementStart;
+  final DateTime? representationAgreementExpiry;
   final DateTime? clubContractExpiry;
   final String? salaryCurrency;
   final PlayerStatus? status;
@@ -124,8 +124,8 @@ class PlayerFormBody extends StatelessWidget {
   final ValueChanged<String> onOtherPositionToggled;
   final ValueChanged<PreferredFoot?> onPreferredFootChanged;
   final ValueChanged<String?> onMarketValueCurrencyChanged;
-  final ValueChanged<DateTime?> onAgentContractStartChanged;
-  final ValueChanged<DateTime?> onAgentContractExpiryChanged;
+  final ValueChanged<DateTime?> onRepresentationAgreementStartChanged;
+  final ValueChanged<DateTime?> onRepresentationAgreementExpiryChanged;
   final ValueChanged<DateTime?> onClubContractExpiryChanged;
   final ValueChanged<String?> onSalaryCurrencyChanged;
   final ValueChanged<PlayerStatus?> onStatusChanged;
@@ -406,17 +406,17 @@ class PlayerFormBody extends StatelessWidget {
     return Column(
       children: [
         AmDatePickerField(
-          label: l10n.fieldAgentContractStart,
-          value: agentContractStart,
+          label: l10n.fieldRepresentationAgreementStart,
+          value: representationAgreementStart,
           enabled: !isSaving,
-          onChanged: onAgentContractStartChanged,
+          onChanged: onRepresentationAgreementStartChanged,
         ),
         const SizedBox(height: AppTokens.space16),
         AmDatePickerField(
-          label: l10n.fieldAgentContractExpiry,
-          value: agentContractExpiry,
+          label: l10n.fieldRepresentationAgreementExpiry,
+          value: representationAgreementExpiry,
           enabled: !isSaving,
-          onChanged: onAgentContractExpiryChanged,
+          onChanged: onRepresentationAgreementExpiryChanged,
         ),
       ],
     );

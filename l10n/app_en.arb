@@ -562,6 +562,51 @@
   "dashboardTitle": "Dashboard",
   "@dashboardTitle": { "description": "Heading displayed at the top of the dashboard screen." },
 
+  "dashboardGreetingMorning": "Good morning, {name}",
+  "@dashboardGreetingMorning": { "description": "Morning greeting on the dashboard, shown between 5am and 11:59am.", "placeholders": { "name": { "type": "String" } } },
+
+  "dashboardGreetingAfternoon": "Good afternoon, {name}",
+  "@dashboardGreetingAfternoon": { "description": "Afternoon greeting on the dashboard, shown between 12pm and 5:59pm.", "placeholders": { "name": { "type": "String" } } },
+
+  "dashboardGreetingEvening": "Good evening, {name}",
+  "@dashboardGreetingEvening": { "description": "Evening greeting on the dashboard, shown between 6pm and 4:59am.", "placeholders": { "name": { "type": "String" } } },
+
+  "statsTotalPlayers": "Total Players",
+  "@statsTotalPlayers": { "description": "Label for the total players stat tile on the dashboard." },
+
+  "statsActiveClients": "Active Clients",
+  "@statsActiveClients": { "description": "Label for the active clients stat tile on the dashboard." },
+
+  "statsProspects": "Prospects",
+  "@statsProspects": { "description": "Label for the prospects stat tile on the dashboard." },
+
+  "statsMarketPosts": "Market Posts",
+  "@statsMarketPosts": { "description": "Label for the market posts stat tile on the dashboard." },
+
+  "statsComingSoon": "Coming Soon",
+  "@statsComingSoon": { "description": "Sub-label shown under the Market Posts stat tile on the dashboard, indicating the feature is not yet available." },
+
+  "sectionUpcomingExpiries": "Upcoming Expiries",
+  "@sectionUpcomingExpiries": { "description": "Section header on the dashboard for the list of upcoming contract expiries." },
+
+  "emptyExpiriesTitle": "No Upcoming Expiries",
+  "@emptyExpiriesTitle": { "description": "Title shown when there are no contracts expiring within the next 90 days." },
+
+  "emptyExpiriesMessage": "No contracts expiring in the next 90 days.",
+  "@emptyExpiriesMessage": { "description": "Message shown when there are no contracts expiring within the next 90 days." },
+
+  "contractTypeRepresentationAgreement": "Representation Agreement (RA)",
+  "@contractTypeRepresentationAgreement": { "description": "Contract type label for a representation agreement expiry alert on the dashboard." },
+
+  "contractTypeClubContract": "Club Contract",
+  "@contractTypeClubContract": { "description": "Contract type label for a club contract expiry alert on the dashboard." },
+
+  "expiryDaysRemaining": "{count} days",
+  "@expiryDaysRemaining": { "description": "Number of days remaining until a contract expires, shown in the dashboard expiry alert badge.", "placeholders": { "count": { "type": "int" } } },
+
+  "errorLoadingDashboard": "Failed to load dashboard. Please try again.",
+  "@errorLoadingDashboard": { "description": "Error message shown when the dashboard fails to load." },
+
   "playersTitle": "Players",
   "@playersTitle": { "description": "Heading displayed at the top of the player list screen." },
 
@@ -748,11 +793,11 @@
   "fieldTransfermarktUrl": "Transfermarkt URL",
   "@fieldTransfermarktUrl": { "description": "Label for the Transfermarkt URL field on the add player form." },
 
-  "fieldAgentContractStart": "Agent Contract Start",
-  "@fieldAgentContractStart": { "description": "Label for the agent contract start date field on the add player form." },
+  "fieldRepresentationAgreementStart": "Representation Agreement Start",
+  "@fieldRepresentationAgreementStart": { "description": "Label for the representation agreement start date field on the add player form." },
 
-  "fieldAgentContractExpiry": "Agent Contract Expiry",
-  "@fieldAgentContractExpiry": { "description": "Label for the agent contract expiry date field on the add player form." },
+  "fieldRepresentationAgreementExpiry": "Representation Agreement Expiry",
+  "@fieldRepresentationAgreementExpiry": { "description": "Label for the representation agreement expiry date field on the add player form." },
 
   "fieldClubContractExpiry": "Club Contract Expiry",
   "@fieldClubContractExpiry": { "description": "Label for the club contract expiry date field on the add player form." },

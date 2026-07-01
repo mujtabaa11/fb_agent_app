@@ -635,6 +635,62 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dashboardTitle => 'Dashboard';
 
   @override
+  String dashboardGreetingMorning(String name) {
+    return 'Good morning, $name';
+  }
+
+  @override
+  String dashboardGreetingAfternoon(String name) {
+    return 'Good afternoon, $name';
+  }
+
+  @override
+  String dashboardGreetingEvening(String name) {
+    return 'Good evening, $name';
+  }
+
+  @override
+  String get statsTotalPlayers => 'Total Players';
+
+  @override
+  String get statsActiveClients => 'Active Clients';
+
+  @override
+  String get statsProspects => 'Prospects';
+
+  @override
+  String get statsMarketPosts => 'Market Posts';
+
+  @override
+  String get statsComingSoon => 'Coming Soon';
+
+  @override
+  String get sectionUpcomingExpiries => 'Upcoming Expiries';
+
+  @override
+  String get emptyExpiriesTitle => 'No Upcoming Expiries';
+
+  @override
+  String get emptyExpiriesMessage =>
+      'No contracts expiring in the next 90 days.';
+
+  @override
+  String get contractTypeRepresentationAgreement =>
+      'Representation Agreement (RA)';
+
+  @override
+  String get contractTypeClubContract => 'Club Contract';
+
+  @override
+  String expiryDaysRemaining(int count) {
+    return '$count days';
+  }
+
+  @override
+  String get errorLoadingDashboard =>
+      'Failed to load dashboard. Please try again.';
+
+  @override
   String get playersTitle => 'Players';
 
   @override
@@ -833,10 +889,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fieldTransfermarktUrl => 'Transfermarkt URL';
 
   @override
-  String get fieldAgentContractStart => 'Agent Contract Start';
+  String get fieldRepresentationAgreementStart =>
+      'Representation Agreement Start';
 
   @override
-  String get fieldAgentContractExpiry => 'Agent Contract Expiry';
+  String get fieldRepresentationAgreementExpiry =>
+      'Representation Agreement Expiry';
 
   @override
   String get fieldClubContractExpiry => 'Club Contract Expiry';

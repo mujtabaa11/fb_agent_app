@@ -427,8 +427,10 @@ class _EditPlayerScreenState extends ConsumerState<EditPlayerScreen> {
                   otherPositions: editState.otherPositions,
                   preferredFoot: editState.preferredFoot,
                   marketValueCurrency: editState.marketValueCurrency,
-                  agentContractStart: editState.agentContractStart,
-                  agentContractExpiry: editState.agentContractExpiry,
+                  representationAgreementStart:
+                      editState.representationAgreementStart,
+                  representationAgreementExpiry:
+                      editState.representationAgreementExpiry,
                   clubContractExpiry: editState.clubContractExpiry,
                   salaryCurrency: editState.salaryCurrency,
                   status: editState.status,
@@ -481,17 +483,17 @@ class _EditPlayerScreenState extends ConsumerState<EditPlayerScreen> {
                             .notifier)
                         .updateMarketValueCurrency(value);
                   },
-                  onAgentContractStartChanged: (date) {
+                  onRepresentationAgreementStartChanged: (date) {
                     ref
                         .read(editPlayerNotifierProvider(widget.playerId)
                             .notifier)
-                        .updateAgentContractStart(date);
+                        .updateRepresentationAgreementStart(date);
                   },
-                  onAgentContractExpiryChanged: (date) {
+                  onRepresentationAgreementExpiryChanged: (date) {
                     ref
                         .read(editPlayerNotifierProvider(widget.playerId)
                             .notifier)
-                        .updateAgentContractExpiry(date);
+                        .updateRepresentationAgreementExpiry(date);
                   },
                   onClubContractExpiryChanged: (date) {
                     ref

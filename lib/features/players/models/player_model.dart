@@ -25,8 +25,8 @@ class PlayerModel {
     this.estimatedMarketValue,
     this.marketValueCurrency,
     this.transfermarktUrl,
-    this.agentContractStart,
-    this.agentContractExpiry,
+    this.representationAgreementStart,
+    this.representationAgreementExpiry,
     this.clubContractExpiry,
     this.salary,
     this.salaryCurrency,
@@ -63,8 +63,10 @@ class PlayerModel {
       estimatedMarketValue: (json['estimatedMarketValue'] as num?)?.toDouble(),
       marketValueCurrency: json['marketValueCurrency'] as String?,
       transfermarktUrl: json['transfermarktUrl'] as String?,
-      agentContractStart: _timestampToDateTime(json['agentContractStart']),
-      agentContractExpiry: _timestampToDateTime(json['agentContractExpiry']),
+      representationAgreementStart:
+          _timestampToDateTime(json['representationAgreementStart']),
+      representationAgreementExpiry:
+          _timestampToDateTime(json['representationAgreementExpiry']),
       clubContractExpiry: _timestampToDateTime(json['clubContractExpiry']),
       salary: (json['salary'] as num?)?.toDouble(),
       salaryCurrency: json['salaryCurrency'] as String?,
@@ -93,8 +95,8 @@ class PlayerModel {
   final double? estimatedMarketValue;
   final String? marketValueCurrency;
   final String? transfermarktUrl;
-  final DateTime? agentContractStart;
-  final DateTime? agentContractExpiry;
+  final DateTime? representationAgreementStart;
+  final DateTime? representationAgreementExpiry;
   final DateTime? clubContractExpiry;
   final double? salary;
   final String? salaryCurrency;
@@ -124,10 +126,12 @@ class PlayerModel {
       if (marketValueCurrency != null)
         'marketValueCurrency': marketValueCurrency,
       if (transfermarktUrl != null) 'transfermarktUrl': transfermarktUrl,
-      if (agentContractStart != null)
-        'agentContractStart': Timestamp.fromDate(agentContractStart!),
-      if (agentContractExpiry != null)
-        'agentContractExpiry': Timestamp.fromDate(agentContractExpiry!),
+      if (representationAgreementStart != null)
+        'representationAgreementStart':
+            Timestamp.fromDate(representationAgreementStart!),
+      if (representationAgreementExpiry != null)
+        'representationAgreementExpiry':
+            Timestamp.fromDate(representationAgreementExpiry!),
       if (clubContractExpiry != null)
         'clubContractExpiry': Timestamp.fromDate(clubContractExpiry!),
       if (salary != null) 'salary': salary,
@@ -156,8 +160,8 @@ class PlayerModel {
     double? Function()? estimatedMarketValue,
     String? Function()? marketValueCurrency,
     String? Function()? transfermarktUrl,
-    DateTime? Function()? agentContractStart,
-    DateTime? Function()? agentContractExpiry,
+    DateTime? Function()? representationAgreementStart,
+    DateTime? Function()? representationAgreementExpiry,
     DateTime? Function()? clubContractExpiry,
     double? Function()? salary,
     String? Function()? salaryCurrency,
@@ -194,12 +198,12 @@ class PlayerModel {
           : this.marketValueCurrency,
       transfermarktUrl:
           transfermarktUrl != null ? transfermarktUrl() : this.transfermarktUrl,
-      agentContractStart: agentContractStart != null
-          ? agentContractStart()
-          : this.agentContractStart,
-      agentContractExpiry: agentContractExpiry != null
-          ? agentContractExpiry()
-          : this.agentContractExpiry,
+      representationAgreementStart: representationAgreementStart != null
+          ? representationAgreementStart()
+          : this.representationAgreementStart,
+      representationAgreementExpiry: representationAgreementExpiry != null
+          ? representationAgreementExpiry()
+          : this.representationAgreementExpiry,
       clubContractExpiry: clubContractExpiry != null
           ? clubContractExpiry()
           : this.clubContractExpiry,

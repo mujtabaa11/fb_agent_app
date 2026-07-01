@@ -35,8 +35,8 @@ class EditPlayerState {
     this.estimatedMarketValue,
     this.marketValueCurrency,
     this.transfermarktUrl,
-    this.agentContractStart,
-    this.agentContractExpiry,
+    this.representationAgreementStart,
+    this.representationAgreementExpiry,
     this.clubContractExpiry,
     this.salary,
     this.salaryCurrency,
@@ -68,8 +68,8 @@ class EditPlayerState {
   final double? estimatedMarketValue;
   final String? marketValueCurrency;
   final String? transfermarktUrl;
-  final DateTime? agentContractStart;
-  final DateTime? agentContractExpiry;
+  final DateTime? representationAgreementStart;
+  final DateTime? representationAgreementExpiry;
   final DateTime? clubContractExpiry;
   final double? salary;
   final String? salaryCurrency;
@@ -95,8 +95,8 @@ class EditPlayerState {
         estimatedMarketValue != p.estimatedMarketValue ||
         marketValueCurrency != p.marketValueCurrency ||
         (transfermarktUrl ?? '') != (p.transfermarktUrl ?? '') ||
-        agentContractStart != p.agentContractStart ||
-        agentContractExpiry != p.agentContractExpiry ||
+        representationAgreementStart != p.representationAgreementStart ||
+        representationAgreementExpiry != p.representationAgreementExpiry ||
         clubContractExpiry != p.clubContractExpiry ||
         salary != p.salary ||
         salaryCurrency != p.salaryCurrency ||
@@ -133,8 +133,8 @@ class EditPlayerState {
     double? Function()? estimatedMarketValue,
     String? Function()? marketValueCurrency,
     String? Function()? transfermarktUrl,
-    DateTime? Function()? agentContractStart,
-    DateTime? Function()? agentContractExpiry,
+    DateTime? Function()? representationAgreementStart,
+    DateTime? Function()? representationAgreementExpiry,
     DateTime? Function()? clubContractExpiry,
     double? Function()? salary,
     String? Function()? salaryCurrency,
@@ -183,12 +183,12 @@ class EditPlayerState {
       transfermarktUrl: transfermarktUrl != null
           ? transfermarktUrl()
           : this.transfermarktUrl,
-      agentContractStart: agentContractStart != null
-          ? agentContractStart()
-          : this.agentContractStart,
-      agentContractExpiry: agentContractExpiry != null
-          ? agentContractExpiry()
-          : this.agentContractExpiry,
+      representationAgreementStart: representationAgreementStart != null
+          ? representationAgreementStart()
+          : this.representationAgreementStart,
+      representationAgreementExpiry: representationAgreementExpiry != null
+          ? representationAgreementExpiry()
+          : this.representationAgreementExpiry,
       clubContractExpiry: clubContractExpiry != null
           ? clubContractExpiry()
           : this.clubContractExpiry,
@@ -237,8 +237,8 @@ class EditPlayerNotifier extends _$EditPlayerNotifier {
           estimatedMarketValue: value.estimatedMarketValue,
           marketValueCurrency: value.marketValueCurrency,
           transfermarktUrl: value.transfermarktUrl,
-          agentContractStart: value.agentContractStart,
-          agentContractExpiry: value.agentContractExpiry,
+          representationAgreementStart: value.representationAgreementStart,
+          representationAgreementExpiry: value.representationAgreementExpiry,
           clubContractExpiry: value.clubContractExpiry,
           salary: value.salary,
           salaryCurrency: value.salaryCurrency,
@@ -318,12 +318,12 @@ class EditPlayerNotifier extends _$EditPlayerNotifier {
     state = state.copyWith(transfermarktUrl: () => value);
   }
 
-  void updateAgentContractStart(DateTime? value) {
-    state = state.copyWith(agentContractStart: () => value);
+  void updateRepresentationAgreementStart(DateTime? value) {
+    state = state.copyWith(representationAgreementStart: () => value);
   }
 
-  void updateAgentContractExpiry(DateTime? value) {
-    state = state.copyWith(agentContractExpiry: () => value);
+  void updateRepresentationAgreementExpiry(DateTime? value) {
+    state = state.copyWith(representationAgreementExpiry: () => value);
   }
 
   void updateClubContractExpiry(DateTime? value) {
@@ -414,8 +414,8 @@ class EditPlayerNotifier extends _$EditPlayerNotifier {
       transfermarktUrl: () => state.transfermarktUrl?.isEmpty == true
           ? null
           : state.transfermarktUrl,
-      agentContractStart: () => state.agentContractStart,
-      agentContractExpiry: () => state.agentContractExpiry,
+      representationAgreementStart: () => state.representationAgreementStart,
+      representationAgreementExpiry: () => state.representationAgreementExpiry,
       clubContractExpiry: () => state.clubContractExpiry,
       salary: () => state.salary,
       salaryCurrency: () => state.salaryCurrency,

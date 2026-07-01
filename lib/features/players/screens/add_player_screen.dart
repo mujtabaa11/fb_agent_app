@@ -44,8 +44,8 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
   final Set<String> _otherPositions = {};
   PreferredFoot? _preferredFoot;
   String? _marketValueCurrency;
-  DateTime? _agentContractStart;
-  DateTime? _agentContractExpiry;
+  DateTime? _representationAgreementStart;
+  DateTime? _representationAgreementExpiry;
   DateTime? _clubContractExpiry;
   String? _salaryCurrency;
   PlayerStatus? _status;
@@ -275,8 +275,8 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
       transfermarktUrl: _transfermarktUrlController.text.trim().isEmpty
           ? null
           : _transfermarktUrlController.text.trim(),
-      agentContractStart: _agentContractStart,
-      agentContractExpiry: _agentContractExpiry,
+      representationAgreementStart: _representationAgreementStart,
+      representationAgreementExpiry: _representationAgreementExpiry,
       clubContractExpiry: _clubContractExpiry,
       salary: _salaryController.text.trim().isEmpty
           ? null
@@ -380,8 +380,8 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
                   otherPositions: _otherPositions,
                   preferredFoot: _preferredFoot,
                   marketValueCurrency: _marketValueCurrency,
-                  agentContractStart: _agentContractStart,
-                  agentContractExpiry: _agentContractExpiry,
+                  representationAgreementStart: _representationAgreementStart,
+                  representationAgreementExpiry: _representationAgreementExpiry,
                   clubContractExpiry: _clubContractExpiry,
                   salaryCurrency: _salaryCurrency,
                   status: _status,
@@ -423,12 +423,12 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
                     setState(() => _marketValueCurrency = value);
                     _markDirty();
                   },
-                  onAgentContractStartChanged: (date) {
-                    setState(() => _agentContractStart = date);
+                  onRepresentationAgreementStartChanged: (date) {
+                    setState(() => _representationAgreementStart = date);
                     _markDirty();
                   },
-                  onAgentContractExpiryChanged: (date) {
-                    setState(() => _agentContractExpiry = date);
+                  onRepresentationAgreementExpiryChanged: (date) {
+                    setState(() => _representationAgreementExpiry = date);
                     _markDirty();
                   },
                   onClubContractExpiryChanged: (date) {

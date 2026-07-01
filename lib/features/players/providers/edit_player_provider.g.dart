@@ -7,7 +7,7 @@ part of 'edit_player_provider.dart';
 // **************************************************************************
 
 String _$editPlayerNotifierHash() =>
-    r'b8ee3f74d9d6f159b511bca82ca2b99e1eb48635';
+    r'1d6f967f24a06c66150194fd459d5b0175b2bb04';
 
 /// Copied from Dart SDK
 class _SystemHash {

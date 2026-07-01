@@ -1216,6 +1216,96 @@ abstract class AppLocalizations {
   /// **'Dashboard'**
   String get dashboardTitle;
 
+  /// Morning greeting on the dashboard, shown between 5am and 11:59am.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning, {name}'**
+  String dashboardGreetingMorning(String name);
+
+  /// Afternoon greeting on the dashboard, shown between 12pm and 5:59pm.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon, {name}'**
+  String dashboardGreetingAfternoon(String name);
+
+  /// Evening greeting on the dashboard, shown between 6pm and 4:59am.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening, {name}'**
+  String dashboardGreetingEvening(String name);
+
+  /// Label for the total players stat tile on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Players'**
+  String get statsTotalPlayers;
+
+  /// Label for the active clients stat tile on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Clients'**
+  String get statsActiveClients;
+
+  /// Label for the prospects stat tile on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Prospects'**
+  String get statsProspects;
+
+  /// Label for the market posts stat tile on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Market Posts'**
+  String get statsMarketPosts;
+
+  /// Sub-label shown under the Market Posts stat tile on the dashboard, indicating the feature is not yet available.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Soon'**
+  String get statsComingSoon;
+
+  /// Section header on the dashboard for the list of upcoming contract expiries.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Expiries'**
+  String get sectionUpcomingExpiries;
+
+  /// Title shown when there are no contracts expiring within the next 90 days.
+  ///
+  /// In en, this message translates to:
+  /// **'No Upcoming Expiries'**
+  String get emptyExpiriesTitle;
+
+  /// Message shown when there are no contracts expiring within the next 90 days.
+  ///
+  /// In en, this message translates to:
+  /// **'No contracts expiring in the next 90 days.'**
+  String get emptyExpiriesMessage;
+
+  /// Contract type label for a representation agreement expiry alert on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Representation Agreement (RA)'**
+  String get contractTypeRepresentationAgreement;
+
+  /// Contract type label for a club contract expiry alert on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Club Contract'**
+  String get contractTypeClubContract;
+
+  /// Number of days remaining until a contract expires, shown in the dashboard expiry alert badge.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days'**
+  String expiryDaysRemaining(int count);
+
+  /// Error message shown when the dashboard fails to load.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load dashboard. Please try again.'**
+  String get errorLoadingDashboard;
+
   /// Heading displayed at the top of the player list screen.
   ///
   /// In en, this message translates to:
@@ -1588,17 +1678,17 @@ abstract class AppLocalizations {
   /// **'Transfermarkt URL'**
   String get fieldTransfermarktUrl;
 
-  /// Label for the agent contract start date field on the add player form.
+  /// Label for the representation agreement start date field on the add player form.
   ///
   /// In en, this message translates to:
-  /// **'Agent Contract Start'**
-  String get fieldAgentContractStart;
+  /// **'Representation Agreement Start'**
+  String get fieldRepresentationAgreementStart;
 
-  /// Label for the agent contract expiry date field on the add player form.
+  /// Label for the representation agreement expiry date field on the add player form.
   ///
   /// In en, this message translates to:
-  /// **'Agent Contract Expiry'**
-  String get fieldAgentContractExpiry;
+  /// **'Representation Agreement Expiry'**
+  String get fieldRepresentationAgreementExpiry;
 
   /// Label for the club contract expiry date field on the add player form.
   ///
