@@ -700,6 +700,57 @@
   "marketAgentNameTapLabel": "View {name}'s profile",
   "@marketAgentNameTapLabel": { "description": "Accessibility label for tapping an agent name on a market post card to open their public profile.", "placeholders": { "name": { "type": "String" } } },
 
+  "postExpiredBanner": "This post has expired",
+  "@postExpiredBanner": { "description": "Full-width banner shown on the post detail screen when the post has expired." },
+
+  "postExpiredNoCta": "This post is no longer active",
+  "@postExpiredNoCta": { "description": "Subtle note shown instead of a CTA button on the post detail screen when viewing another agent's expired post." },
+
+  "postExpiresInDays": "Expires in {days} days",
+  "@postExpiresInDays": { "description": "Inline warning on the post detail screen when a post is expiring within 7 days.", "placeholders": { "days": { "type": "int" } } },
+
+  "postPostedOn": "Posted on {date}",
+  "@postPostedOn": { "description": "Posted date line on the post detail screen.", "placeholders": { "date": { "type": "String" } } },
+
+  "postExpiresOn": "Expires {date}",
+  "@postExpiresOn": { "description": "Expiry date line on the post detail screen.", "placeholders": { "date": { "type": "String" } } },
+
+  "messageAgentButton": "Message Agent",
+  "@messageAgentButton": { "description": "CTA button label on the post detail screen to start a conversation with the posting agent." },
+
+  "managePostButton": "Manage My Posts",
+  "@managePostButton": { "description": "CTA button label on the post detail screen when viewing one's own post, navigating to My Posts." },
+
+  "messageAgentOpeningMessage": "Hi, I'm interested in your post.",
+  "@messageAgentOpeningMessage": { "description": "Default opening message text sent when an agent taps Message Agent on a post detail screen." },
+
+  "postDetailAgentSection": "Posted By",
+  "@postDetailAgentSection": { "description": "Section header on the post detail screen above the posting agent's info." },
+
+  "postDetailPlayerSection": "Player",
+  "@postDetailPlayerSection": { "description": "Section header on the post detail screen for player_available post details." },
+
+  "postDetailLinksSection": "Links",
+  "@postDetailLinksSection": { "description": "Section header on the post detail screen for external links." },
+
+  "postDetailProfileSection": "Profile Needed",
+  "@postDetailProfileSection": { "description": "Section header on the post detail screen for need_a_player post details." },
+
+  "postDetailPostSection": "Post Details",
+  "@postDetailPostSection": { "description": "Section header on the post detail screen for the shared description/date info." },
+
+  "postNeededAgeRange": "{min} – {max} years",
+  "@postNeededAgeRange": { "description": "Age range line on the post detail screen when both min and max are set.", "placeholders": { "min": { "type": "int" }, "max": { "type": "int" } } },
+
+  "postNeededAgeMin": "From {min} years",
+  "@postNeededAgeMin": { "description": "Age line on the post detail screen when only a minimum age is set.", "placeholders": { "min": { "type": "int" } } },
+
+  "postNeededAgeMax": "Up to {max} years",
+  "@postNeededAgeMax": { "description": "Age line on the post detail screen when only a maximum age is set.", "placeholders": { "max": { "type": "int" } } },
+
+  "postFifaRegistered": "FIFA Licensed",
+  "@postFifaRegistered": { "description": "Badge label on the post detail screen's agent section when the agent is FIFA registered." },
+
   "messagesTitle": "Messages",
   "@messagesTitle": { "description": "Heading displayed at the top of the conversation list screen." },
 

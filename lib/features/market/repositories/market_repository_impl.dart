@@ -77,6 +77,34 @@ class MarketRepositoryImpl implements MarketRepository {
     );
   }
 
+  @override
+  Stream<Result<MarketPostModel?>> watchPost(String postId) {
+    return _collection.doc(postId).snapshots().transform(
+      StreamTransformer<DocumentSnapshot<Map<String, dynamic>>,
+          Result<MarketPostModel?>>.fromHandlers(
+        handleData: (snapshot, sink) {
+          if (!snapshot.exists) {
+            sink.add(const Success(null));
+            return;
+          }
+          final data = snapshot.data()!;
+          data['id'] = snapshot.id;
+          sink.add(Success(MarketPostModel.fromJson(data)));
+        },
+        handleError: (error, stackTrace, sink) {
+          if (error is FirebaseException) {
+            sink.add(Failure(_mapFirebaseException(error)));
+          } else if (error is SocketException) {
+            sink.add(Failure(const NetworkException()));
+          } else {
+            sink.add(
+                Failure(DataException(originalMessage: error.toString())));
+          }
+        },
+      ),
+    );
+  }
+
   static AppException _mapFirebaseException(FirebaseException e) {
     return switch (e.code) {
       'not-found' => const DocumentNotFoundException(),

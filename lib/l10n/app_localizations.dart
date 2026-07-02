@@ -1493,6 +1493,108 @@ abstract class AppLocalizations {
   /// **'View {name}\'s profile'**
   String marketAgentNameTapLabel(String name);
 
+  /// Full-width banner shown on the post detail screen when the post has expired.
+  ///
+  /// In en, this message translates to:
+  /// **'This post has expired'**
+  String get postExpiredBanner;
+
+  /// Subtle note shown instead of a CTA button on the post detail screen when viewing another agent's expired post.
+  ///
+  /// In en, this message translates to:
+  /// **'This post is no longer active'**
+  String get postExpiredNoCta;
+
+  /// Inline warning on the post detail screen when a post is expiring within 7 days.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires in {days} days'**
+  String postExpiresInDays(int days);
+
+  /// Posted date line on the post detail screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Posted on {date}'**
+  String postPostedOn(String date);
+
+  /// Expiry date line on the post detail screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires {date}'**
+  String postExpiresOn(String date);
+
+  /// CTA button label on the post detail screen to start a conversation with the posting agent.
+  ///
+  /// In en, this message translates to:
+  /// **'Message Agent'**
+  String get messageAgentButton;
+
+  /// CTA button label on the post detail screen when viewing one's own post, navigating to My Posts.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage My Posts'**
+  String get managePostButton;
+
+  /// Default opening message text sent when an agent taps Message Agent on a post detail screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, I\'m interested in your post.'**
+  String get messageAgentOpeningMessage;
+
+  /// Section header on the post detail screen above the posting agent's info.
+  ///
+  /// In en, this message translates to:
+  /// **'Posted By'**
+  String get postDetailAgentSection;
+
+  /// Section header on the post detail screen for player_available post details.
+  ///
+  /// In en, this message translates to:
+  /// **'Player'**
+  String get postDetailPlayerSection;
+
+  /// Section header on the post detail screen for external links.
+  ///
+  /// In en, this message translates to:
+  /// **'Links'**
+  String get postDetailLinksSection;
+
+  /// Section header on the post detail screen for need_a_player post details.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Needed'**
+  String get postDetailProfileSection;
+
+  /// Section header on the post detail screen for the shared description/date info.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Details'**
+  String get postDetailPostSection;
+
+  /// Age range line on the post detail screen when both min and max are set.
+  ///
+  /// In en, this message translates to:
+  /// **'{min} – {max} years'**
+  String postNeededAgeRange(int min, int max);
+
+  /// Age line on the post detail screen when only a minimum age is set.
+  ///
+  /// In en, this message translates to:
+  /// **'From {min} years'**
+  String postNeededAgeMin(int min);
+
+  /// Age line on the post detail screen when only a maximum age is set.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to {max} years'**
+  String postNeededAgeMax(int max);
+
+  /// Badge label on the post detail screen's agent section when the agent is FIFA registered.
+  ///
+  /// In en, this message translates to:
+  /// **'FIFA Licensed'**
+  String get postFifaRegistered;
+
   /// Heading displayed at the top of the conversation list screen.
   ///
   /// In en, this message translates to:

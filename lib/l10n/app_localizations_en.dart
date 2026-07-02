@@ -830,6 +830,69 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get postExpiredBanner => 'This post has expired';
+
+  @override
+  String get postExpiredNoCta => 'This post is no longer active';
+
+  @override
+  String postExpiresInDays(int days) {
+    return 'Expires in $days days';
+  }
+
+  @override
+  String postPostedOn(String date) {
+    return 'Posted on $date';
+  }
+
+  @override
+  String postExpiresOn(String date) {
+    return 'Expires $date';
+  }
+
+  @override
+  String get messageAgentButton => 'Message Agent';
+
+  @override
+  String get managePostButton => 'Manage My Posts';
+
+  @override
+  String get messageAgentOpeningMessage => 'Hi, I\'m interested in your post.';
+
+  @override
+  String get postDetailAgentSection => 'Posted By';
+
+  @override
+  String get postDetailPlayerSection => 'Player';
+
+  @override
+  String get postDetailLinksSection => 'Links';
+
+  @override
+  String get postDetailProfileSection => 'Profile Needed';
+
+  @override
+  String get postDetailPostSection => 'Post Details';
+
+  @override
+  String postNeededAgeRange(int min, int max) {
+    return '$min – $max years';
+  }
+
+  @override
+  String postNeededAgeMin(int min) {
+    return 'From $min years';
+  }
+
+  @override
+  String postNeededAgeMax(int max) {
+    return 'Up to $max years';
+  }
+
+  @override
+  String get postFifaRegistered => 'FIFA Licensed';
+
+  @override
   String get messagesTitle => 'Messages';
 
   @override
