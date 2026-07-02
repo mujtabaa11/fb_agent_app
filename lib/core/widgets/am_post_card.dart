@@ -17,7 +17,10 @@ class AmPostCard extends StatelessWidget {
     required this.postedDate,
     this.playerPhotoUrl,
     this.agentAvatarUrl,
+    this.valueLine,
+    this.expiryWarningText,
     this.onTap,
+    this.onAgentTap,
     super.key,
   });
 
@@ -30,7 +33,10 @@ class AmPostCard extends StatelessWidget {
   final String postedDate;
   final String? playerPhotoUrl;
   final String? agentAvatarUrl;
+  final String? valueLine;
+  final String? expiryWarningText;
   final VoidCallback? onTap;
+  final VoidCallback? onAgentTap;
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +87,16 @@ class AmPostCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  if (valueLine != null) ...[
+                    const SizedBox(height: AppTokens.space4),
+                    Text(
+                      valueLine!,
+                      style: textTheme.bodyMedium?.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: AppTokens.space4),
                   Text(
                     descriptionPreview,
@@ -90,25 +106,54 @@ class AmPostCard extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  if (expiryWarningText != null) ...[
+                    const SizedBox(height: AppTokens.space8),
+                    Text(
+                      expiryWarningText!,
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.warning,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: AppTokens.space12),
                   Divider(height: 1, color: borderColor),
                   const SizedBox(height: AppTokens.space12),
                   Row(
                     children: [
-                      AmAvatar(
-                        imageUrl: agentAvatarUrl,
-                        name: agentName,
-                        size: AmAvatarSize.small,
-                      ),
-                      const SizedBox(width: AppTokens.space8),
                       Expanded(
-                        child: Text(
-                          agentName,
-                          style: textTheme.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w500,
+                        child: Semantics(
+                          button: onAgentTap != null,
+                          label: l10n.marketAgentNameTapLabel(agentName),
+                          child: InkWell(
+                            onTap: onAgentTap,
+                            borderRadius:
+                                BorderRadius.circular(AppTokens.radiusSm),
+                            child: ConstrainedBox(
+                              constraints:
+                                  const BoxConstraints(minHeight: 44),
+                              child: Row(
+                                children: [
+                                  AmAvatar(
+                                    imageUrl: agentAvatarUrl,
+                                    name: agentName,
+                                    size: AmAvatarSize.small,
+                                  ),
+                                  const SizedBox(width: AppTokens.space8),
+                                  Expanded(
+                                    child: Text(
+                                      agentName,
+                                      style: textTheme.bodySmall?.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Text(

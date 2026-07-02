@@ -613,6 +613,93 @@
   "marketTitle": "Market",
   "@marketTitle": { "description": "Heading displayed at the top of the market feed screen." },
 
+  "marketFilterTitle": "Filter Posts",
+  "@marketFilterTitle": { "description": "Title for the market feed filter bottom sheet." },
+
+  "marketFilterButtonLabel": "Filter posts",
+  "@marketFilterButtonLabel": { "description": "Accessibility label for the filter icon button on the market feed app bar." },
+
+  "marketFilterActiveCount": "{count} active filters",
+  "@marketFilterActiveCount": { "description": "Accessibility label announcing the number of active filters on the filter badge.", "placeholders": { "count": { "type": "int" } } },
+
+  "marketFilterPostType": "Post Type",
+  "@marketFilterPostType": { "description": "Label for the post type filter row in the market filter sheet." },
+
+  "marketFilterPosition": "Position",
+  "@marketFilterPosition": { "description": "Label for the position filter row in the market filter sheet." },
+
+  "marketFilterNationality": "Nationality",
+  "@marketFilterNationality": { "description": "Label for the nationality filter dropdown in the market filter sheet." },
+
+  "marketFilterMaxAge": "Max Age",
+  "@marketFilterMaxAge": { "description": "Label for the max age filter row in the market filter sheet." },
+
+  "marketFilterMaxValue": "Max Market Value",
+  "@marketFilterMaxValue": { "description": "Label for the max market value filter row in the market filter sheet." },
+
+  "marketFilterApply": "Apply",
+  "@marketFilterApply": { "description": "Label for the apply button in the market filter sheet." },
+
+  "marketFilterClearAll": "Clear All",
+  "@marketFilterClearAll": { "description": "Label for the clear all filters button in the market filter sheet." },
+
+  "marketFilterAny": "Any",
+  "@marketFilterAny": { "description": "Label for the 'no filter' chip option in the market filter sheet." },
+
+  "marketFilterMaxAgeOption": "U{age}",
+  "@marketFilterMaxAgeOption": { "description": "Label for a max age filter chip, e.g. U21.", "placeholders": { "age": { "type": "int" } } },
+
+  "marketEmptyTitle": "No Posts Yet",
+  "@marketEmptyTitle": { "description": "Title for the market feed empty state when there are no posts at all." },
+
+  "marketEmptySubtitle": "Check back soon — agents are posting opportunities every day.",
+  "@marketEmptySubtitle": { "description": "Subtitle for the market feed empty state when there are no posts at all." },
+
+  "marketEmptyFilterTitle": "No Matching Posts",
+  "@marketEmptyFilterTitle": { "description": "Title for the market feed empty state when filters produce no results." },
+
+  "marketEmptyFilterSubtitle": "No posts match your current filters.",
+  "@marketEmptyFilterSubtitle": { "description": "Subtitle for the market feed empty state when filters produce no results." },
+
+  "marketClearFilters": "Clear Filters",
+  "@marketClearFilters": { "description": "Label for the clear filters CTA shown in the filtered empty state." },
+
+  "marketExpiresInDays": "Expires in {days} days",
+  "@marketExpiresInDays": { "description": "Expiry warning shown on a post card when the post expires within 7 days.", "placeholders": { "days": { "type": "int" } } },
+
+  "marketPostedAgo": "{duration} ago",
+  "@marketPostedAgo": { "description": "Relative posted date shown on a market post card, e.g. '2 days ago'.", "placeholders": { "duration": { "type": "String" } } },
+
+  "marketDurationDays": "{count, plural, one {1 day} other {{count} days}}",
+  "@marketDurationDays": { "description": "Pluralized day count used inside the relative posted date string.", "placeholders": { "count": { "type": "int" } } },
+
+  "marketDurationHours": "{count, plural, one {1 hour} other {{count} hours}}",
+  "@marketDurationHours": { "description": "Pluralized hour count used inside the relative posted date string.", "placeholders": { "count": { "type": "int" } } },
+
+  "marketDurationMinutes": "{count, plural, one {1 minute} other {{count} minutes}}",
+  "@marketDurationMinutes": { "description": "Pluralized minute count used inside the relative posted date string.", "placeholders": { "count": { "type": "int" } } },
+
+  "marketDurationJustNow": "Just now",
+  "@marketDurationJustNow": { "description": "Relative posted date shown when a post was created less than a minute ago." },
+
+  "marketPlayerAgeDetail": "{position} · {nationality} · {age}",
+  "@marketPlayerAgeDetail": { "description": "Key detail line on a player_available post card.", "placeholders": { "position": { "type": "String" }, "nationality": { "type": "String" }, "age": { "type": "String" } } },
+
+  "marketNeededPlayerDetail": "{position} · {nationality} · {ageRange}",
+  "@marketNeededPlayerDetail": { "description": "Key detail line on a need_a_player post card.", "placeholders": { "position": { "type": "String" }, "nationality": { "type": "String" }, "ageRange": { "type": "String" } } },
+
+  "marketAgeYears": "{age} yrs",
+  "@marketAgeYears": { "description": "Formatted age shown on a market post card, e.g. '24 yrs'.", "placeholders": { "age": { "type": "int" } } },
+
+  "marketAgeRange": "{min}–{max} yrs",
+  "@marketAgeRange": { "description": "Formatted age range shown on a need_a_player post card, e.g. '18–23 yrs'.", "placeholders": { "min": { "type": "int" }, "max": { "type": "int" } } },
+
+  "marketPostTapLabel": "View post details",
+  "@marketPostTapLabel": { "description": "Accessibility label for tapping a market post card to open its detail screen." },
+
+  "marketAgentNameTapLabel": "View {name}'s profile",
+  "@marketAgentNameTapLabel": { "description": "Accessibility label for tapping an agent name on a market post card to open their public profile.", "placeholders": { "name": { "type": "String" } } },
+
   "messagesTitle": "Messages",
   "@messagesTitle": { "description": "Heading displayed at the top of the conversation list screen." },
 

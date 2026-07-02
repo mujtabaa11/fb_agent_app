@@ -697,6 +697,139 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketTitle => 'Market';
 
   @override
+  String get marketFilterTitle => 'Filter Posts';
+
+  @override
+  String get marketFilterButtonLabel => 'Filter posts';
+
+  @override
+  String marketFilterActiveCount(int count) {
+    return '$count active filters';
+  }
+
+  @override
+  String get marketFilterPostType => 'Post Type';
+
+  @override
+  String get marketFilterPosition => 'Position';
+
+  @override
+  String get marketFilterNationality => 'Nationality';
+
+  @override
+  String get marketFilterMaxAge => 'Max Age';
+
+  @override
+  String get marketFilterMaxValue => 'Max Market Value';
+
+  @override
+  String get marketFilterApply => 'Apply';
+
+  @override
+  String get marketFilterClearAll => 'Clear All';
+
+  @override
+  String get marketFilterAny => 'Any';
+
+  @override
+  String marketFilterMaxAgeOption(int age) {
+    return 'U$age';
+  }
+
+  @override
+  String get marketEmptyTitle => 'No Posts Yet';
+
+  @override
+  String get marketEmptySubtitle =>
+      'Check back soon — agents are posting opportunities every day.';
+
+  @override
+  String get marketEmptyFilterTitle => 'No Matching Posts';
+
+  @override
+  String get marketEmptyFilterSubtitle =>
+      'No posts match your current filters.';
+
+  @override
+  String get marketClearFilters => 'Clear Filters';
+
+  @override
+  String marketExpiresInDays(int days) {
+    return 'Expires in $days days';
+  }
+
+  @override
+  String marketPostedAgo(String duration) {
+    return '$duration ago';
+  }
+
+  @override
+  String marketDurationDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days',
+      one: '1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String marketDurationHours(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hours',
+      one: '1 hour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String marketDurationMinutes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count minutes',
+      one: '1 minute',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get marketDurationJustNow => 'Just now';
+
+  @override
+  String marketPlayerAgeDetail(
+      String position, String nationality, String age) {
+    return '$position · $nationality · $age';
+  }
+
+  @override
+  String marketNeededPlayerDetail(
+      String position, String nationality, String ageRange) {
+    return '$position · $nationality · $ageRange';
+  }
+
+  @override
+  String marketAgeYears(int age) {
+    return '$age yrs';
+  }
+
+  @override
+  String marketAgeRange(int min, int max) {
+    return '$min–$max yrs';
+  }
+
+  @override
+  String get marketPostTapLabel => 'View post details';
+
+  @override
+  String marketAgentNameTapLabel(String name) {
+    return 'View $name\'s profile';
+  }
+
+  @override
   String get messagesTitle => 'Messages';
 
   @override

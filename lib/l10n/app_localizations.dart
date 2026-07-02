@@ -1318,6 +1318,181 @@ abstract class AppLocalizations {
   /// **'Market'**
   String get marketTitle;
 
+  /// Title for the market feed filter bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Posts'**
+  String get marketFilterTitle;
+
+  /// Accessibility label for the filter icon button on the market feed app bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter posts'**
+  String get marketFilterButtonLabel;
+
+  /// Accessibility label announcing the number of active filters on the filter badge.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} active filters'**
+  String marketFilterActiveCount(int count);
+
+  /// Label for the post type filter row in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Type'**
+  String get marketFilterPostType;
+
+  /// Label for the position filter row in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Position'**
+  String get marketFilterPosition;
+
+  /// Label for the nationality filter dropdown in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality'**
+  String get marketFilterNationality;
+
+  /// Label for the max age filter row in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Age'**
+  String get marketFilterMaxAge;
+
+  /// Label for the max market value filter row in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Market Value'**
+  String get marketFilterMaxValue;
+
+  /// Label for the apply button in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get marketFilterApply;
+
+  /// Label for the clear all filters button in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear All'**
+  String get marketFilterClearAll;
+
+  /// Label for the 'no filter' chip option in the market filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get marketFilterAny;
+
+  /// Label for a max age filter chip, e.g. U21.
+  ///
+  /// In en, this message translates to:
+  /// **'U{age}'**
+  String marketFilterMaxAgeOption(int age);
+
+  /// Title for the market feed empty state when there are no posts at all.
+  ///
+  /// In en, this message translates to:
+  /// **'No Posts Yet'**
+  String get marketEmptyTitle;
+
+  /// Subtitle for the market feed empty state when there are no posts at all.
+  ///
+  /// In en, this message translates to:
+  /// **'Check back soon — agents are posting opportunities every day.'**
+  String get marketEmptySubtitle;
+
+  /// Title for the market feed empty state when filters produce no results.
+  ///
+  /// In en, this message translates to:
+  /// **'No Matching Posts'**
+  String get marketEmptyFilterTitle;
+
+  /// Subtitle for the market feed empty state when filters produce no results.
+  ///
+  /// In en, this message translates to:
+  /// **'No posts match your current filters.'**
+  String get marketEmptyFilterSubtitle;
+
+  /// Label for the clear filters CTA shown in the filtered empty state.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filters'**
+  String get marketClearFilters;
+
+  /// Expiry warning shown on a post card when the post expires within 7 days.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires in {days} days'**
+  String marketExpiresInDays(int days);
+
+  /// Relative posted date shown on a market post card, e.g. '2 days ago'.
+  ///
+  /// In en, this message translates to:
+  /// **'{duration} ago'**
+  String marketPostedAgo(String duration);
+
+  /// Pluralized day count used inside the relative posted date string.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {1 day} other {{count} days}}'**
+  String marketDurationDays(int count);
+
+  /// Pluralized hour count used inside the relative posted date string.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {1 hour} other {{count} hours}}'**
+  String marketDurationHours(int count);
+
+  /// Pluralized minute count used inside the relative posted date string.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one {1 minute} other {{count} minutes}}'**
+  String marketDurationMinutes(int count);
+
+  /// Relative posted date shown when a post was created less than a minute ago.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get marketDurationJustNow;
+
+  /// Key detail line on a player_available post card.
+  ///
+  /// In en, this message translates to:
+  /// **'{position} · {nationality} · {age}'**
+  String marketPlayerAgeDetail(String position, String nationality, String age);
+
+  /// Key detail line on a need_a_player post card.
+  ///
+  /// In en, this message translates to:
+  /// **'{position} · {nationality} · {ageRange}'**
+  String marketNeededPlayerDetail(
+      String position, String nationality, String ageRange);
+
+  /// Formatted age shown on a market post card, e.g. '24 yrs'.
+  ///
+  /// In en, this message translates to:
+  /// **'{age} yrs'**
+  String marketAgeYears(int age);
+
+  /// Formatted age range shown on a need_a_player post card, e.g. '18–23 yrs'.
+  ///
+  /// In en, this message translates to:
+  /// **'{min}–{max} yrs'**
+  String marketAgeRange(int min, int max);
+
+  /// Accessibility label for tapping a market post card to open its detail screen.
+  ///
+  /// In en, this message translates to:
+  /// **'View post details'**
+  String get marketPostTapLabel;
+
+  /// Accessibility label for tapping an agent name on a market post card to open their public profile.
+  ///
+  /// In en, this message translates to:
+  /// **'View {name}\'s profile'**
+  String marketAgentNameTapLabel(String name);
+
   /// Heading displayed at the top of the conversation list screen.
   ///
   /// In en, this message translates to:
