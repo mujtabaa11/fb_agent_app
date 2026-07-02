@@ -38,7 +38,6 @@ class PlayerFormBody extends StatelessWidget {
     required this.preferredPosition,
     required this.otherPositions,
     required this.preferredFoot,
-    required this.marketValueCurrency,
     required this.representationAgreementStart,
     required this.representationAgreementExpiry,
     required this.clubContractExpiry,
@@ -53,7 +52,6 @@ class PlayerFormBody extends StatelessWidget {
     required this.onPreferredPositionChanged,
     required this.onOtherPositionToggled,
     required this.onPreferredFootChanged,
-    required this.onMarketValueCurrencyChanged,
     required this.onRepresentationAgreementStartChanged,
     required this.onRepresentationAgreementExpiryChanged,
     required this.onClubContractExpiryChanged,
@@ -103,7 +101,6 @@ class PlayerFormBody extends StatelessWidget {
   final PlayerPosition? preferredPosition;
   final Set<String> otherPositions;
   final PreferredFoot? preferredFoot;
-  final String? marketValueCurrency;
   final DateTime? representationAgreementStart;
   final DateTime? representationAgreementExpiry;
   final DateTime? clubContractExpiry;
@@ -123,7 +120,6 @@ class PlayerFormBody extends StatelessWidget {
   final ValueChanged<PlayerPosition?> onPreferredPositionChanged;
   final ValueChanged<String> onOtherPositionToggled;
   final ValueChanged<PreferredFoot?> onPreferredFootChanged;
-  final ValueChanged<String?> onMarketValueCurrencyChanged;
   final ValueChanged<DateTime?> onRepresentationAgreementStartChanged;
   final ValueChanged<DateTime?> onRepresentationAgreementExpiryChanged;
   final ValueChanged<DateTime?> onClubContractExpiryChanged;
@@ -381,14 +377,25 @@ class PlayerFormBody extends StatelessWidget {
           onChanged: (_) => onFieldChanged(),
         ),
         const SizedBox(height: AppTokens.space16),
-        AmCurrencyAmountField(
-          amountLabel: l10n.fieldMarketValue,
-          currencies: kPlayerFormCurrencies,
-          amountController: marketValueController,
-          selectedCurrency: marketValueCurrency,
+        AmTextField(
+          label: l10n.fieldMarketValue,
+          controller: marketValueController,
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
           enabled: !isSaving,
-          onCurrencyChanged: onMarketValueCurrencyChanged,
-          onAmountChanged: (_) => onFieldChanged(),
+          suffixIcon: Padding(
+            padding: const EdgeInsetsDirectional.only(end: AppTokens.space16),
+            child: Center(
+              widthFactor: 1,
+              child: Text(
+                l10n.currencyEur,
+                style: TextStyle(
+                  fontSize: AppTokens.fontSizeMd,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+            ),
+          ),
+          onChanged: (_) => onFieldChanged(),
         ),
         const SizedBox(height: AppTokens.space16),
         AmTextField(

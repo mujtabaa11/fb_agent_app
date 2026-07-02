@@ -432,15 +432,9 @@ class _FootballDetailsSection extends StatelessWidget {
 
   final PlayerModel player;
 
-  String _formatMarketValue(double value, String? currency) {
-    final symbol = switch (currency) {
-      'EUR' => '€',
-      'GBP' => '£',
-      'USD' => '\$',
-      _ => currency ?? '€',
-    };
+  String _formatMarketValue(double value) {
     final formatter = NumberFormat('#,##0', 'en_US');
-    return '$symbol${formatter.format(value)}';
+    return '€${formatter.format(value)}';
   }
 
   String _footLabel(PreferredFoot foot, AppLocalizations l10n) {
@@ -513,8 +507,7 @@ class _FootballDetailsSection extends StatelessWidget {
         if (player.estimatedMarketValue != null)
           _DetailRow(
             label: l10n.fieldMarketValue,
-            value: _formatMarketValue(
-                player.estimatedMarketValue!, player.marketValueCurrency),
+            value: _formatMarketValue(player.estimatedMarketValue!),
           ),
         if (player.transfermarktUrl != null &&
             player.transfermarktUrl!.isNotEmpty)

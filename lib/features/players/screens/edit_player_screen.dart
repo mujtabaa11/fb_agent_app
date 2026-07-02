@@ -426,7 +426,6 @@ class _EditPlayerScreenState extends ConsumerState<EditPlayerScreen> {
                   preferredPosition: editState.preferredPosition,
                   otherPositions: editState.otherPositions,
                   preferredFoot: editState.preferredFoot,
-                  marketValueCurrency: editState.marketValueCurrency,
                   representationAgreementStart:
                       editState.representationAgreementStart,
                   representationAgreementExpiry:
@@ -476,12 +475,6 @@ class _EditPlayerScreenState extends ConsumerState<EditPlayerScreen> {
                         .read(editPlayerNotifierProvider(widget.playerId)
                             .notifier)
                         .updatePreferredFoot(value);
-                  },
-                  onMarketValueCurrencyChanged: (value) {
-                    ref
-                        .read(editPlayerNotifierProvider(widget.playerId)
-                            .notifier)
-                        .updateMarketValueCurrency(value);
                   },
                   onRepresentationAgreementStartChanged: (date) {
                     ref

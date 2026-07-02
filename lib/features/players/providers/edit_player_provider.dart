@@ -33,7 +33,6 @@ class EditPlayerState {
     this.currentClub,
     this.leagueCountry,
     this.estimatedMarketValue,
-    this.marketValueCurrency,
     this.transfermarktUrl,
     this.representationAgreementStart,
     this.representationAgreementExpiry,
@@ -66,7 +65,6 @@ class EditPlayerState {
   final String? currentClub;
   final String? leagueCountry;
   final double? estimatedMarketValue;
-  final String? marketValueCurrency;
   final String? transfermarktUrl;
   final DateTime? representationAgreementStart;
   final DateTime? representationAgreementExpiry;
@@ -93,7 +91,6 @@ class EditPlayerState {
         (currentClub ?? '') != (p.currentClub ?? '') ||
         (leagueCountry ?? '') != (p.leagueCountry ?? '') ||
         estimatedMarketValue != p.estimatedMarketValue ||
-        marketValueCurrency != p.marketValueCurrency ||
         (transfermarktUrl ?? '') != (p.transfermarktUrl ?? '') ||
         representationAgreementStart != p.representationAgreementStart ||
         representationAgreementExpiry != p.representationAgreementExpiry ||
@@ -131,7 +128,6 @@ class EditPlayerState {
     String? Function()? currentClub,
     String? Function()? leagueCountry,
     double? Function()? estimatedMarketValue,
-    String? Function()? marketValueCurrency,
     String? Function()? transfermarktUrl,
     DateTime? Function()? representationAgreementStart,
     DateTime? Function()? representationAgreementExpiry,
@@ -177,9 +173,6 @@ class EditPlayerState {
       estimatedMarketValue: estimatedMarketValue != null
           ? estimatedMarketValue()
           : this.estimatedMarketValue,
-      marketValueCurrency: marketValueCurrency != null
-          ? marketValueCurrency()
-          : this.marketValueCurrency,
       transfermarktUrl: transfermarktUrl != null
           ? transfermarktUrl()
           : this.transfermarktUrl,
@@ -235,7 +228,6 @@ class EditPlayerNotifier extends _$EditPlayerNotifier {
           currentClub: value.currentClub,
           leagueCountry: value.leagueCountry,
           estimatedMarketValue: value.estimatedMarketValue,
-          marketValueCurrency: value.marketValueCurrency,
           transfermarktUrl: value.transfermarktUrl,
           representationAgreementStart: value.representationAgreementStart,
           representationAgreementExpiry: value.representationAgreementExpiry,
@@ -308,10 +300,6 @@ class EditPlayerNotifier extends _$EditPlayerNotifier {
 
   void updateEstimatedMarketValue(double? value) {
     state = state.copyWith(estimatedMarketValue: () => value);
-  }
-
-  void updateMarketValueCurrency(String? value) {
-    state = state.copyWith(marketValueCurrency: () => value);
   }
 
   void updateTransfermarktUrl(String? value) {
@@ -410,7 +398,6 @@ class EditPlayerNotifier extends _$EditPlayerNotifier {
       leagueCountry: () =>
           state.leagueCountry?.isEmpty == true ? null : state.leagueCountry,
       estimatedMarketValue: () => state.estimatedMarketValue,
-      marketValueCurrency: () => state.marketValueCurrency,
       transfermarktUrl: () => state.transfermarktUrl?.isEmpty == true
           ? null
           : state.transfermarktUrl,

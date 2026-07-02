@@ -43,7 +43,6 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
   PlayerPosition? _preferredPosition;
   final Set<String> _otherPositions = {};
   PreferredFoot? _preferredFoot;
-  String? _marketValueCurrency;
   DateTime? _representationAgreementStart;
   DateTime? _representationAgreementExpiry;
   DateTime? _clubContractExpiry;
@@ -271,7 +270,6 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
           ? null
           : double.tryParse(
               _marketValueController.text.trim().replaceAll(',', '')),
-      marketValueCurrency: _marketValueCurrency,
       transfermarktUrl: _transfermarktUrlController.text.trim().isEmpty
           ? null
           : _transfermarktUrlController.text.trim(),
@@ -379,7 +377,6 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
                   preferredPosition: _preferredPosition,
                   otherPositions: _otherPositions,
                   preferredFoot: _preferredFoot,
-                  marketValueCurrency: _marketValueCurrency,
                   representationAgreementStart: _representationAgreementStart,
                   representationAgreementExpiry: _representationAgreementExpiry,
                   clubContractExpiry: _clubContractExpiry,
@@ -417,10 +414,6 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
                   },
                   onPreferredFootChanged: (value) {
                     setState(() => _preferredFoot = value);
-                    _markDirty();
-                  },
-                  onMarketValueCurrencyChanged: (value) {
-                    setState(() => _marketValueCurrency = value);
                     _markDirty();
                   },
                   onRepresentationAgreementStartChanged: (date) {

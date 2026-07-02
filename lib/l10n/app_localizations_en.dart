@@ -886,6 +886,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fieldMarketValue => 'Estimated Market Value';
 
   @override
+  String get currencyEur => 'EUR';
+
+  @override
   String get fieldTransfermarktUrl => 'Transfermarkt URL';
 
   @override

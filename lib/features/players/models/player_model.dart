@@ -23,7 +23,6 @@ class PlayerModel {
     this.currentClub,
     this.leagueCountry,
     this.estimatedMarketValue,
-    this.marketValueCurrency,
     this.transfermarktUrl,
     this.representationAgreementStart,
     this.representationAgreementExpiry,
@@ -61,7 +60,6 @@ class PlayerModel {
       currentClub: json['currentClub'] as String?,
       leagueCountry: json['leagueCountry'] as String?,
       estimatedMarketValue: (json['estimatedMarketValue'] as num?)?.toDouble(),
-      marketValueCurrency: json['marketValueCurrency'] as String?,
       transfermarktUrl: json['transfermarktUrl'] as String?,
       representationAgreementStart:
           _timestampToDateTime(json['representationAgreementStart']),
@@ -93,7 +91,6 @@ class PlayerModel {
   final String? currentClub;
   final String? leagueCountry;
   final double? estimatedMarketValue;
-  final String? marketValueCurrency;
   final String? transfermarktUrl;
   final DateTime? representationAgreementStart;
   final DateTime? representationAgreementExpiry;
@@ -123,8 +120,6 @@ class PlayerModel {
       if (leagueCountry != null) 'leagueCountry': leagueCountry,
       if (estimatedMarketValue != null)
         'estimatedMarketValue': estimatedMarketValue,
-      if (marketValueCurrency != null)
-        'marketValueCurrency': marketValueCurrency,
       if (transfermarktUrl != null) 'transfermarktUrl': transfermarktUrl,
       if (representationAgreementStart != null)
         'representationAgreementStart':
@@ -158,7 +153,6 @@ class PlayerModel {
     String? Function()? currentClub,
     String? Function()? leagueCountry,
     double? Function()? estimatedMarketValue,
-    String? Function()? marketValueCurrency,
     String? Function()? transfermarktUrl,
     DateTime? Function()? representationAgreementStart,
     DateTime? Function()? representationAgreementExpiry,
@@ -193,9 +187,6 @@ class PlayerModel {
       estimatedMarketValue: estimatedMarketValue != null
           ? estimatedMarketValue()
           : this.estimatedMarketValue,
-      marketValueCurrency: marketValueCurrency != null
-          ? marketValueCurrency()
-          : this.marketValueCurrency,
       transfermarktUrl:
           transfermarktUrl != null ? transfermarktUrl() : this.transfermarktUrl,
       representationAgreementStart: representationAgreementStart != null

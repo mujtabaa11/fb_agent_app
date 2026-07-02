@@ -790,6 +790,9 @@
   "fieldMarketValue": "Estimated Market Value",
   "@fieldMarketValue": { "description": "Label for the estimated market value field on the add player form." },
 
+  "currencyEur": "EUR",
+  "@currencyEur": { "description": "Static currency label shown next to the market value input; market value is always in EUR." },
+
   "fieldTransfermarktUrl": "Transfermarkt URL",
   "@fieldTransfermarktUrl": { "description": "Label for the Transfermarkt URL field on the add player form." },
 

@@ -1672,6 +1672,12 @@ abstract class AppLocalizations {
   /// **'Estimated Market Value'**
   String get fieldMarketValue;
 
+  /// Static currency label shown next to the market value input; market value is always in EUR.
+  ///
+  /// In en, this message translates to:
+  /// **'EUR'**
+  String get currencyEur;
+
   /// Label for the Transfermarkt URL field on the add player form.
   ///
   /// In en, this message translates to:
