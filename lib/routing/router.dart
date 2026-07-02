@@ -32,7 +32,9 @@ import '../features/auth/screens/sign_up_screen.dart';
 import '../features/auth/screens/verify_email_screen.dart';
 import '../features/dev_showcase/screens/component_showcase_screen.dart';
 import '../features/market/screens/agent_public_profile_screen.dart';
-import '../features/market/screens/create_post_screen.dart';
+import '../features/market/screens/create_need_a_player_post_screen.dart';
+import '../features/market/screens/create_player_available_post_screen.dart';
+import '../features/market/screens/create_post_type_screen.dart';
 import '../features/market/screens/market_feed_screen.dart';
 import '../features/market/screens/my_posts_screen.dart';
 import '../features/market/screens/post_detail_screen.dart';
@@ -395,7 +397,19 @@ GoRouter createRouter(AuthRepository authRepository, ProviderContainer container
           routes: [
             GoRoute(
               path: 'post/create',
-              builder: (context, state) => const CreatePostScreen(),
+              builder: (context, state) => const CreatePostTypeScreen(),
+              routes: [
+                GoRoute(
+                  path: 'player-available',
+                  builder: (context, state) =>
+                      const CreatePlayerAvailablePostScreen(),
+                ),
+                GoRoute(
+                  path: 'need-a-player',
+                  builder: (context, state) =>
+                      const CreateNeedAPlayerPostScreen(),
+                ),
+              ],
             ),
             GoRoute(
               path: 'post/:postId',

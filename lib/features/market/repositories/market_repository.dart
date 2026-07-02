@@ -5,4 +5,11 @@ import '../models/market_post_model.dart';
 
 abstract class MarketRepository {
   Stream<Result<List<MarketPostModel>>> watchMarketFeed();
+
+  /// Reserves a new document id for a post before it is created, so callers
+  /// can upload post-scoped assets (e.g. a player photo) to a storage path
+  /// keyed by the id ahead of the Firestore write.
+  String generatePostId();
+
+  Future<Result<MarketPostModel>> createPost(MarketPostModel post);
 }

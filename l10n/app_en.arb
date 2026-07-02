@@ -715,6 +715,57 @@
   "createPostTitle": "Create Post",
   "@createPostTitle": { "description": "Heading displayed at the top of the create market post screen." },
 
+  "postTypePlayerAvailableSubtitle": "Market a player you represent to other agents",
+  "@postTypePlayerAvailableSubtitle": { "description": "Subtitle for the Player Available option on the create post type selector screen." },
+
+  "postTypeNeedAPlayerSubtitle": "Broadcast a position or profile you are looking to fill",
+  "@postTypeNeedAPlayerSubtitle": { "description": "Subtitle for the Need a Player option on the create post type selector screen." },
+
+  "createPlayerAvailableTitle": "Player Available",
+  "@createPlayerAvailableTitle": { "description": "Heading displayed at the top of the create Player Available post screen." },
+
+  "linkPlayerPrompt": "Link a player from your roster",
+  "@linkPlayerPrompt": { "description": "Prompt shown on the unlinked Link a Player card and as the header of the player selector bottom sheet." },
+
+  "linkPlayerSearch": "Search players",
+  "@linkPlayerSearch": { "description": "Label for the search field in the player selector bottom sheet." },
+
+  "removeLinkedPlayerLabel": "Remove linked player",
+  "@removeLinkedPlayerLabel": { "description": "Accessibility label for the button that unlinks the currently linked player on the create post form." },
+
+  "postAnonymousLabel": "Post Anonymously",
+  "@postAnonymousLabel": { "description": "Label for the anonymous toggle on the create Player Available post form." },
+
+  "postAnonymousSublabel": "Hide player identity until you make contact",
+  "@postAnonymousSublabel": { "description": "Sublabel explaining the anonymous toggle on the create Player Available post form." },
+
+  "postDescriptionLabel": "Description",
+  "@postDescriptionLabel": { "description": "Label for the description field on the create market post form." },
+
+  "postDescriptionHint": "Describe the player or the opportunity...",
+  "@postDescriptionHint": { "description": "Helper/placeholder text for the description field on the create market post form." },
+
+  "postExpiryLabel": "Post Expires On",
+  "@postExpiryLabel": { "description": "Label for the expiry date field on the create market post form." },
+
+  "postExternalLinksLabel": "External Links",
+  "@postExternalLinksLabel": { "description": "Section label for the external links section on the create Player Available post form." },
+
+  "postExternalLinksSublabel": "Add highlight reels or match videos",
+  "@postExternalLinksSublabel": { "description": "Section sublabel for the external links section on the create Player Available post form." },
+
+  "postLinkUrl": "URL",
+  "@postLinkUrl": { "description": "Label for the URL field of an external link row on the create post form." },
+
+  "postLinkLabel": "Label (optional)",
+  "@postLinkLabel": { "description": "Label for the optional label field of an external link row on the create post form." },
+
+  "postAddLink": "+ Add Link",
+  "@postAddLink": { "description": "Button label to add a new external link row on the create post form." },
+
+  "savePost": "Publish Post",
+  "@savePost": { "description": "Label for the primary save/submit button on the create market post form." },
+
   "postDetailTitle": "Post Details",
   "@postDetailTitle": { "description": "Heading displayed at the top of the market post detail screen." },
 
@@ -870,6 +921,9 @@
 
   "fieldCurrentClub": "Current Club",
   "@fieldCurrentClub": { "description": "Label for the current club field on the add player form." },
+
+  "fieldAge": "Age",
+  "@fieldAge": { "description": "Label for the numeric age field on the create market post form." },
 
   "fieldLeagueCountry": "League Country",
   "@fieldLeagueCountry": { "description": "Label for the league country field on the add player form." },

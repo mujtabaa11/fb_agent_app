@@ -845,6 +845,60 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createPostTitle => 'Create Post';
 
   @override
+  String get postTypePlayerAvailableSubtitle =>
+      'Market a player you represent to other agents';
+
+  @override
+  String get postTypeNeedAPlayerSubtitle =>
+      'Broadcast a position or profile you are looking to fill';
+
+  @override
+  String get createPlayerAvailableTitle => 'Player Available';
+
+  @override
+  String get linkPlayerPrompt => 'Link a player from your roster';
+
+  @override
+  String get linkPlayerSearch => 'Search players';
+
+  @override
+  String get removeLinkedPlayerLabel => 'Remove linked player';
+
+  @override
+  String get postAnonymousLabel => 'Post Anonymously';
+
+  @override
+  String get postAnonymousSublabel =>
+      'Hide player identity until you make contact';
+
+  @override
+  String get postDescriptionLabel => 'Description';
+
+  @override
+  String get postDescriptionHint => 'Describe the player or the opportunity...';
+
+  @override
+  String get postExpiryLabel => 'Post Expires On';
+
+  @override
+  String get postExternalLinksLabel => 'External Links';
+
+  @override
+  String get postExternalLinksSublabel => 'Add highlight reels or match videos';
+
+  @override
+  String get postLinkUrl => 'URL';
+
+  @override
+  String get postLinkLabel => 'Label (optional)';
+
+  @override
+  String get postAddLink => '+ Add Link';
+
+  @override
+  String get savePost => 'Publish Post';
+
+  @override
   String get postDetailTitle => 'Post Details';
 
   @override
@@ -1011,6 +1065,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fieldCurrentClub => 'Current Club';
+
+  @override
+  String get fieldAge => 'Age';
 
   @override
   String get fieldLeagueCountry => 'League Country';

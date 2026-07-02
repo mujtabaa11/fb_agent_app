@@ -3,6 +3,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tokens.dart';
@@ -91,6 +92,16 @@ class MarketFeedScreen extends ConsumerWidget {
           onRetry: () => ref.invalidate(marketFeedProvider),
         ),
         data: (_) => _MarketFeedList(activeFilterCount: activeFilterCount),
+      ),
+      floatingActionButton: Semantics(
+        button: true,
+        label: l10n.createPostTitle,
+        child: FloatingActionButton(
+          backgroundColor: AppColors.primary,
+          foregroundColor: AppColors.onPrimary,
+          onPressed: () => context.push('/market/post/create'),
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

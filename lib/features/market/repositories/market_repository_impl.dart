@@ -21,6 +21,32 @@ class MarketRepositoryImpl implements MarketRepository {
       _firestore.collection(_collectionPath);
 
   @override
+  String generatePostId() => _collection.doc().id;
+
+  @override
+  Future<Result<MarketPostModel>> createPost(MarketPostModel post) async {
+    try {
+      final data = post.toJson();
+      data['createdAt'] = FieldValue.serverTimestamp();
+      data['updatedAt'] = FieldValue.serverTimestamp();
+
+      final docRef = post.id.isNotEmpty ? _collection.doc(post.id) : _collection.doc();
+      await docRef.set(data);
+      final snapshot = await docRef.get();
+      final docData = snapshot.data()!;
+      docData['id'] = snapshot.id;
+
+      return Success(MarketPostModel.fromJson(docData));
+    } on FirebaseException catch (e) {
+      return Failure(_mapFirebaseException(e));
+    } on SocketException {
+      return Failure(const NetworkException());
+    } on Exception catch (e) {
+      return Failure(DataException(originalMessage: e.toString()));
+    }
+  }
+
+  @override
   Stream<Result<List<MarketPostModel>>> watchMarketFeed() {
     return _collection
         .where('status', isEqualTo: 'active')

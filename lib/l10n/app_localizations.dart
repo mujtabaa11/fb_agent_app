@@ -1523,6 +1523,108 @@ abstract class AppLocalizations {
   /// **'Create Post'**
   String get createPostTitle;
 
+  /// Subtitle for the Player Available option on the create post type selector screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Market a player you represent to other agents'**
+  String get postTypePlayerAvailableSubtitle;
+
+  /// Subtitle for the Need a Player option on the create post type selector screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Broadcast a position or profile you are looking to fill'**
+  String get postTypeNeedAPlayerSubtitle;
+
+  /// Heading displayed at the top of the create Player Available post screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Player Available'**
+  String get createPlayerAvailableTitle;
+
+  /// Prompt shown on the unlinked Link a Player card and as the header of the player selector bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Link a player from your roster'**
+  String get linkPlayerPrompt;
+
+  /// Label for the search field in the player selector bottom sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Search players'**
+  String get linkPlayerSearch;
+
+  /// Accessibility label for the button that unlinks the currently linked player on the create post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove linked player'**
+  String get removeLinkedPlayerLabel;
+
+  /// Label for the anonymous toggle on the create Player Available post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Anonymously'**
+  String get postAnonymousLabel;
+
+  /// Sublabel explaining the anonymous toggle on the create Player Available post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide player identity until you make contact'**
+  String get postAnonymousSublabel;
+
+  /// Label for the description field on the create market post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get postDescriptionLabel;
+
+  /// Helper/placeholder text for the description field on the create market post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe the player or the opportunity...'**
+  String get postDescriptionHint;
+
+  /// Label for the expiry date field on the create market post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Expires On'**
+  String get postExpiryLabel;
+
+  /// Section label for the external links section on the create Player Available post form.
+  ///
+  /// In en, this message translates to:
+  /// **'External Links'**
+  String get postExternalLinksLabel;
+
+  /// Section sublabel for the external links section on the create Player Available post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Add highlight reels or match videos'**
+  String get postExternalLinksSublabel;
+
+  /// Label for the URL field of an external link row on the create post form.
+  ///
+  /// In en, this message translates to:
+  /// **'URL'**
+  String get postLinkUrl;
+
+  /// Label for the optional label field of an external link row on the create post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Label (optional)'**
+  String get postLinkLabel;
+
+  /// Button label to add a new external link row on the create post form.
+  ///
+  /// In en, this message translates to:
+  /// **'+ Add Link'**
+  String get postAddLink;
+
+  /// Label for the primary save/submit button on the create market post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish Post'**
+  String get savePost;
+
   /// Heading displayed at the top of the market post detail screen.
   ///
   /// In en, this message translates to:
@@ -1834,6 +1936,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Current Club'**
   String get fieldCurrentClub;
+
+  /// Label for the numeric age field on the create market post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get fieldAge;
 
   /// Label for the league country field on the add player form.
   ///
