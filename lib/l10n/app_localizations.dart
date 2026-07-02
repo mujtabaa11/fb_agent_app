@@ -1255,20 +1255,62 @@ abstract class AppLocalizations {
   /// Label for the market posts stat tile on the dashboard.
   ///
   /// In en, this message translates to:
-  /// **'Market Posts'**
+  /// **'Active Posts'**
   String get statsMarketPosts;
-
-  /// Sub-label shown under the Market Posts stat tile on the dashboard, indicating the feature is not yet available.
-  ///
-  /// In en, this message translates to:
-  /// **'Coming Soon'**
-  String get statsComingSoon;
 
   /// Section header on the dashboard for the list of upcoming contract expiries.
   ///
   /// In en, this message translates to:
   /// **'Upcoming Expiries'**
   String get sectionUpcomingExpiries;
+
+  /// Section header on the dashboard for the agent's active Market posts.
+  ///
+  /// In en, this message translates to:
+  /// **'My Active Posts'**
+  String get dashboardPostsTitle;
+
+  /// Link shown on the dashboard active posts section when the agent has more than 3 active posts.
+  ///
+  /// In en, this message translates to:
+  /// **'See All ({count})'**
+  String dashboardPostsSeeAll(int count);
+
+  /// Link shown on the dashboard active posts section when the agent has 3 or fewer active posts.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get dashboardPostsSeeAllSimple;
+
+  /// Title shown when the agent has no active Market posts on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'No Active Posts'**
+  String get dashboardPostsEmptyTitle;
+
+  /// Subtitle shown when the agent has no active Market posts on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a post to market your players to other agents.'**
+  String get dashboardPostsEmptySubtitle;
+
+  /// Call-to-action button label on the dashboard active posts empty state.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a Post'**
+  String get dashboardPostsEmptyCta;
+
+  /// Key detail line shown for an anonymized Player Available post on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Anonymous Player'**
+  String get dashboardPostAnonymous;
+
+  /// Key detail line fallback shown when a Need a Player post has no specified nationalities.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get dashboardPostAnyNationality;
 
   /// Title shown when there are no contracts expiring within the next 90 days.
   ///

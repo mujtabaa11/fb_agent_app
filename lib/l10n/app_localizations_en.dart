@@ -659,13 +659,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get statsProspects => 'Prospects';
 
   @override
-  String get statsMarketPosts => 'Market Posts';
-
-  @override
-  String get statsComingSoon => 'Coming Soon';
+  String get statsMarketPosts => 'Active Posts';
 
   @override
   String get sectionUpcomingExpiries => 'Upcoming Expiries';
+
+  @override
+  String get dashboardPostsTitle => 'My Active Posts';
+
+  @override
+  String dashboardPostsSeeAll(int count) {
+    return 'See All ($count)';
+  }
+
+  @override
+  String get dashboardPostsSeeAllSimple => 'See All';
+
+  @override
+  String get dashboardPostsEmptyTitle => 'No Active Posts';
+
+  @override
+  String get dashboardPostsEmptySubtitle =>
+      'Create a post to market your players to other agents.';
+
+  @override
+  String get dashboardPostsEmptyCta => 'Create a Post';
+
+  @override
+  String get dashboardPostAnonymous => 'Anonymous Player';
+
+  @override
+  String get dashboardPostAnyNationality => 'Any';
 
   @override
   String get emptyExpiriesTitle => 'No Upcoming Expiries';

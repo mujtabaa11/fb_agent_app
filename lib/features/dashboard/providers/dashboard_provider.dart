@@ -2,6 +2,9 @@ library;
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../market/models/market_post_enums.dart';
+import '../../market/models/market_post_model.dart';
+import '../../market/providers/my_posts_provider.dart';
 import '../../players/models/player_enums.dart';
 import '../../players/providers/player_providers.dart';
 
@@ -114,4 +117,28 @@ Future<PlayerStats> playerStats(PlayerStatsRef ref) async {
         players.where((p) => p.status == PlayerStatus.activeClient).length,
     prospects: players.where((p) => p.status == PlayerStatus.prospect).length,
   );
+}
+
+bool _isActivePost(MarketPostModel post) =>
+    post.status == MarketPostStatus.active && !post.isExpired;
+
+/// The agent's active (non-expired, non-closed) Market posts, sorted by
+/// soonest expiry first. Capped to the top 3 for the Dashboard section;
+/// [dashboardActivePostsCount] reports the full count separately.
+@riverpod
+Future<List<MarketPostModel>> dashboardActivePosts(
+  DashboardActivePostsRef ref,
+) async {
+  final posts = await ref.watch(myPostsProvider.future);
+  final active = posts.where(_isActivePost).toList()
+    ..sort((a, b) => a.expiresAt.compareTo(b.expiresAt));
+  return active.take(3).toList();
+}
+
+@riverpod
+Future<int> dashboardActivePostsCount(
+  DashboardActivePostsCountRef ref,
+) async {
+  final posts = await ref.watch(myPostsProvider.future);
+  return posts.where(_isActivePost).length;
 }

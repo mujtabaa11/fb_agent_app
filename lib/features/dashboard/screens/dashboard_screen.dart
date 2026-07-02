@@ -3,16 +3,19 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/widgets/am_empty_state.dart';
 import '../../../core/widgets/am_error_state.dart';
 import '../../../core/widgets/am_loading_skeleton.dart';
+import '../../../core/widgets/am_text_button.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/providers/agent_providers.dart';
 import '../providers/dashboard_provider.dart';
 import '../widgets/contract_expiry_alert_item.dart';
+import '../widgets/dashboard_post_item.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -64,6 +67,28 @@ class DashboardScreen extends ConsumerWidget {
                 AppTokens.space24,
               ),
               child: _ContractExpirySection(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(
+                AppTokens.space16,
+                0,
+                AppTokens.space16,
+                AppTokens.space8,
+              ),
+              child: _DashboardPostsSectionHeader(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(
+                AppTokens.space16,
+                0,
+                AppTokens.space16,
+                AppTokens.space24,
+              ),
+              child: _DashboardPostsSection(),
             ),
           ),
         ],
@@ -128,6 +153,7 @@ class _QuickStatsStrip extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final statsAsync = ref.watch(playerStatsProvider);
+    final marketPostsCountAsync = ref.watch(dashboardActivePostsCountProvider);
 
     return SizedBox(
       height: 108,
@@ -168,9 +194,13 @@ class _QuickStatsStrip extends ConsumerWidget {
               ),
               const SizedBox(width: AppTokens.space12),
               _StatTile(
-                value: '0',
+                value: marketPostsCountAsync.when(
+                  loading: () => null,
+                  error: (_, __) => '—',
+                  data: (count) => '$count',
+                ),
                 label: l10n.statsMarketPosts,
-                subLabel: l10n.statsComingSoon,
+                onTap: () => context.push('/market/my-posts'),
               ),
             ],
           ),
@@ -184,59 +214,69 @@ class _StatTile extends StatelessWidget {
   const _StatTile({
     required this.value,
     required this.label,
-    this.subLabel,
+    this.onTap,
   });
 
-  final String value;
+  final String? value;
   final String label;
-  final String? subLabel;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final semanticsLabel =
-        subLabel == null ? '$value $label' : '$value $label, $subLabel';
+    final semanticsLabel = '${value ?? ''} $label';
 
-    return Semantics(
-      label: semanticsLabel,
-      child: Container(
-        width: 140,
-        padding: const EdgeInsetsDirectional.all(AppTokens.space16),
-        decoration: BoxDecoration(
-          color: AppColors.surface,
-          borderRadius: BorderRadius.circular(AppTokens.radiusMd),
-          border: Border.all(color: AppColors.border),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+    final tile = Container(
+      width: 140,
+      padding: const EdgeInsetsDirectional.all(AppTokens.space16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(AppTokens.radiusMd),
+        border: Border.all(color: AppColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (value == null)
+            const SizedBox(
+              width: 48,
+              height: AppTokens.fontSizeXxl,
+              child: AmLoadingSkeleton(),
+            )
+          else
             Text(
-              value,
+              value!,
               style: const TextStyle(
                 fontSize: AppTokens.fontSizeXxl,
                 fontWeight: FontWeight.bold,
                 color: AppColors.textPrimary,
               ),
             ),
-            const SizedBox(height: AppTokens.space4),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: AppTokens.fontSizeSm,
-                color: AppColors.textSecondary,
-              ),
+          const SizedBox(height: AppTokens.space4),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: AppTokens.fontSizeSm,
+              color: AppColors.textSecondary,
             ),
-            if (subLabel != null) ...[
-              const SizedBox(height: AppTokens.space4),
-              Text(
-                subLabel!,
-                style: const TextStyle(
-                  fontSize: AppTokens.fontSizeXs,
-                  color: AppColors.textHint,
-                ),
-              ),
-            ],
-          ],
+          ),
+        ],
+      ),
+    );
+
+    if (onTap == null) {
+      return Semantics(label: semanticsLabel, child: tile);
+    }
+
+    return Semantics(
+      button: true,
+      label: semanticsLabel,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(AppTokens.radiusMd),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+          child: tile,
         ),
       ),
     );
@@ -276,6 +316,69 @@ class _ContractExpirySection extends ConsumerWidget {
                 key: ValueKey('${alert.playerId}-${alert.contractType}'),
                 alert: alert,
               ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _DashboardPostsSectionHeader extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+    final countAsync = ref.watch(dashboardActivePostsCountProvider);
+    final count = countAsync.valueOrNull ?? 0;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _SectionHeader(title: l10n.dashboardPostsTitle),
+        if (count > 0)
+          AmTextButton(
+            label: count > 3
+                ? l10n.dashboardPostsSeeAll(count)
+                : l10n.dashboardPostsSeeAllSimple,
+            onPressed: () => context.push('/market/my-posts'),
+          ),
+      ],
+    );
+  }
+}
+
+class _DashboardPostsSection extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+    final postsAsync = ref.watch(dashboardActivePostsProvider);
+
+    return postsAsync.when(
+      loading: () => const Column(
+        children: [
+          AmLoadingSkeleton(),
+          SizedBox(height: AppTokens.space12),
+          AmLoadingSkeleton(),
+        ],
+      ),
+      error: (error, _) => AmErrorState(
+        message: l10n.errorLoadingDashboard,
+        onRetry: () => ref.invalidate(dashboardActivePostsProvider),
+      ),
+      data: (posts) {
+        if (posts.isEmpty) {
+          return AmEmptyState(
+            icon: Icons.post_add,
+            title: l10n.dashboardPostsEmptyTitle,
+            subtitle: l10n.dashboardPostsEmptySubtitle,
+            actionLabel: l10n.dashboardPostsEmptyCta,
+            onAction: () => context.push('/market/post/create'),
+          );
+        }
+
+        return Column(
+          children: [
+            for (final post in posts)
+              DashboardPostItem(key: ValueKey(post.id), post: post),
           ],
         );
       },

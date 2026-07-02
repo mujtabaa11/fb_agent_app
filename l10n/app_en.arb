@@ -580,14 +580,35 @@
   "statsProspects": "Prospects",
   "@statsProspects": { "description": "Label for the prospects stat tile on the dashboard." },
 
-  "statsMarketPosts": "Market Posts",
+  "statsMarketPosts": "Active Posts",
   "@statsMarketPosts": { "description": "Label for the market posts stat tile on the dashboard." },
-
-  "statsComingSoon": "Coming Soon",
-  "@statsComingSoon": { "description": "Sub-label shown under the Market Posts stat tile on the dashboard, indicating the feature is not yet available." },
 
   "sectionUpcomingExpiries": "Upcoming Expiries",
   "@sectionUpcomingExpiries": { "description": "Section header on the dashboard for the list of upcoming contract expiries." },
+
+  "dashboardPostsTitle": "My Active Posts",
+  "@dashboardPostsTitle": { "description": "Section header on the dashboard for the agent's active Market posts." },
+
+  "dashboardPostsSeeAll": "See All ({count})",
+  "@dashboardPostsSeeAll": { "description": "Link shown on the dashboard active posts section when the agent has more than 3 active posts.", "placeholders": { "count": { "type": "int" } } },
+
+  "dashboardPostsSeeAllSimple": "See All",
+  "@dashboardPostsSeeAllSimple": { "description": "Link shown on the dashboard active posts section when the agent has 3 or fewer active posts." },
+
+  "dashboardPostsEmptyTitle": "No Active Posts",
+  "@dashboardPostsEmptyTitle": { "description": "Title shown when the agent has no active Market posts on the dashboard." },
+
+  "dashboardPostsEmptySubtitle": "Create a post to market your players to other agents.",
+  "@dashboardPostsEmptySubtitle": { "description": "Subtitle shown when the agent has no active Market posts on the dashboard." },
+
+  "dashboardPostsEmptyCta": "Create a Post",
+  "@dashboardPostsEmptyCta": { "description": "Call-to-action button label on the dashboard active posts empty state." },
+
+  "dashboardPostAnonymous": "Anonymous Player",
+  "@dashboardPostAnonymous": { "description": "Key detail line shown for an anonymized Player Available post on the dashboard." },
+
+  "dashboardPostAnyNationality": "Any",
+  "@dashboardPostAnyNationality": { "description": "Key detail line fallback shown when a Need a Player post has no specified nationalities." },
 
   "emptyExpiriesTitle": "No Upcoming Expiries",
   "@emptyExpiriesTitle": { "description": "Title shown when there are no contracts expiring within the next 90 days." },

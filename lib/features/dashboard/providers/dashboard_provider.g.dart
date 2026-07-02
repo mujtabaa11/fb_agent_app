@@ -42,5 +42,48 @@ final playerStatsProvider = AutoDisposeFutureProvider<PlayerStats>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef PlayerStatsRef = AutoDisposeFutureProviderRef<PlayerStats>;
+String _$dashboardActivePostsHash() =>
+    r'6700d091dc5937ed5f230f80f4bfd4d68ef2382f';
+
+/// The agent's active (non-expired, non-closed) Market posts, sorted by
+/// soonest expiry first. Capped to the top 3 for the Dashboard section;
+/// [dashboardActivePostsCount] reports the full count separately.
+///
+/// Copied from [dashboardActivePosts].
+@ProviderFor(dashboardActivePosts)
+final dashboardActivePostsProvider =
+    AutoDisposeFutureProvider<List<MarketPostModel>>.internal(
+  dashboardActivePosts,
+  name: r'dashboardActivePostsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$dashboardActivePostsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef DashboardActivePostsRef
+    = AutoDisposeFutureProviderRef<List<MarketPostModel>>;
+String _$dashboardActivePostsCountHash() =>
+    r'a60c9d76c7ff448c697b1a3f1145af2c2d180e70';
+
+/// See also [dashboardActivePostsCount].
+@ProviderFor(dashboardActivePostsCount)
+final dashboardActivePostsCountProvider =
+    AutoDisposeFutureProvider<int>.internal(
+  dashboardActivePostsCount,
+  name: r'dashboardActivePostsCountProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$dashboardActivePostsCountHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef DashboardActivePostsCountRef = AutoDisposeFutureProviderRef<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
