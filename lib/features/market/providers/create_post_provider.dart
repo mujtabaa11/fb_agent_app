@@ -294,3 +294,168 @@ class CreatePlayerAvailablePostNotifier
     }
   }
 }
+
+class CreateNeedAPlayerPostState {
+  const CreateNeedAPlayerPostState({
+    this.neededPosition,
+    this.neededNationalities = const [],
+    this.neededMinAge,
+    this.neededMaxAge,
+    this.neededLeagueCountry,
+    this.budget,
+    this.description = '',
+    DateTime? expiresAt,
+    this.isSaving = false,
+    this.errorMessage,
+    this.isSuccess = false,
+  }) : _expiresAt = expiresAt;
+
+  final PlayerPosition? neededPosition;
+  final List<String> neededNationalities;
+  final int? neededMinAge;
+  final int? neededMaxAge;
+  final String? neededLeagueCountry;
+  final double? budget;
+  final String description;
+  final DateTime? _expiresAt;
+  final bool isSaving;
+  final String? errorMessage;
+  final bool isSuccess;
+
+  DateTime get expiresAt =>
+      _expiresAt ?? DateTime.now().add(const Duration(days: 30));
+
+  bool get isAgeRangeValid {
+    if (neededMinAge == null || neededMaxAge == null) return true;
+    return neededMaxAge! >= neededMinAge!;
+  }
+
+  bool get isFormValid => description.trim().isNotEmpty && isAgeRangeValid;
+
+  CreateNeedAPlayerPostState copyWith({
+    PlayerPosition? Function()? neededPosition,
+    List<String>? neededNationalities,
+    int? Function()? neededMinAge,
+    int? Function()? neededMaxAge,
+    String? Function()? neededLeagueCountry,
+    double? Function()? budget,
+    String? description,
+    DateTime? expiresAt,
+    bool? isSaving,
+    String? Function()? errorMessage,
+    bool? isSuccess,
+  }) {
+    return CreateNeedAPlayerPostState(
+      neededPosition:
+          neededPosition != null ? neededPosition() : this.neededPosition,
+      neededNationalities: neededNationalities ?? this.neededNationalities,
+      neededMinAge: neededMinAge != null ? neededMinAge() : this.neededMinAge,
+      neededMaxAge: neededMaxAge != null ? neededMaxAge() : this.neededMaxAge,
+      neededLeagueCountry: neededLeagueCountry != null
+          ? neededLeagueCountry()
+          : this.neededLeagueCountry,
+      budget: budget != null ? budget() : this.budget,
+      description: description ?? this.description,
+      expiresAt: expiresAt ?? _expiresAt,
+      isSaving: isSaving ?? this.isSaving,
+      errorMessage: errorMessage != null ? errorMessage() : this.errorMessage,
+      isSuccess: isSuccess ?? this.isSuccess,
+    );
+  }
+}
+
+@riverpod
+class CreateNeedAPlayerPostNotifier extends _$CreateNeedAPlayerPostNotifier {
+  String? _reservedPostId;
+
+  @override
+  CreateNeedAPlayerPostState build() => const CreateNeedAPlayerPostState();
+
+  void setNeededPosition(PlayerPosition? value) {
+    state = state.copyWith(neededPosition: () => value);
+  }
+
+  void addNationality(String nationality) {
+    if (state.neededNationalities.length >= 5) return;
+    if (state.neededNationalities.contains(nationality)) return;
+    state = state.copyWith(
+      neededNationalities: [...state.neededNationalities, nationality],
+    );
+  }
+
+  void removeNationality(String nationality) {
+    state = state.copyWith(
+      neededNationalities:
+          state.neededNationalities.where((n) => n != nationality).toList(),
+    );
+  }
+
+  void setNeededMinAge(int? value) {
+    state = state.copyWith(neededMinAge: () => value);
+  }
+
+  void setNeededMaxAge(int? value) {
+    state = state.copyWith(neededMaxAge: () => value);
+  }
+
+  void setNeededLeagueCountry(String? value) {
+    state = state.copyWith(neededLeagueCountry: () => value);
+  }
+
+  void setBudget(double? value) {
+    state = state.copyWith(budget: () => value);
+  }
+
+  void setDescription(String value) {
+    state = state.copyWith(description: value);
+  }
+
+  void setExpiresAt(DateTime value) {
+    state = state.copyWith(expiresAt: value);
+  }
+
+  Future<void> savePost() async {
+    if (!state.isFormValid) return;
+
+    state = state.copyWith(isSaving: true, errorMessage: () => null);
+
+    final agent = ref.read(currentAgentProvider);
+    if (agent == null) {
+      state = state.copyWith(
+        isSaving: false,
+        errorMessage: () => 'Not authenticated.',
+      );
+      return;
+    }
+
+    final repo = ref.read(marketRepositoryProvider);
+    final postId = _reservedPostId ??= repo.generatePostId();
+
+    final post = MarketPostModel(
+      id: postId,
+      agentId: agent.id,
+      type: MarketPostType.needAPlayer,
+      status: MarketPostStatus.active,
+      description: state.description.trim(),
+      expiresAt: state.expiresAt,
+      neededPosition: state.neededPosition,
+      neededNationalities:
+          state.neededNationalities.isEmpty ? null : state.neededNationalities,
+      neededMinAge: state.neededMinAge,
+      neededMaxAge: state.neededMaxAge,
+      neededLeagueCountry: state.neededLeagueCountry,
+      budget: state.budget,
+    );
+
+    final result = await repo.createPost(post);
+    switch (result) {
+      case Success():
+        state = state.copyWith(isSaving: false, isSuccess: true);
+      case Failure(:final exception):
+        state = state.copyWith(
+          isSaving: false,
+          errorMessage: () => exception.message,
+        );
+    }
+  }
+}

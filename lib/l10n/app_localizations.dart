@@ -1583,6 +1583,90 @@ abstract class AppLocalizations {
   /// **'Describe the player or the opportunity...'**
   String get postDescriptionHint;
 
+  /// Heading displayed at the top of the create Need a Player post screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Need a Player'**
+  String get createNeedAPlayerTitle;
+
+  /// Label for the position dropdown on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Position'**
+  String get postNeededPosition;
+
+  /// Option in the position dropdown that clears the selected position, indicating any position is acceptable.
+  ///
+  /// In en, this message translates to:
+  /// **'Any Position'**
+  String get postAnyPosition;
+
+  /// Label for the nationality multi-select field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferred Nationalities'**
+  String get postNeededNationalities;
+
+  /// Sublabel explaining the nationality multi-select field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Select up to 5 preferred nationalities'**
+  String get postNeededNationalitiesSublabel;
+
+  /// Label for the minimum age field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Min Age'**
+  String get postNeededMinAge;
+
+  /// Label for the maximum age field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Age'**
+  String get postNeededMaxAge;
+
+  /// Label for the league country field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'League Country'**
+  String get postNeededLeagueCountry;
+
+  /// Label for the budget field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget'**
+  String get postNeededBudget;
+
+  /// Helper/placeholder text for the description field on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe the profile you are looking for — position, level, experience...'**
+  String get postNeedAPlayerDescriptionHint;
+
+  /// Inline validation error shown when max age is less than min age on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Max age must be greater than or equal to min age'**
+  String get postAgeRangeError;
+
+  /// Helper text shown when the maximum number of preferred nationalities has been selected on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 5 nationalities'**
+  String get postNationalityLimit;
+
+  /// Accessibility label for the button that removes a selected nationality chip on the create Need a Player post form.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {nationality}'**
+  String postRemoveNationalityLabel(String nationality);
+
+  /// Euro currency symbol shown as a prefix/suffix on monetary input fields.
+  ///
+  /// In en, this message translates to:
+  /// **'€'**
+  String get currencyEurSymbol;
+
   /// Label for the expiry date field on the create market post form.
   ///
   /// In en, this message translates to:

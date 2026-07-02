@@ -878,6 +878,53 @@ class AppLocalizationsEn extends AppLocalizations {
   String get postDescriptionHint => 'Describe the player or the opportunity...';
 
   @override
+  String get createNeedAPlayerTitle => 'Need a Player';
+
+  @override
+  String get postNeededPosition => 'Position';
+
+  @override
+  String get postAnyPosition => 'Any Position';
+
+  @override
+  String get postNeededNationalities => 'Preferred Nationalities';
+
+  @override
+  String get postNeededNationalitiesSublabel =>
+      'Select up to 5 preferred nationalities';
+
+  @override
+  String get postNeededMinAge => 'Min Age';
+
+  @override
+  String get postNeededMaxAge => 'Max Age';
+
+  @override
+  String get postNeededLeagueCountry => 'League Country';
+
+  @override
+  String get postNeededBudget => 'Budget';
+
+  @override
+  String get postNeedAPlayerDescriptionHint =>
+      'Describe the profile you are looking for — position, level, experience...';
+
+  @override
+  String get postAgeRangeError =>
+      'Max age must be greater than or equal to min age';
+
+  @override
+  String get postNationalityLimit => 'Maximum 5 nationalities';
+
+  @override
+  String postRemoveNationalityLabel(String nationality) {
+    return 'Remove $nationality';
+  }
+
+  @override
+  String get currencyEurSymbol => '€';
+
+  @override
   String get postExpiryLabel => 'Post Expires On';
 
   @override

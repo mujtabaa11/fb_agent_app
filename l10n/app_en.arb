@@ -745,6 +745,48 @@
   "postDescriptionHint": "Describe the player or the opportunity...",
   "@postDescriptionHint": { "description": "Helper/placeholder text for the description field on the create market post form." },
 
+  "createNeedAPlayerTitle": "Need a Player",
+  "@createNeedAPlayerTitle": { "description": "Heading displayed at the top of the create Need a Player post screen." },
+
+  "postNeededPosition": "Position",
+  "@postNeededPosition": { "description": "Label for the position dropdown on the create Need a Player post form." },
+
+  "postAnyPosition": "Any Position",
+  "@postAnyPosition": { "description": "Option in the position dropdown that clears the selected position, indicating any position is acceptable." },
+
+  "postNeededNationalities": "Preferred Nationalities",
+  "@postNeededNationalities": { "description": "Label for the nationality multi-select field on the create Need a Player post form." },
+
+  "postNeededNationalitiesSublabel": "Select up to 5 preferred nationalities",
+  "@postNeededNationalitiesSublabel": { "description": "Sublabel explaining the nationality multi-select field on the create Need a Player post form." },
+
+  "postNeededMinAge": "Min Age",
+  "@postNeededMinAge": { "description": "Label for the minimum age field on the create Need a Player post form." },
+
+  "postNeededMaxAge": "Max Age",
+  "@postNeededMaxAge": { "description": "Label for the maximum age field on the create Need a Player post form." },
+
+  "postNeededLeagueCountry": "League Country",
+  "@postNeededLeagueCountry": { "description": "Label for the league country field on the create Need a Player post form." },
+
+  "postNeededBudget": "Budget",
+  "@postNeededBudget": { "description": "Label for the budget field on the create Need a Player post form." },
+
+  "postNeedAPlayerDescriptionHint": "Describe the profile you are looking for — position, level, experience...",
+  "@postNeedAPlayerDescriptionHint": { "description": "Helper/placeholder text for the description field on the create Need a Player post form." },
+
+  "postAgeRangeError": "Max age must be greater than or equal to min age",
+  "@postAgeRangeError": { "description": "Inline validation error shown when max age is less than min age on the create Need a Player post form." },
+
+  "postNationalityLimit": "Maximum 5 nationalities",
+  "@postNationalityLimit": { "description": "Helper text shown when the maximum number of preferred nationalities has been selected on the create Need a Player post form." },
+
+  "postRemoveNationalityLabel": "Remove {nationality}",
+  "@postRemoveNationalityLabel": { "description": "Accessibility label for the button that removes a selected nationality chip on the create Need a Player post form.", "placeholders": { "nationality": { "type": "String" } } },
+
+  "currencyEurSymbol": "€",
+  "@currencyEurSymbol": { "description": "Euro currency symbol shown as a prefix/suffix on monetary input fields." },
+
   "postExpiryLabel": "Post Expires On",
   "@postExpiryLabel": { "description": "Label for the expiry date field on the create market post form." },
 
