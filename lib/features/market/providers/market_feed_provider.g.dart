@@ -6,7 +6,7 @@ part of 'market_feed_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$marketRepositoryHash() => r'941a7a90259f911f35747241a00523b7f720e4ce';
+String _$marketRepositoryHash() => r'960205c5dad62606195ab0e3209870428a1e1216';
 
 /// See also [marketRepository].
 @ProviderFor(marketRepository)

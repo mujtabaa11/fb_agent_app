@@ -16,4 +16,15 @@ abstract class MarketRepository {
   String generatePostId();
 
   Future<Result<MarketPostModel>> createPost(MarketPostModel post);
+
+  /// Streams every post owned by [agentId], regardless of status or
+  /// expiry, ordered by most recently created first.
+  Stream<Result<List<MarketPostModel>>> watchMyPosts(String agentId);
+
+  /// Marks the post at [postId] as closed. Does not delete the document.
+  Future<Result<void>> closePost(String postId);
+
+  /// Deletes the post at [postId] and best-effort deletes its photo from
+  /// storage. Storage failures never fail the overall result.
+  Future<Result<void>> deletePost(String postId);
 }

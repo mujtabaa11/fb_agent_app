@@ -29,6 +29,17 @@ class MarketFeedScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.marketTitle),
         actions: [
+          Semantics(
+            button: true,
+            label: l10n.myPostsButtonLabel,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+              child: IconButton(
+                icon: const Icon(Icons.manage_accounts),
+                onPressed: () => context.push('/market/my-posts'),
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsetsDirectional.only(end: AppTokens.space8),
             child: Semantics(

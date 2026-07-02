@@ -1015,6 +1015,71 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myPostsTitle => 'My Posts';
 
   @override
+  String get myPostsButtonLabel => 'My Posts';
+
+  @override
+  String get postStatusActive => 'Active';
+
+  @override
+  String get postStatusExpired => 'Expired';
+
+  @override
+  String get postStatusClosed => 'Closed';
+
+  @override
+  String postDaysRemaining(int days) {
+    return '$days days remaining';
+  }
+
+  @override
+  String get postOneDayRemaining => '1 day remaining';
+
+  @override
+  String get postExpiresToday => 'Expires today';
+
+  @override
+  String get closePostTitle => 'Close Post';
+
+  @override
+  String get closePostConfirmation =>
+      'Are you sure you want to close this post? It will no longer appear in the Market feed.';
+
+  @override
+  String get closePostConfirm => 'Close Post';
+
+  @override
+  String get closePostCancel => 'Cancel';
+
+  @override
+  String get closePostSuccess => 'Post closed successfully';
+
+  @override
+  String get deletePostTitle => 'Delete Post';
+
+  @override
+  String get deletePostConfirmation =>
+      'Are you sure you want to delete this post? This action cannot be undone.';
+
+  @override
+  String get deletePostConfirm => 'Delete';
+
+  @override
+  String get deletePostCancel => 'Cancel';
+
+  @override
+  String get deletePostSuccess => 'Post deleted successfully';
+
+  @override
+  String get myPostsEmptyTitle => 'No Posts Yet';
+
+  @override
+  String get myPostsEmptySubtitle =>
+      'Your Market posts will appear here once you create them.';
+
+  @override
+  String get myPostsEmptyCta => 'Create a Post';
+
+  @override
   String get agentPublicProfileTitle => 'Agent Profile';
 
   @override

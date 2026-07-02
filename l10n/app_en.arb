@@ -865,6 +865,66 @@
   "myPostsTitle": "My Posts",
   "@myPostsTitle": { "description": "Heading displayed at the top of the agent's own market posts screen." },
 
+  "myPostsButtonLabel": "My Posts",
+  "@myPostsButtonLabel": { "description": "Accessibility label for the My Posts icon button on the Market feed AppBar." },
+
+  "postStatusActive": "Active",
+  "@postStatusActive": { "description": "Status badge label for an active, non-expired market post." },
+
+  "postStatusExpired": "Expired",
+  "@postStatusExpired": { "description": "Status badge label for a market post past its expiry date." },
+
+  "postStatusClosed": "Closed",
+  "@postStatusClosed": { "description": "Status badge label for a market post the agent has closed." },
+
+  "postDaysRemaining": "{days} days remaining",
+  "@postDaysRemaining": { "description": "Days remaining until an active post expires, shown on My Posts.", "placeholders": { "days": { "type": "int" } } },
+
+  "postOneDayRemaining": "1 day remaining",
+  "@postOneDayRemaining": { "description": "Singular form of days remaining until an active post expires." },
+
+  "postExpiresToday": "Expires today",
+  "@postExpiresToday": { "description": "Shown when an active post expires on the current day." },
+
+  "closePostTitle": "Close Post",
+  "@closePostTitle": { "description": "Title of the close post confirmation dialog." },
+
+  "closePostConfirmation": "Are you sure you want to close this post? It will no longer appear in the Market feed.",
+  "@closePostConfirmation": { "description": "Body text of the close post confirmation dialog." },
+
+  "closePostConfirm": "Close Post",
+  "@closePostConfirm": { "description": "Confirm button label on the close post confirmation dialog." },
+
+  "closePostCancel": "Cancel",
+  "@closePostCancel": { "description": "Cancel button label on the close post confirmation dialog." },
+
+  "closePostSuccess": "Post closed successfully",
+  "@closePostSuccess": { "description": "Snackbar message shown after successfully closing a post." },
+
+  "deletePostTitle": "Delete Post",
+  "@deletePostTitle": { "description": "Title of the delete post confirmation dialog." },
+
+  "deletePostConfirmation": "Are you sure you want to delete this post? This action cannot be undone.",
+  "@deletePostConfirmation": { "description": "Body text of the delete post confirmation dialog." },
+
+  "deletePostConfirm": "Delete",
+  "@deletePostConfirm": { "description": "Confirm button label on the delete post confirmation dialog." },
+
+  "deletePostCancel": "Cancel",
+  "@deletePostCancel": { "description": "Cancel button label on the delete post confirmation dialog." },
+
+  "deletePostSuccess": "Post deleted successfully",
+  "@deletePostSuccess": { "description": "Snackbar message shown after successfully deleting a post." },
+
+  "myPostsEmptyTitle": "No Posts Yet",
+  "@myPostsEmptyTitle": { "description": "Title shown when the agent has no Market posts." },
+
+  "myPostsEmptySubtitle": "Your Market posts will appear here once you create them.",
+  "@myPostsEmptySubtitle": { "description": "Subtitle shown when the agent has no Market posts." },
+
+  "myPostsEmptyCta": "Create a Post",
+  "@myPostsEmptyCta": { "description": "Call-to-action button label on the My Posts empty state." },
+
   "agentPublicProfileTitle": "Agent Profile",
   "@agentPublicProfileTitle": { "description": "Heading displayed at the top of an agent's public profile screen." },
 

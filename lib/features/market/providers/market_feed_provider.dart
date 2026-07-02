@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/data/repository_providers.dart';
 import '../../../core/data/result.dart';
+import '../../../core/storage/cloud_storage_providers.dart';
 import '../../auth/models/user_model.dart';
 import '../../players/models/player_enums.dart';
 import '../models/market_post_enums.dart';
@@ -15,7 +16,9 @@ part 'market_feed_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 MarketRepository marketRepository(MarketRepositoryRef ref) {
-  return MarketRepositoryImpl();
+  return MarketRepositoryImpl(
+    storageService: ref.watch(cloudStorageProvider),
+  );
 }
 
 @riverpod

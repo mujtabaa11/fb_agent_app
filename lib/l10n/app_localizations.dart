@@ -1823,6 +1823,126 @@ abstract class AppLocalizations {
   /// **'My Posts'**
   String get myPostsTitle;
 
+  /// Accessibility label for the My Posts icon button on the Market feed AppBar.
+  ///
+  /// In en, this message translates to:
+  /// **'My Posts'**
+  String get myPostsButtonLabel;
+
+  /// Status badge label for an active, non-expired market post.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get postStatusActive;
+
+  /// Status badge label for a market post past its expiry date.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get postStatusExpired;
+
+  /// Status badge label for a market post the agent has closed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get postStatusClosed;
+
+  /// Days remaining until an active post expires, shown on My Posts.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} days remaining'**
+  String postDaysRemaining(int days);
+
+  /// Singular form of days remaining until an active post expires.
+  ///
+  /// In en, this message translates to:
+  /// **'1 day remaining'**
+  String get postOneDayRemaining;
+
+  /// Shown when an active post expires on the current day.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires today'**
+  String get postExpiresToday;
+
+  /// Title of the close post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Close Post'**
+  String get closePostTitle;
+
+  /// Body text of the close post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to close this post? It will no longer appear in the Market feed.'**
+  String get closePostConfirmation;
+
+  /// Confirm button label on the close post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Close Post'**
+  String get closePostConfirm;
+
+  /// Cancel button label on the close post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get closePostCancel;
+
+  /// Snackbar message shown after successfully closing a post.
+  ///
+  /// In en, this message translates to:
+  /// **'Post closed successfully'**
+  String get closePostSuccess;
+
+  /// Title of the delete post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Post'**
+  String get deletePostTitle;
+
+  /// Body text of the delete post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this post? This action cannot be undone.'**
+  String get deletePostConfirmation;
+
+  /// Confirm button label on the delete post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deletePostConfirm;
+
+  /// Cancel button label on the delete post confirmation dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get deletePostCancel;
+
+  /// Snackbar message shown after successfully deleting a post.
+  ///
+  /// In en, this message translates to:
+  /// **'Post deleted successfully'**
+  String get deletePostSuccess;
+
+  /// Title shown when the agent has no Market posts.
+  ///
+  /// In en, this message translates to:
+  /// **'No Posts Yet'**
+  String get myPostsEmptyTitle;
+
+  /// Subtitle shown when the agent has no Market posts.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Market posts will appear here once you create them.'**
+  String get myPostsEmptySubtitle;
+
+  /// Call-to-action button label on the My Posts empty state.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a Post'**
+  String get myPostsEmptyCta;
+
   /// Heading displayed at the top of an agent's public profile screen.
   ///
   /// In en, this message translates to:
