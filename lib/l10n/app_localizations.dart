@@ -1949,6 +1949,54 @@ abstract class AppLocalizations {
   /// **'Agent Profile'**
   String get agentPublicProfileTitle;
 
+  /// Status badge label shown on an agent's public profile when they are FIFA registered.
+  ///
+  /// In en, this message translates to:
+  /// **'FIFA Licensed Agent'**
+  String get fifaLicensedAgent;
+
+  /// Status badge label shown on an agent's public profile when they are not FIFA registered.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlicensed Agent'**
+  String get unlicensedAgent;
+
+  /// Years of experience shown on an agent's public profile, e.g. '12 years experience'.
+  ///
+  /// In en, this message translates to:
+  /// **'{years} years experience'**
+  String yearsExperience(int years);
+
+  /// Section header for an agent's active Market posts on their public profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Posts'**
+  String get agentActivePostsTitle;
+
+  /// Title shown when an agent has no active Market posts on their public profile.
+  ///
+  /// In en, this message translates to:
+  /// **'No Active Posts'**
+  String get agentNoActivePostsTitle;
+
+  /// Subtitle shown when an agent has no active Market posts on their public profile.
+  ///
+  /// In en, this message translates to:
+  /// **'This agent has no active Market posts at the moment.'**
+  String get agentNoActivePostsSubtitle;
+
+  /// Message shown when an agent's public profile document does not exist.
+  ///
+  /// In en, this message translates to:
+  /// **'Agent profile not found'**
+  String get agentProfileNotFound;
+
+  /// Button label that navigates back to the previous screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get goBackButton;
+
   /// Heading displayed at the top of the conversation chat screen.
   ///
   /// In en, this message translates to:

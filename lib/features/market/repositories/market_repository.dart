@@ -21,6 +21,13 @@ abstract class MarketRepository {
   /// expiry, ordered by most recently created first.
   Stream<Result<List<MarketPostModel>>> watchMyPosts(String agentId);
 
+  /// Streams active (non-closed) posts owned by [agentId], ordered by most
+  /// recently created first. Expiry is not filtered server-side — callers
+  /// should exclude expired posts client-side.
+  Stream<Result<List<MarketPostModel>>> watchAgentActivePosts(
+    String agentId,
+  );
+
   /// Marks the post at [postId] as closed. Does not delete the document.
   Future<Result<void>> closePost(String postId);
 

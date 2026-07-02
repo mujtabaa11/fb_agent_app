@@ -928,6 +928,30 @@
   "agentPublicProfileTitle": "Agent Profile",
   "@agentPublicProfileTitle": { "description": "Heading displayed at the top of an agent's public profile screen." },
 
+  "fifaLicensedAgent": "FIFA Licensed Agent",
+  "@fifaLicensedAgent": { "description": "Status badge label shown on an agent's public profile when they are FIFA registered." },
+
+  "unlicensedAgent": "Unlicensed Agent",
+  "@unlicensedAgent": { "description": "Status badge label shown on an agent's public profile when they are not FIFA registered." },
+
+  "yearsExperience": "{years} years experience",
+  "@yearsExperience": { "description": "Years of experience shown on an agent's public profile, e.g. '12 years experience'.", "placeholders": { "years": { "type": "int" } } },
+
+  "agentActivePostsTitle": "Active Posts",
+  "@agentActivePostsTitle": { "description": "Section header for an agent's active Market posts on their public profile." },
+
+  "agentNoActivePostsTitle": "No Active Posts",
+  "@agentNoActivePostsTitle": { "description": "Title shown when an agent has no active Market posts on their public profile." },
+
+  "agentNoActivePostsSubtitle": "This agent has no active Market posts at the moment.",
+  "@agentNoActivePostsSubtitle": { "description": "Subtitle shown when an agent has no active Market posts on their public profile." },
+
+  "agentProfileNotFound": "Agent profile not found",
+  "@agentProfileNotFound": { "description": "Message shown when an agent's public profile document does not exist." },
+
+  "goBackButton": "Go Back",
+  "@goBackButton": { "description": "Button label that navigates back to the previous screen." },
+
   "chatTitle": "Chat",
   "@chatTitle": { "description": "Heading displayed at the top of the conversation chat screen." },
 

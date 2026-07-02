@@ -1083,6 +1083,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get agentPublicProfileTitle => 'Agent Profile';
 
   @override
+  String get fifaLicensedAgent => 'FIFA Licensed Agent';
+
+  @override
+  String get unlicensedAgent => 'Unlicensed Agent';
+
+  @override
+  String yearsExperience(int years) {
+    return '$years years experience';
+  }
+
+  @override
+  String get agentActivePostsTitle => 'Active Posts';
+
+  @override
+  String get agentNoActivePostsTitle => 'No Active Posts';
+
+  @override
+  String get agentNoActivePostsSubtitle =>
+      'This agent has no active Market posts at the moment.';
+
+  @override
+  String get agentProfileNotFound => 'Agent profile not found';
+
+  @override
+  String get goBackButton => 'Go Back';
+
+  @override
   String get chatTitle => 'Chat';
 
   @override

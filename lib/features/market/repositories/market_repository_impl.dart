@@ -143,6 +143,40 @@ class MarketRepositoryImpl implements MarketRepository {
   }
 
   @override
+  Stream<Result<List<MarketPostModel>>> watchAgentActivePosts(
+    String agentId,
+  ) {
+    return _collection
+        .where('agentId', isEqualTo: agentId)
+        .where('status', isEqualTo: 'active')
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .transform(
+      StreamTransformer<QuerySnapshot<Map<String, dynamic>>,
+          Result<List<MarketPostModel>>>.fromHandlers(
+        handleData: (snapshot, sink) {
+          final posts = snapshot.docs.map((doc) {
+            final data = doc.data();
+            data['id'] = doc.id;
+            return MarketPostModel.fromJson(data);
+          }).toList();
+          sink.add(Success(posts));
+        },
+        handleError: (error, stackTrace, sink) {
+          if (error is FirebaseException) {
+            sink.add(Failure(_mapFirebaseException(error)));
+          } else if (error is SocketException) {
+            sink.add(Failure(const NetworkException()));
+          } else {
+            sink.add(
+                Failure(DataException(originalMessage: error.toString())));
+          }
+        },
+      ),
+    );
+  }
+
+  @override
   Future<Result<void>> closePost(String postId) async {
     try {
       await _collection.doc(postId).update({
